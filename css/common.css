@@ -1,0 +1,116 @@
+
+/* layout */
+
+html, body {
+	position: relative;
+    width: 100%;
+    height: 1100px;
+}
+
+.background-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+    height: 110px;
+    background: #ccc;
+    z-index: 1;
+}
+
+.background-bottom {
+	position: absolute;
+	top: 110px;
+	left: 0;
+	width: 100%;
+    height: 990px;
+    background: #333;
+    z-index: 1;
+}
+
+.body {
+	position: relative;
+	width: 1000px;
+	height: 1100px;
+	margin: 0 auto;
+	z-index: 2;
+}
+
+#header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1000px;
+	height: 100px;
+	background: #ccc;
+}
+
+#middle {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	width: 1000px;
+	height: 970px;
+	border-radius: 5px;
+	background: #069;
+}
+
+#menu {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 200px;
+	height: 960px;
+	border-radius: 3px;
+	background: #003;
+}
+
+#main {
+	position: absolute;
+	top: 5px;
+	left: 210px;
+	width: 785px;
+	height: 960px;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 1000px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	background: #333;
+}
+
+/* header */
+
+
+/* menu */
+
+.menu {
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 22px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.menu_child {
+	font-size: 20px;
+	padding-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
