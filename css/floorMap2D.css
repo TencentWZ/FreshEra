@@ -1,5 +1,21 @@
 
-#map {
+.checkbox-area {
+	position: absolute;
+	top: 20px;
+	left: 10px;
+	width: 130px;
+	height: 300px;
+	border: 1px solid #000;
+}
+
+.checkbox-area label {
+	float: left;
+	width: 130px;
+	height: 30px;
+	text-align: center;
+}
+
+.map {
 	position: absolute;
 	top: 20px;
 	left: 150px;
