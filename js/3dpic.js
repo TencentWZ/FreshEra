@@ -23,16 +23,16 @@ var api = spin.spritespin("api");
 spin.bind("onLoad", function(){
     var data = api.data;
     data.stage.prepend($(".details .detail"));
-    data.stage.find(".detail").hide();         
+    data.stage.find(".detail").hide();
 }).bind("onFrame", function(){
     var data = api.data;
     data.stage.find(".detail:visible").stop(false).fadeOut();
     data.stage.find(".detail.detail-" + data.frame).stop(false).fadeIn();
 });
 
-$( "#prev" ).click(function(){
-    setDetailIndex(detailIndex - 1);
-});
+// $( "#prev" ).click(function(){
+//     setDetailIndex(detailIndex - 1);
+// });
 
 $( "#next" ).click(function(){
     setDetailIndex(detailIndex + 1);
