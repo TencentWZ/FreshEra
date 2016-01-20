@@ -1,0 +1,46 @@
+<script src='js/vendor/jquery.min.js' type='text/javascript'></script>
+<script src='js/vendor/spritespin.min.js' type='text/javascript'></script>
+<!-- <script src="js/common.js"></script>
+<script src="js/test.js"></script> -->
+
+
+<div id="test">
+    <div id='mySpriteSpin'/>
+</div>
+
+<script type='text/javascript'>
+// 新建点方法
+var buildPoint = function(data) {
+  var tmp = {
+    "name": "Point A",
+    "desc": "4楼A常闭门",
+    "floor": "4",
+    "type": "常闭门",
+    "x": "0.3",
+    "y": "0.4"
+  }
+  data = (data)? data:tmp;
+  var point = document.createElement('div');
+  var spritespin = document.getElementById('mySpriteSpin');
+  point.style.width = '10px';
+  point.style.height = '10px';
+  point.style.left = '100px';
+  point.style.top = '200px';
+  point.style['background-image'] = 'url(./red.jpg)';
+  point.style.position = 'relative';
+  console.log('point', point);
+  console.log('spritespin', spritespin);
+  spritespin.appendChild(point);
+  console.log('spritespin', spritespin);
+
+}
+buildPoint();
+  $("#mySpriteSpin").spritespin({
+  source  : "./bike6x6_big.jpg", // path to sprite sheet
+  width   : 480,  // width in pixels of the window/frame
+  height  : 327,  // height in pixels of the window/frame
+  frames  : 34,   // total number of frames
+  framesX : 6,     // number of frames in one row inside the spritesheet
+  animate : false
+  });
+</script>
