@@ -9,10 +9,12 @@
 	var host = function(name) {
         var url = {
             mock: {
-                demoTest: './mock/demoTest.json'
+                demoTest: './mock/demoTest.json',
+                floorMapInit: './mock/floorMapInit.json'
             },
             pro: {
-                demoTest: 'http://xxx.xxx.xxx/xxxxx'
+                demoTest: 'http://xxx.xxx.xxx/xxxxx',
+                floorMapInit: 'http://xxx.xxx.xxx/xxxxx'
             }
         };
         return url[env][name] || null;
