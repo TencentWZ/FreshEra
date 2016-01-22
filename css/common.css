@@ -4,7 +4,6 @@
 html, body {
 	position: relative;
     width: 100%;
-    height: 1100px;
 }
 
 .background-top {
@@ -13,7 +12,6 @@ html, body {
 	left: 0;
 	width: 100%;
     height: 110px;
-    background: #ccc;
     z-index: 1;
 }
 
@@ -30,7 +28,6 @@ html, body {
 .body {
 	position: relative;
 	width: 1360px;
-	height: 1100px;
 	margin: 0 auto;
 	z-index: 2;
 }
@@ -39,9 +36,8 @@ html, body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 1000px;
+	width: 1360px;
 	height: 100px;
-	background: #ccc;
 }
 
 #middle {
@@ -76,7 +72,7 @@ html, body {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 1000px;
+	width: 1360px;
 	height: 30px;
 	line-height: 30px;
 	text-align: center;
@@ -85,7 +81,34 @@ html, body {
 }
 
 /* header */
+.mybreadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  /*background-color: #f5f5f5;*/
+  border-radius: 4px;
+  line-height: 50px;
+  float: right;
+}
+.mybreadcrumb > li {
+  display: inline-block;
+}
+.mybreadcrumb > li + li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "|\00a0";
+}
+.mylogo {
+  height:49px;
+  width: 50px;
+  background-image: url('images/logo.png');
+  float: left;
+}
+.mynav {
+  height: 50px;
+  margin-top: 30px;
 
+}
 
 /* menu */
 
@@ -105,14 +128,3 @@ html, body {
 }
 
 /* table */
-
-
-
-
-
-
-
-
-
-
-
