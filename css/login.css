@@ -65,7 +65,8 @@ body {
     box-shadow: 0 1px #5670a4 inset, 0 0 10px 5px rgba(0, 0, 0, 0.1);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    margin: 60px auto 0px auto;
+    margin-top: 60px;
+    left: 55%;
     background: #415a77;
     height: 50px;
     width: 300px;
@@ -87,11 +88,12 @@ body {
     position: relative;
     width: 300px;
     height: 250px;
-    margin: 0px auto 20px auto;
+    margin-bottom: 20px;
     padding: 50px 30px 0 30px;
     text-align: center;
     z-index: 100;
     opacity: 0.9;
+    left: 55%;
 }
 
 /*.login-form-wrap:before {
@@ -167,8 +169,8 @@ div > a {
 }
 form {
     position: absolute;
-    margin-left: -130px;
-    left: 50%;
+    margin-left: 20px;
+    left: 55%;
     top: 150px;
     width: 260px;
     z-index: 200;
@@ -186,7 +188,7 @@ form {
     background: url('images/erweima.png');
     width: 120px;
     height: 135px;
-    left: 65%;
+    left: 75%;
     top: 150px;
 }
 .alarm {

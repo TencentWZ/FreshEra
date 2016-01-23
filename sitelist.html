@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta content="no-cache" http-equiv="Cache-Control" />
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
+	<meta content="telephone=no" name="format-detection" />
+	<link type="image/x-icon" rel="shortcut icon" href="" />
+	<link rel="stylesheet" href="css/vendor/bootstrap.css" />
+	<link rel="stylesheet" href="css/vendor/normalize.css" />
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/demo.css" />
+    <style type="text/css">
+        body, html,#allmap {width:1100px;height: 800px;overflow: z-index: 9999;hidden;margin:0;font-family:"微软雅黑";}
+        #l-map{height:100%;width:78%;float:left;border-right:2px solid #bcbcbc;}
+        #r-result{height:100%;width:20%;float:left;}
+    </style>
+	<title>管理控制台</title>
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/demo.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=084Gn7RocDfWQGzfZIoI3vv8"></script>
+</head>
+
+<body>
+	<div class="background-top"></div>
+	<div class="background-bottom"></div>
+	<div class="body">
+		<div id="header"></div>
+		<div id="middle" style="height:820px;">
+            <!-- 侧栏部分 -->
+			<div id="sidebar">
+                <div style="color:#fff;">本期不做了</div>
+			</div>
+            <!-- 地图部分 -->
+			<div id="main">
+                <div id="allmap"></div>
+			</div>
+		</div>
+		<div id="footer"></div>
+	</div>
+    <script src="js/map.js"></script>
+</body>
+</html>

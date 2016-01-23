@@ -15,14 +15,14 @@
         <div class="login_bg">
             <div class="login_title">用户登录</div>
             <div class="login_body"></div>
-            <form class="login-form" action="post">
-                <div class="userName"><label><input type="text" name="userName" required placeholder="用户名"></label></div>
-                <div class="password"><label><input type="password" name="password" required placeholder="密码"></label></div>
+            <form class="login-form">
+                <div class="userName"><label><input type="text" name="userName" id="userName" required placeholder="用户名"></label></div>
+                <div class="password"><label><input type="password" name="password" id="password" required placeholder="密码"></label></div>
                 <label class="password"></label>
                 <!-- <label class="userName"><input type="text" name="userName" required placeholder="用户名"></label>
                 <label class="password"><input type="password" name="password" required placeholder="密码"></label> -->
                 <div class="forget"><a href="#">忘记密码</a></div>
-                <input type="submit" value="登录">
+                <input id="submit" type="submit" value="登录">
             </form>
             <div class="erweima"></div>
         </div>
@@ -32,5 +32,8 @@
             <h5>公建设施消防设备管理系统版权所有，若有纠纷问题请通过法律解决! copyright 2015</h5>
         </div>
     </div>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
