@@ -108,7 +108,7 @@ ul.mtree.skinny ul a {
 }
 
 ul.mtree.transit {
-  background: #111;
+  background: #5b7996;
 }
 ul.mtree.transit ul {
   margin-left: 0;
@@ -135,10 +135,10 @@ ul.mtree.transit ul > li:first-child {
   margin-top: 1px;
 }
 ul.mtree.transit li.mtree-open > a {
-  background: #222;
+  background: #294158;
 }
 ul.mtree.transit li > a:hover, ul.mtree.transit li.mtree-active > a {
-  background: #333;
+  background: #294158;
   color: #FFF;
 }
 ul.mtree.transit li.mtree-node > ul > li:last-child {
