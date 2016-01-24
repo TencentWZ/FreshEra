@@ -15,12 +15,37 @@
 	text-align: center;
 }
 
+#floor-select {
+	margin-left: 40px;
+}
+
 .map {
 	position: absolute;
 	top: 20px;
 	left: 150px;
 	width: 500px;
 	height: 300px;
+	border: 1px solid #000;
+	background-size: cover;
+}
+
+.untreated-alarm {
+	position: absolute;
+	top: 20px;
+	left: 660px;
+	width: 130px;
+	height: 150px;
+	overflow: auto;
+	border: 1px solid #000;
+}
+
+.patrol {
+	position: absolute;
+	top: 180px;
+	left: 660px;
+	width: 130px;
+	height: 140px;
+	overflow: auto;
 	border: 1px solid #000;
 }
 
@@ -31,11 +56,20 @@
 }
 
 .normal {
-	display: block;
 	background: #0c0;
 }
 
+.abnormal {
+	background: #ff0;
+}
+
 .alert {
-	display: none;
 	background: #c00;
+}
+
+.tips {
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	background: #ff7;
 }

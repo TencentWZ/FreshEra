@@ -1,36 +1,36 @@
 {
-	"equipmentPoint": [
+	"url": "http://img.redocn.com/sheji/20150603/zonghelouloucengpingmiancadtuzhi_4466262.jpg",
+	"safety_ratio": 78,
+	"point": [
 		{
-			"name": "5楼左侧常闭门",
-			"desc": "XXX",
-			"floor": 5,
-			"type": "常闭门",
+			"id": 1,
+			"name": "一楼东侧常闭门",
+			"point_type": "equipment",
+			"equipment_type": "常闭门",
 			"x": 0.2,
 			"y": 0.5
 		},
 		{
-			"name": "4楼右侧消防栓",
-			"desc": "XXX",
-			"floor": 4,
-			"type": "消防栓",
-			"x": 0.8,
+			"id": 2,
+			"name": "二楼西侧消防栓",
+			"point_type": "equipment",
+			"equipment_type": "消防栓",
+			"x": 0.3,
 			"y": 0.6
-		}
-	],
-	"inspectPoint": [
+		},
 		{
-			"name": "3楼左侧巡检点",
-			"desc": "XXX",
-			"floor": 3,
-			"stat": "已巡检",
+			"id": 3,
+			"name": "三楼东侧巡检点",
+			"point_type": "inspect",
+			"equipment_type": "当天巡检点",
 			"x": 0.2,
 			"y": 0.7
 		},
 		{
-			"name": "2楼右侧巡检点",
-			"desc": "XXX",
-			"floor": 2,
-			"stat": "已巡检",
+			"id": 4,
+			"name": "四楼西侧巡检点",
+			"point_type": "inspect",
+			"equipment_type": "月度巡检点",
 			"x": 0.8,
 			"y": 0.8
 		}

@@ -12,11 +12,21 @@
 		var url = {
 			mock: {
 				demoTest: './mock/demoTest.json',
-				floorMapInit: './mock/floorMapInit.json'
+				floorMapInit: './mock/floorMapInit.json',
+				floorMapMonitor: './mock/floorMapMonitor.json?v=' + Math.random(),
+				floorName: './mock/floorName.json',
+				untreatedAlarm: './mock/untreatedAlarm.json?v=' + Math.random(),
+				patrolState: './mock/patrolState.json',
+				alarmHistory: './mock/alarmHistory.json',
 			},
 			pro: {
 				demoTest: 'http://xxx.xxx.xxx/xxxxx',
-				floorMapInit: 'http://xxx.xxx.xxx/xxxxx'
+				floorMapInit: 'http://xxx.xxx.xxx/xxxxx',
+				floorMapMonitor: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				floorName: 'http://xxx.xxx.xxx/xxxxx',
+				untreatedAlarm: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				patrolState: 'http://xxx.xxx.xxx/xxxxx',
+				alarmHistory: './mock/alarmHistory.json'
 			}
 		};
 		return url[ env ][ name ] || null;
@@ -172,3 +182,21 @@
 	};
 	me.util = new Util();
 } )( me, window.jQuery || window.Zepto );
+
+// 兼容ie
+if (!Array.prototype.forEach)  
+{  
+    Array.prototype.forEach = function(fun /*, thisp*/)  
+    {  
+        var len = this.length;  
+        if (typeof fun != "function")  
+            throw new TypeError();  
+  
+        var thisp = arguments[1];  
+        for (var i = 0; i < len; i++)  
+        {  
+            if (i in this)  
+                fun.call(thisp, this[i], i, this);  
+        }  
+    };  
+}  

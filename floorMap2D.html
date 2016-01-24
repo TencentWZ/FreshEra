@@ -23,17 +23,21 @@
 			<div id="menu"></div>
 			<div id="main">
 				<div class="checkbox-area">
-					<label></label>
-					<label><input class="checkbox-item" type="checkbox" value="常闭门" />常闭门</label>
-					<label><input class="checkbox-item" type="checkbox" value="消防栓" />消防栓</label>
+					<div id="checkbox-inspect">
+						<label><input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" />当天巡检点</label>
+						<label><input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" />月度巡检点</label>
+					</div>
+					<hr />
+					<div id="checkbox-equipment"></div>
+					<select id="floor-select"></select>
 				</div>
-				<div class="map">
-
-
-
-
-
-
+				<div class="map"></div>
+				<div class="untreated-alarm"></div>
+				<div class="patrol">
+					<p>1. 当日巡检完成率：<span id="patrol-day-complete"></span>%</p>
+					<p>正常率：<span id="patrol-day-normal"></span>%</p>
+					<p>1. 当月巡检完成率：<span id="patrol-month-complete"></span>%</p>
+					<p>正常率：<span id="patrol-month-normal"></span>%</p>
 				</div>
 			</div>
 		</div>
