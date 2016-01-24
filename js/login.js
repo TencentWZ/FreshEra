@@ -16,7 +16,7 @@ $(document).ready(function() {
                     // 设置cookie, 跳转页面
                     setCookie('Accesstoken', data.Accesstoken);
                     setCookie('Name', data.Data.Name);
-                    window.location.href = "sitelist.html"; 
+                    window.location.href = "management.html"; 
                 }else{
                     alert("用户名或者密码错误！");
                 }
