@@ -1,6 +1,6 @@
 $(function() {
 	// 加载页面公共部分
-	// me.util.layout();
+	me.util.layout();
 
 	$.ajax({
         type: "GET",
