@@ -4,9 +4,10 @@ $(document).ready(function() {
     var userName = document.getElementById("userName").value;
     var password = document.getElementById("password").value;
     $("#submit").click(function() {
+
         url:'accounts/login.aspx',// 跳转到 action
             data:{
-                userName: userName，
+                userName: userName,
                 password: password
             },
             type:'get',
@@ -24,5 +25,7 @@ $(document).ready(function() {
              error : function() {
                 alert("用户名或者密码错误！");
              }
+
+
     });
 });

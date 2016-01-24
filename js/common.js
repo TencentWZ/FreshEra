@@ -26,7 +26,7 @@
 				floorName: 'http://xxx.xxx.xxx/xxxxx',
 				untreatedAlarm: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
 				patrolState: 'http://xxx.xxx.xxx/xxxxx',
-				alarmHistory: './mock/alarmHistory.json'
+				alarmHistory: 'http://xxx.xxx.xxx/xxxxx'
 			}
 		};
 		return url[ env ][ name ] || null;
