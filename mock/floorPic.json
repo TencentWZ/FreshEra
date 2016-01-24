@@ -1,0 +1,20 @@
+{
+	"url": "../../css/images/floorPic1.jpg", // 当前楼层图纸url
+	"point": [ // 点的信息
+		{
+			"id": 1, // 点的id
+			"name": "一楼东侧常闭门", // 点的名字
+			"point_type": "equipment", // 点的类型
+			"equipment_type": "常闭门", // 设备类型
+			"x": 0.2, // x轴坐标
+			"y": 0.5 // y轴坐标
+		}, {
+			"id": 3,
+			"name": "三楼东侧巡检点",
+			"point_type": "inspect",
+			"equipment_type": "当天巡检点",
+			"x": 0.2,
+			"y": 0.7
+		}
+	]
+}

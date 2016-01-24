@@ -1,0 +1,30 @@
+{
+    "buildingInfo": {   /*公建设施信息*/
+        "ChineseName": "银都大厦",
+        "EnglishName": "Yindu Building",
+        "use": "商业",
+        "completionDate": "2015年4月3日",
+        "id": "3457",
+        "height": 100,
+        "officeFloor": 1,
+        "floorNumber": 19,
+        "wholeArea": 40000,
+        "officeArea": 20000,
+        "rentArea": 4000,
+        "usePercent": "95%",
+        "rentPercent": "100%",
+        "underGarage": 0
+    },
+    "baseEquip":{   /*基本设施*/
+        "floorHeight": 4,
+        "floorArea": "10000~40000",
+        "ceiling": "防火石膏板",
+        "wall": "大理石",
+        "ground": "金刚石",
+        "passengerElevator": 5,
+        "goodElevator": 22,
+        "airConditioner": "美的",
+        "groundParkingSpace": "220",
+        "underParkingSpace": "370"
+    }
+}
