@@ -1,0 +1,21 @@
+{
+	"Data": {
+		"Userid": 1,
+		"Name": "张伟",
+		"Number": "1",
+		"Company": "宝山支队",
+		"Role": "消防委",
+		"TotalInspectCount": 0,
+		"PracticeInspectCount": 0,
+		"TotalMalfunctionCount": 0,
+		"PracticeMalfunctionCount": 0,
+		"TotalReportCount": 5,
+		"PracticeReportCount": 4,
+		"TotalRecoverCount": 3,
+		"PracticeRecoverCount": 2,
+		"Usersystemnum": "151104001"
+	},
+	"Success": true,
+	"Message": "登陆成功",
+	"Accesstoken": "dkmmfjnfitd6m22n6afw5cjf"
+}

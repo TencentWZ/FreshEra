@@ -42,11 +42,13 @@ body {
 .login_bg {
     position: absolute;
     z-index: 999;
-    width: 100%;
+    width: 1360px;
     height: 458px;
     background-image: url('./images/login_bg.png');
     background-position:center;
     background-repeat:no-repeat;
+    left: 50%;
+    margin-left: -680px;
 }
 .logo {
     margin-left: auto;
@@ -66,7 +68,7 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-top: 60px;
-    left: 55%;
+    right: -680px;
     background: #415a77;
     height: 50px;
     width: 300px;
@@ -93,7 +95,7 @@ body {
     text-align: center;
     z-index: 100;
     opacity: 0.9;
-    left: 55%;
+    right: -680px;
 }
 
 /*.login-form-wrap:before {
@@ -170,7 +172,7 @@ div > a {
 form {
     position: absolute;
     margin-left: 20px;
-    left: 55%;
+    right: 400px;
     top: 150px;
     width: 260px;
     z-index: 200;
@@ -188,7 +190,7 @@ form {
     background: url('images/erweima.png');
     width: 120px;
     height: 135px;
-    left: 75%;
+    right: 200px;
     top: 150px;
 }
 .alarm {

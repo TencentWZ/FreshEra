@@ -18,6 +18,7 @@
 				untreatedAlarm: './mock/untreatedAlarm.json?v=' + Math.random(),
 				patrolState: './mock/patrolState.json',
 				alarmHistory: './mock/alarmHistory.json',
+				login: './mock/login.json'
 			},
 			pro: {
 				demoTest: 'http://xxx.xxx.xxx/xxxxx',
@@ -26,7 +27,8 @@
 				floorName: 'http://xxx.xxx.xxx/xxxxx',
 				untreatedAlarm: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
 				patrolState: 'http://xxx.xxx.xxx/xxxxx',
-				alarmHistory: 'http://xxx.xxx.xxx/xxxxx'
+				alarmHistory: 'http://xxx.xxx.xxx/xxxxx',
+				login: 'http://xxx.xxx.xxx/xxxxx'
 			}
 		};
 		return url[ env ][ name ] || null;
@@ -184,19 +186,19 @@
 } )( me, window.jQuery || window.Zepto );
 
 // 兼容ie
-if (!Array.prototype.forEach)  
-{  
-    Array.prototype.forEach = function(fun /*, thisp*/)  
-    {  
-        var len = this.length;  
-        if (typeof fun != "function")  
-            throw new TypeError();  
-  
-        var thisp = arguments[1];  
-        for (var i = 0; i < len; i++)  
-        {  
-            if (i in this)  
-                fun.call(thisp, this[i], i, this);  
-        }  
-    };  
-}  
+if (!Array.prototype.forEach)
+{
+    Array.prototype.forEach = function(fun /*, thisp*/)
+    {
+        var len = this.length;
+        if (typeof fun != "function")
+            throw new TypeError();
+
+        var thisp = arguments[1];
+        for (var i = 0; i < len; i++)
+        {
+            if (i in this)
+                fun.call(thisp, this[i], i, this);
+        }
+    };
+}
