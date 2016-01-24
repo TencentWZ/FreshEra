@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="no-cache" http-equiv="Cache-Control" />
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
+    <meta content="telephone=no" name="format-detection" />
+    <link type="image/x-icon" rel="shortcut icon" href="" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.css" />
+    <link rel="stylesheet" href="css/vendor/normalize.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/demo.css" />
+    <link rel="stylesheet" href="css/buildingPic.css" />
+
+    <title>管理控制台</title>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/demo.js"></script>
+</head>
+
+<body>
+    <div class="background-top"></div>
+    <div class="background-bottom"></div>
+    <div class="body">
+        <div id="header"></div>
+        <div id="middle">
+            <div id="sidebar">
+                <div id="search-data">
+                    <div class="search-position input-group">
+                        <input type="text" id="search-position" class="form-control" placeholder="查询数据" />
+                        <span class="input-group-btn">
+				        		<button class="btn" type="button">搜索</button>
+				      	</span>
+                    </div>
+                    <div id="prev-page">
+                        <a href="#">
+                            <- 返回前一页</a>
+                    </div>
+                    <div id="search-content">
+                        东明家具广场
+                        <br> 地址：上海市徐汇区某地某区
+                        <br> 电话：021-1234567
+                        <br> 负责人：王富贵
+                    </div>
+                </div>
+                <div id="menu"></div>
+            </div>
+            <div id="main">
+                <div id="imageShow">
+                    <div id="imgshow_mask"></div>
+                    <ul class="imagebg" id="imagebg">
+                        <li data-sPic="images/index_ya_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/index_ya.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/index_uc9_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/index_uc9.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/index_newlogo_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/index_newlogo.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/index_iPad2.0_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/index_iPad2.0.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/index_hundred_million_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/index_hundred_million.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/index_idg_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/index_idg.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/index_callmaster5.0_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/index_callmaster5.0.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/banner_home_1_s.jpg">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/banner_home_1.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                        <li data-sPic="images/banner_home_3_s.jpg" style="background:#a9a9a9 url(images/banner_home_3.jpg) center no-repeat;">
+                            <a href="http://www.17sucai.com/" class="bannerbg_main" style="background:url(images/banner_home_3.jpg) 50% 50% no-repeat;"></a>
+                        </li>
+                    </ul>
+
+                    <div class="scrollbg">
+                        <div class="scroll">
+                            <a id="left_img_btn" class="s_pre" href="javascript:void(0)"></a>
+                            <div class="current" id="current"></div>
+                            <div class="outScroll_pic">
+                                <ul class="scroll_pic cls" id="small_pic"></ul>
+                            </div>
+                            <a id="right_img_btn" class="s_next" href="javascript:void(0)"></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+    <script src="js/vendor/imgSlider.js"></script>
+</body>
+
+</html>

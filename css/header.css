@@ -1,0 +1,40 @@
+#management {
+    position: absolute;
+    top:68px;
+    left:20%;
+    width: 106px;
+    height: 32px;
+}
+#monitor {
+    position: absolute;
+    top:68px;
+    left:20%;
+    margin-left: 96px;
+    width: 106px;
+    height: 32px;
+}
+.btn-manament {
+  color: #fff;
+  background-color: #294158;
+  border-color: #294158;
+  border-radius: 0;
+  border-top-left-radius: 5px;
+}
+.btn-manament:hover {
+  color: #fff;
+  background-color: #294999;
+  border-color: #294158;
+}
+.btn-monitor {
+  color: #294158;
+  background-color: #e1e1e1;
+  border-color: #294158;
+  border-radius: 0;
+  border-top-right-radius: 5px;
+  border-width: medium;
+}
+.btn-monitor:hover {
+  color: #294158;
+  background-color: #e1e1ff;
+  border-color: #294158;
+}
