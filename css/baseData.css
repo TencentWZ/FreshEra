@@ -1,6 +1,7 @@
 .navbar {
     background-color: #4d555d !important;
     border-color: #4d555d !important;
+    margin:10px 5px 10px 5px;
 }
 .modify {
     background: url('images/modify.png') no-repeat;
@@ -42,9 +43,10 @@
 }
 input.base_data {
     float: right !important;
-    margin-top:15px;
+    margin-top: 10px;
+    color: #333;
 }
 .row {
-    line-height: 50px;
+    line-height: 40px;
     vertical-align: middle;
 }

@@ -168,6 +168,11 @@ html, body {
 	background-color: #4d555d;
 	line-height: 30px;
 	vertical-align: middle;
+	text-align: center;
+	border-radius: 5px;
+}
+#prev-page > a {
+	color: #44d0bb;
 }
 
 #search-content {
@@ -180,6 +185,7 @@ html, body {
 	font-size: 14px;
 	line-height: 25px;
 	color: #fff;
+	border-radius: 5px;
 }
 /* menu */
 #content1 {
