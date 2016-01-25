@@ -18,7 +18,8 @@
 				untreatedAlarm: './mock/untreatedAlarm.json?v=' + Math.random(),
 				patrolState: './mock/patrolState.json',
 				alarmHistory: './mock/alarmHistory.json',
-				login: './mock/login.json'
+				login: './mock/login.json',
+				buildingPic: './mock/buildingPic.json'
 			},
 			pro: {
 				demoTest: 'http://xxx.xxx.xxx/xxxxx',

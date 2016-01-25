@@ -1,4 +1,32 @@
-
+	// 设置大楼ID为123
+	var bid = "123";
+	$.ajax({
+		type: "GET",
+		url: me.host("buildingPic"),
+		dataType: "json",
+		data: {
+			bid: bid
+		},
+		error: function(res) {
+			console.log(res);
+			alert("服务器出错了，请联系相关维护人员");
+		},
+		success: function(res) {
+			// 处理数据
+			if (res.data) {
+				var data = res.data;
+				var imagebg = $('#imagebg');
+				console.log(imagebg.append);
+				for (var i = 0; i < data.length; i++) {
+					var li = "<li data-sPic=" + data[i].photoUrl + "><div class='bannerbg_main' style='background:url(" + data[i].photoUrl + ") 50% 50% no-repeat;width:990px;height:400px;'></div></li>";
+					imagebg.append(li);
+				}
+			}
+			init();
+		}
+	});
+var image;
+var init = function () {
 	var img = {
 
 		 imageNum: 5  ,
@@ -27,10 +55,10 @@
 			for(var i=0;i<img.imagebg_li.length;i++){
 				//console.log(img.imagebg_li[i]+" is OK")
 				if(i!=0){
-					img.small_pic_html.push("<li onclick='img.play("+i+")'><img src='"+img.imagebg_li[i].getAttribute("data-sPic")+"' /></li>");
+					img.small_pic_html.push("<li onclick='image.play("+i+")'><img src='"+img.imagebg_li[i].getAttribute("data-sPic")+"' style='width:145px;height:65px;'/></li>");
 					img.imagebg.getElementsByTagName("li")[i].style.display ="none";
 				}else{
-					img.small_pic_html.push("<li onclick='img.play("+i+")' class='currently'><img src='"+img.imagebg_li[i].getAttribute("data-sPic")+"' /></li>");
+					img.small_pic_html.push("<li onclick='image.play("+i+")' class='currently'><img src='"+img.imagebg_li[i].getAttribute("data-sPic")+"' style='width:145px;height:65px;'/></li>");
 				}
 				//console.log(img.small_pic_html);
 			}
@@ -170,17 +198,21 @@
 			}
 		}
 	}
+	// 初始化
+	image = img;
 	img.init();
 	img.play(0);
+};
+
 	//阻止事件冒泡
-	function estop(e) {
-		var e = arguments.callee.caller.arguments[0] || event;
-		if (e && e.stopPropagation) {
-			//因此它支持W3C的stopPropagation()方法
-			e.stopPropagation();
-		} else {
-			//否则，我们需要使用IE的方式来取消事件冒泡
-			window.event.cancelBubble = true;
-			return false;
-		}
-	}
+	// function estop(e) {
+	// 	var e = arguments.callee.caller.arguments[0] || event;
+	// 	if (e && e.stopPropagation) {
+	// 		//因此它支持W3C的stopPropagation()方法
+	// 		e.stopPropagation();
+	// 	} else {
+	// 		//否则，我们需要使用IE的方式来取消事件冒泡
+	// 		window.event.cancelBubble = true;
+	// 		return false;
+	// 	}
+	// }

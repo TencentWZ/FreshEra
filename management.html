@@ -11,9 +11,9 @@
 	<link rel="stylesheet" href="css/vendor/normalize.css" />
 	<link rel="stylesheet" href="css/common.css" />
 	<link rel="stylesheet" href="css/header.css" />
-	<link rel="stylesheet" href="css/foundation.css" />
 	<link rel="stylesheet" href="css/mtree.css" />
-	<link rel="stylesheet" href="css/baseData.css" />
+	<link rel="stylesheet" href="css/management.css" />
+	<link rel="stylesheet" href="css/vendor/jquery.dataTables.css" />
 
 	<title>管理控制台</title>
 	<script src="js/vendor/jquery.min.js"></script>
@@ -21,6 +21,9 @@
 	<script src="js/cookie.js"></script>
 	<script src='js/vendor/jquery.velocity.min.js'></script>
 	<script src="js/demo.js"></script>
+	<script src="js/vendor/jquery.dataTables.js"></script>
+	<script src="js/management.js"></script>
+
 </head>
 
 <body>
@@ -31,49 +34,93 @@
 		<div id="middle">
 			<div id="sidebar">
 				<div id="search-data">
-					<div class="search-position input-group">
-						<input type="text" id="search-position" class="form-control" placeholder="查询数据" />
-						<span class="input-group-btn">
-				        		<button class="btn" type="button">搜索</button>
-				      	</span>
-					</div>
-					<div id="prev-page">
-						<a href="#"><- 返回前一页</a>
-					</div>
-					<div id="search-content">
-						东明家具广场
-						<br> 地址：上海市徐汇区某地某区
-						<br> 电话：021-1234567
-						<br> 负责人：王富贵
-					</div>
+
 				</div>
 				<div id="menu"></div>
 			</div>
 			<div id="main">
-				<div id="content1">
-				    <nav class="navbar navbar-default">
-			            <div class="navbar-header">
-			                <div class="navbar-brand">
-			                    <img alt="Brand" src="css/images/title.png">
-			                </div>
-			                <a class="navbar-brand modify" href="#" />
-			                    <!-- <img class="modify" alt="Brand" src="css/images/modify.png"> -->
-			                </a>
-			                <a class="navbar-brand save" href="#" />
-			                    <!-- <img class="save" alt="Brand" src="css/images/save.png"> -->
-			                </a>
-			            </div>
-				    </nav>
-				    <div id="content1-body">
-				    </div>
-				    <!-- /.row -->
-				    <hr class="inner-separator">
+				<div id="userInfo">
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+								<img alt="Brand" src="css/images/title.png">
+							</div>
+						</div>
+					</nav>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="headshot"></div>
+							</div>
+							<div class="col-md-8">
+								<div class="userName">
+									<h4>姓名: 张福贵</h4>
+								</div>
+								<div class="userinfo">手机：13812341234</div>
+								<div class="userinfo">邮箱：zhangfugui@qq.com</div>
+								<div class="userinfo">签到时间：2016年1月25日 23:24:06</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div id="content2"></div>
+
+				<div id="warningInfo">
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+								<img alt="Brand" src="css/images/title.png">
+							</div>
+						</div>
+					</nav>
+					<div class="container" style="color:#333;">
+						<table id="warning" class="display" cellspacing="0" width="100%">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Position</th>
+									<th>Office</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td>Tiger Nixon</td>
+									<td>System Architect</td>
+									<td>Edinburgh</td>
+								</tr>
+								<tr>
+									<td>Garrett Winters</td>
+									<td>Accountant</td>
+									<td>Tokyo</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+								</tr>
+								<tr>
+									<td>Ashton Cox</td>
+									<td>Junior Technical Author</td>
+									<td>San Francisco</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
 			</div>
+			<div id="footer"></div>
 		</div>
-		<div id="footer"></div>
-	</div>
 </body>
 
 </html>
