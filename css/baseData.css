@@ -45,6 +45,7 @@ input.base_data {
     float: right !important;
     margin-top: 10px;
     color: #333;
+    border-radius: 5px;
 }
 .row {
     line-height: 40px;

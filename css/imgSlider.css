@@ -7,8 +7,15 @@
 a, img {
     border: 0;
 }
-body {
-    font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+
+#imageShow {
+    position: relative;
+    width: 99%;
+    margin: 5px;
+    padding: 10px;
+    background-color: #294158;
+    height: 510px;
+    border-radius: 5px;
 }
 
 /* 幻灯开始*/
@@ -26,7 +33,6 @@ body {
 }
 #imageShow {
     clear: both;
-    border-bottom: 1px solid #fff;
 }
 #imageShow .imagebg {
     height: 400px;
