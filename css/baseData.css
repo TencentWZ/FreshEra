@@ -26,3 +26,22 @@
     background: url('images/save_hover.png') no-repeat;
     background-position: center;
 }
+.container {
+    width: 1000px;
+}
+#publicEquipInfo {
+    position: relative;
+    width: 99%;
+    margin: 5px;
+    padding: 5px;
+    background-color: #fff;
+    height: 370px;
+}
+input.base_data {
+    float: right !important;
+    margin-top:15px;
+}
+.row {
+    line-height: 50px;
+    vertical-align: middle;
+}

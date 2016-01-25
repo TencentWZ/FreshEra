@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="css/vendor/normalize.css" />
 	<link rel="stylesheet" href="css/common.css" />
 	<link rel="stylesheet" href="css/header.css" />
-	<link rel="stylesheet" href="css/foundation.css" />
 	<link rel="stylesheet" href="css/mtree.css" />
 	<link rel="stylesheet" href="css/baseData.css" />
 
@@ -31,44 +30,101 @@
 		<div id="middle">
 			<div id="sidebar">
 				<div id="search-data">
-					<div class="search-position input-group">
-						<input type="text" id="search-position" class="form-control" placeholder="查询数据" />
-						<span class="input-group-btn">
-				        		<button class="btn" type="button">搜索</button>
-				      	</span>
-					</div>
-					<div id="prev-page">
-						<a href="#"><- 返回前一页</a>
-					</div>
-					<div id="search-content">
-						东明家具广场
-						<br> 地址：上海市徐汇区某地某区
-						<br> 电话：021-1234567
-						<br> 负责人：王富贵
-					</div>
+
 				</div>
 				<div id="menu"></div>
 			</div>
 			<div id="main">
-				<div id="content1">
-				    <nav class="navbar navbar-default">
-			            <div class="navbar-header">
-			                <div class="navbar-brand">
-			                    <img alt="Brand" src="css/images/title.png">
-			                </div>
-			                <a class="navbar-brand modify" href="#" />
-			                    <!-- <img class="modify" alt="Brand" src="css/images/modify.png"> -->
-			                </a>
-			                <a class="navbar-brand save" href="#" />
-			                    <!-- <img class="save" alt="Brand" src="css/images/save.png"> -->
-			                </a>
-			            </div>
-				    </nav>
-				    <div id="content1-body">
+				<div id="publicEquipInfo">
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+								<img alt="Brand" src="css/images/title.png">
+							</div>
+							<a class="navbar-brand modify" href="#" />
+							<!-- <img class="modify" alt="Brand" src="css/images/modify.png"> -->
+							</a>
+							<a class="navbar-brand save" href="#" />
+							<!-- <img class="save" alt="Brand" src="css/images/save.png"> -->
+							</a>
+						</div>
+					</nav>
+					<div class="container">
+				        <div class="row">
+				            <div class="col-md-4">
+				                <label>公建设施名称（中文）</label>
+				                <input  class="base_data" type="text" id="firstname">
+				            </div>
+				            <div class="col-md-4">
+				                <label>公建设施名称（英文）</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label></label>
+				                <input class="base_data" type="text" id="firstname" style="display:none;">
+				            </div>
+						</div>
+						<div class="row">
+				            <div class="col-md-4">
+				                <label>建筑用途</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>竣工日期</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>系统编号</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+				                <label>建筑高度</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>办公楼层总数</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>楼层总数</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+				                <label>建筑总面积</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>办公区域面积</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>出租面积</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+				                <label>实用率</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>整体出租率</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+							<div class="col-md-4">
+				                <label>地下车库</label>
+				                <input class="base_data" type="text" id="firstname">
+				            </div>
+				        </div>
 				    </div>
-				    <!-- /.row -->
-				    <hr class="inner-separator">
+					<!-- /.row -->
+
 				</div>
+				<hr class="inner-separator">
 				<div id="content2"></div>
 			</div>
 		</div>

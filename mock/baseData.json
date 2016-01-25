@@ -1,5 +1,5 @@
 {
-    "buildingInfo": {   /*公建设施信息*/
+    "buildingInfo": {
         "ChineseName": "银都大厦",
         "EnglishName": "Yindu Building",
         "use": "商业",
@@ -15,7 +15,7 @@
         "rentPercent": "100%",
         "underGarage": 0
     },
-    "baseEquip":{   /*基本设施*/
+    "baseEquip":{  
         "floorHeight": 4,
         "floorArea": "10000~40000",
         "ceiling": "防火石膏板",

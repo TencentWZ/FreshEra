@@ -43,6 +43,9 @@
 	Layout.prototype.header = function () {
 
 	};
+	Layout.prototype.search = function () {
+
+	};
 	Layout.prototype.menu = function () {
 		// 侧栏初始化函数
 		;
@@ -177,6 +180,9 @@
 		$( "#header" ).load( "layout/header.html", {}, function () {
 			me.layout.header();
 		} );
+		$( "#search-data").load( "layout/search.html", {}, function() {
+			me.layout.search();
+		});
 		$( "#menu" ).load( "layout/menu.html", {}, function () {
 			me.layout.menu();
 		} );

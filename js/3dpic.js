@@ -1,5 +1,5 @@
 // 定义图片组
-var frames = SpriteSpin.sourceArray('css/images/3d_{frame}.jpg', {
+var frames = SpriteSpin.sourceArray('css/images/{frame}.jpg', {
     frame: [1, 24],
     digits: 2
 });
@@ -12,9 +12,9 @@ var detailIndex = 0;
 var spin = $('#spritespin');
 spin.spritespin({
     source: frames,
-    width: 480,
+    width: 707,
     sense: -1,
-    height: 480,
+    height: 500,
     animate: false
 });
 // 得到api
