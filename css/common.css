@@ -62,7 +62,7 @@ html, body {
 	border-radius: 5px;
 	background: #294158;
 	/*修改#294177*/
-	min-height: 400px;
+	min-height: 200px;
 	float: left;
 	margin-bottom: 20px;
 }
@@ -84,7 +84,7 @@ html, body {
 }
 #menu {
 	position: relative;;
-	margin:10px auto;
+	margin: 5px auto;
 	width: 200px;
 	border-radius: 3px;
 	/*background: #003;*/
@@ -92,7 +92,7 @@ html, body {
 
 #main {
 	position: relative;
-	top: 10px;
+	top: 5px;
 	left: 20px;
 	width: 1020px;
 	height: auto;
@@ -178,7 +178,8 @@ html, body {
 	background-color: #4d555d;
 	/*修改#4f609f*/
 	font-size: 14px;
-	line-height: 20px;
+	line-height: 25px;
+	color: #fff;
 }
 /* menu */
 #content1 {
@@ -186,7 +187,7 @@ html, body {
 	width: 99%;
 	margin: 5px;
 	padding: 5px;
-	background-color: #fff;
+	background-color: #294158;
 	height: 300px;
 
 }

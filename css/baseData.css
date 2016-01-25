@@ -1,5 +1,6 @@
 .navbar {
-    background-color: #424e54 !important;
+    background-color: #4d555d !important;
+    border-color: #4d555d !important;
 }
 .modify {
     background: url('images/modify.png') no-repeat;
@@ -28,14 +29,16 @@
 }
 .container {
     width: 1000px;
+    color: #fff;
 }
 #publicEquipInfo {
     position: relative;
     width: 99%;
     margin: 5px;
     padding: 5px;
-    background-color: #fff;
+    background-color: #294158;
     height: 370px;
+    border-radius: 5px;
 }
 input.base_data {
     float: right !important;

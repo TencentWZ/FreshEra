@@ -1,7 +1,7 @@
 ul.mtree {
 /*  opacity: 0;*/
   margin-left: 0;
-  padding: 1.2em;
+  padding: 10px;
 }
 ul.mtree ul {
   margin-left: 1em;
@@ -108,7 +108,7 @@ ul.mtree.skinny ul a {
 }
 
 ul.mtree.transit {
-  background: #5b7996;
+  background: #294158;
 }
 ul.mtree.transit ul {
   margin-left: 0;
