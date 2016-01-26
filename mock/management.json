@@ -1,12 +1,12 @@
 {
-    "user": {   /*用户信息*/
+    "user": {
         "name": "张福贵",
-        "headshot": "../../css/images/headshot.jpg",
+        "headshot": "css/images/headshot.jpg",
         "email": "1234567@qq.com",
         "mobile": "18521061568",
-        "registerTime": "20:58:32"
+        "registerTime": "2016年1月26日 21:02:15"
     },
-    "building": {   /*楼宇信息*/
+    "building": {
         "name": "银都大厦",
         "address": "上海市徐汇区田林路",
         "estatePhone": "021-1234555",
@@ -14,23 +14,29 @@
         "fireContact": "王消防",
         "managementContact": "陈管理"
     },
-    "warning": {  /*当前告警信息*/
-        "state": false,  /*false为有数据, true代表无数据*/
-        "data": {
+    "warning": {
+        "state": false,
+        "data": [
             [ "楼层", "设备类型", "当前状态" ],
             [ 3, "消防栓", "异常" ],
+            [ 4, "常闭门", "未关闭" ],
+            [ 4, "常闭门", "未关闭" ],
+            [ 4, "常闭门", "未关闭" ],
             [ 4, "常闭门", "未关闭" ]
-        }
+        ]
     },
-    "equipState": { /*当前设备状态*/
-        "state": false,  /*false为有数据, true代表无数据*/
-        "data": {
+    "equipState": {
+        "state": false,
+        "data": [
             [ "楼层", "设备名称", "当前状态" ],
             [ 5, "应急灯", "损坏" ],
+            [ 9, "灭火器", "丢失" ],
+            [ 9, "灭火器", "丢失" ],
+            [ 9, "灭火器", "丢失" ],
             [ 9, "灭火器", "丢失" ]
-        }
+        ]
     },
-    "check": {  /*巡检记录*/
+    "check": {
         "dailyCheckPercent": "100%",
         "monthlyCheckPercent": "50%",
         "normalEquipPercent": "90%"

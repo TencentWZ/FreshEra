@@ -19,7 +19,9 @@
 				patrolState: './mock/patrolState.json',
 				alarmHistory: './mock/alarmHistory.json',
 				login: './mock/login.json',
-				buildingPic: './mock/buildingPic.json'
+				buildingPic: './mock/buildingPic.json',
+				baseData: './mock/baseData.json',
+				management: './mock/management.json'
 			},
 			pro: {
 				demoTest: 'http://xxx.xxx.xxx/xxxxx',

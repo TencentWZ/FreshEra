@@ -1,4 +1,4 @@
-#userInfo, #warningInfo {
+#userInfo, #warningInfo, #equipStateInfo, #checkInfo {
     position: relative;
     width: 99%;
     margin: 5px 5px 15px 5px;
@@ -7,9 +7,12 @@
     height: auto;
     border-radius: 5px;
 }
-.headshot {
-    background-image: url('images/headshot.jpg');
+#headshot {
     width: 150px;
     height: 150px;
     margin: 0 auto;
+}
+.panel-primary > .panel-heading {
+    background-color: #294158;
+    border-color: #294158;
 }
