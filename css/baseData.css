@@ -34,3 +34,17 @@
     height: 320px;
     border-radius: 5px;
 }
+#baseEquip {
+    position: relative;
+    width: 99%;
+    margin: 5px;
+    padding: 5px;
+    background-color: #294158;
+    height: 270px;
+    border-radius: 5px;
+}
+.inline {
+    display: inline-block !important;
+    float:right;
+    vertical-align: middle;
+}

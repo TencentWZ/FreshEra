@@ -20,6 +20,7 @@
 	<script src="js/cookie.js"></script>
 	<script src='js/vendor/jquery.velocity.min.js'></script>
 	<script src="js/demo.js"></script>
+	<script src="js/vendor/lodash.min.js"></script>
 </head>
 
 <body>
@@ -29,9 +30,7 @@
 		<div id="header"></div>
 		<div id="middle">
 			<div id="sidebar">
-				<div id="search-data">
-
-				</div>
+				<div id="search-data"></div>
 				<div id="menu"></div>
 			</div>
 			<div id="main">
@@ -41,90 +40,152 @@
 							<div class="navbar-brand">
 								<img alt="Brand" src="css/images/title.png">
 							</div>
-							<a class="navbar-brand modify" href="#" />
-							<!-- <img class="modify" alt="Brand" src="css/images/modify.png"> -->
-							</a>
-							<a class="navbar-brand save" href="#" />
-							<!-- <img class="save" alt="Brand" src="css/images/save.png"> -->
+							<div class="navbar-brand modify" id="modify"></div>
+							<div class="navbar-brand save" id="save"></div>
 							</a>
 						</div>
 					</nav>
 					<div class="container">
 						<div class="row">
 							<div class="col-md-4">
-								<label>公建设施名称（中文）</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>公建设施名称（中文）：</label>
+								<div id="ChineseName" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>公建设施名称（英文）</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>公建设施名称（英文）：</label>
+								<div id="EnglishName" class="inline"></div>
 							</div>
 							<div class="col-md-4">
 								<label></label>
-								<input class="base_data" type="text" id="firstname" style="display:none;">
+								<input type="hidden" style="display:none;">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-4">
-								<label>建筑用途</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>建筑用途： </label>
+								<div id="use" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>竣工日期</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>竣工日期： </label>
+								<div id="completionDate" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>系统编号</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>系统编号： </label>
+								<div id="id" class="inline"></div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-4">
-								<label>建筑高度</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>建筑高度： </label>
+								<div id="height" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>办公楼层总数</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>办公楼层总数： </label>
+								<div id="officeFloor" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>楼层总数</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>楼层总数： </label>
+								<div id="floorNumber" class="inline"></div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-4">
-								<label>建筑总面积</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>建筑总面积： </label>
+								<div id="wholeArea" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>办公区域面积</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>办公区域面积： </label>
+								<div id="officeArea" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>出租面积</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>出租面积： </label>
+								<div id="rentArea" class="inline"></div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-4">
-								<label>实用率</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>实用率： </label>
+								<div id="usePercent" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>整体出租率</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>整体出租率： </label>
+								<div id="rentPercent" class="inline"></div>
 							</div>
 							<div class="col-md-4">
-								<label>地下车库</label>
-								<input class="base_data" type="text" id="firstname">
+								<label>地下车库： </label>
+								<div id="underGarage" class="inline"></div>
 							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="baseEquip">
+					<nav class="navbar navbar-default">
+						<div class="navbar-header">
+							<div class="navbar-brand">
+								<img alt="Brand" src="css/images/title.png">
+							</div>
+							<div class="navbar-brand modify" id="modify2"></div>
+							<div class="navbar-brand save" id="save2"></div>
+							</a>
+						</div>
+					</nav>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<label>楼层净高：</label>
+								<div id="floorHeight" class="inline"></div>
+							</div>
+							<div class="col-md-4">
+								<label>楼层建筑面积：</label>
+								<div id="floorArea" class="inline"></div>
+							</div>
+							<div class="col-md-4">
+								<label>天花：</label>
+								<div id="ceiling" class="inline"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label>墙面： </label>
+								<div id="wall" class="inline"></div>
+							</div>
+							<div class="col-md-4">
+								<label>地面： </label>
+								<div id="ground" class="inline"></div>
+							</div>
+							<div class="col-md-4">
+								<label>客梯： </label>
+								<div id="passengerElevator" class="inline"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label>货梯： </label>
+								<div id="goodElevator" class="inline"></div>
+							</div>
+							<div class="col-md-4">
+								<label>空调： </label>
+								<div id="airConditioner" class="inline"></div>
+							</div>
+							<div class="col-md-4">
+								<label>地面停车位数量： </label>
+								<div id="groundParkingSpace" class="inline"></div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label>地下停车位数量： </label>
+								<div id="underParkingSpace" class="inline"></div>
+							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
 			<div id="footer"></div>
 		</div>
+		<script src="js/baseData.js"></script>
 </body>
 
 </html>

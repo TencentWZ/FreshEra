@@ -15,7 +15,7 @@
         "rentPercent": "100%",
         "underGarage": 0
     },
-    "baseEquip":{  
+    "baseEquip":{
         "floorHeight": 4,
         "floorArea": "10000~40000",
         "ceiling": "防火石膏板",
