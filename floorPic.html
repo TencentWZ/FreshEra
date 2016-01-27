@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/mtree.css" />
     <link rel="stylesheet" href="css/floorPic.css" />
-    <link rel="stylesheet" href="css/3dpic.css" />
+
     <title>管理控制台</title>
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/cookie.js"></script>
-    <script src="js/demo.js"></script>
-    
     <script src='js/vendor/jquery.velocity.min.js'></script>
+    <script src="js/demo.js"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -35,33 +35,52 @@
                 <div id="menu"></div>
             </div>
             <div id="main">
-                <div id="floorPic">
-                    <!-- Nav tabs -->
-                    <ul id="floorTab" class="nav nav-tabs">
-                        <li><a href="#2D" data-toggle="tab">2D</a></li>
-                        <li><a href="#3D" data-toggle="tab">3D</a></li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <!-- 2D -->
-                        <div class="tab-pane fade in active" id="2D">AAA</div>
-                        <!-- 3D -->
-                        <div class="tab-pane fade" id="3D">
-                            <div id='spritespin'></div>
-                            <button id="next">旋转</button>
-                            <div class="details" style="display:none;">
-                              <div class="detail detail-0"><img src="red.jpg"/> 四楼常闭门未关闭</div>
-                              <div class="detail detail-20"><img src="red.jpg"/> 四楼常闭门未关闭</div>
+                <div>
+                    <div id="floorPic">
+                        <div class="equip_selector">
+                            <div class="checkbox-area">
+            					<div id="checkbox-inspect">
+            						<label><input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" />当天巡检点</label>
+            						<label><input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" />月度巡检点</label>
+            					</div>
+            					<hr />
+            					<div id="checkbox-equipment"></div>
+            					<select id="floor-select"></select>
+            				</div>
+                        </div>
+                        <div class="pic">
+                            <ul id="floorTab" class="nav nav-tabs">
+                                <li><a href="#2D" data-toggle="tab">2D</a></li>
+                                <li><a href="#3D" data-toggle="tab">3D</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="2D">
+                                    <div id="floorPic_2D" class="map"></div>
+                                </div>
+                                <div class="tab-pane fade" id="3D">
+                                    <div id='spritespin'></div>
+                                    <!-- <button id="next">旋转</button> -->
+                                    <div class="details" style="display:none;">
+                                        <div class="detail detail-0">
+                                            <img src="red.jpg" /> 四楼常闭门未关闭</div>
+                                        <div class="detail detail-20">
+                                            <img src="red.jpg" /> 四楼常闭门未关闭</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="floor_selector">
+                            <label></label>
+                            <input type="hidden" style="display:none;">
+                        </div>
                     </div>
-
                 </div>
             </div>
-            <div id="footer"></div>
         </div>
-        <script src='js/vendor/spritespin.min.js' type='text/javascript'></script>
-        <script src="js/floorPic.js"></script>
+        <div id="footer"></div>
+    </div>
+    <script src='js/vendor/spritespin.min.js'></script>
+    <script src="js/floorPic.js"></script>
 </body>
 
 </html>

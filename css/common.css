@@ -224,14 +224,3 @@ input.base_data {
     line-height: 40px;
     vertical-align: middle;
 }
-
-/* floorPic 的样式很少，写在common.css中 */
-#floorPic {
-    position: relative;
-    width: 99%;
-    margin: 5px;
-    padding: 5px;
-    background-color: #294158;
-    height: 320px;
-    border-radius: 5px;
-}

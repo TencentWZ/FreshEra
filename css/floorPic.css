@@ -17,5 +17,58 @@
     right: 40px;
 }
 #spritespin {
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+#floorPic {
+    position: relative;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
     background-color: #294158;
+    height: 650px;
+    border-radius: 5px;
+}
+#floorPic_2D {
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 800px;
+    height: 600px;
+}
+.pic {
+    position: relative;
+    width: 79%;
+    display: inline-block;
+}
+.equip_selector {
+    position: relative;;
+    width: 10%;
+    display: inline-block;
+}
+.floor_selector {
+    position: relative;
+    width: 5%;
+    display: inline-block;
+}
+#floorTab {
+    border: 0px !important;
+}
+.state {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+}
+
+.normal {
+	background: #0c0;
+}
+
+.abnormal {
+	background: #ff0;
+}
+
+.alerting {
+	background: #c00;
 }

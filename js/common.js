@@ -18,7 +18,11 @@
 				untreatedAlarm: './mock/untreatedAlarm.json?v=' + Math.random(),
 				patrolState: './mock/patrolState.json?v=' + Math.random(),
 				alarmHistory: './mock/alarmHistory.json?v=' + Math.random(),
-				alarmDeal: './mock/alarmDeal.json?v=' + Math.random()
+				alarmDeal: './mock/alarmDeal.json?v=' + Math.random(),
+				baseData: './mock/baseData.json?v=' + Math.random(),
+				buildingPic: './mock/buildingPic.json?v=' + Math.random(),
+				login: './mock/login.json?v=' + Math.random(),
+				management: './mock/management.json?v=' + Math.random()
 			},
 			pro: {
 				demoTest: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
@@ -192,22 +196,22 @@
 } )( me, window.jQuery || window.Zepto );
 
 // 兼容ie
-if (!Array.prototype.forEach)  
-{  
-    Array.prototype.forEach = function(fun /*, thisp*/)  
-    {  
-        var len = this.length;  
-        if (typeof fun != "function")  
-            throw new TypeError();  
-  
-        var thisp = arguments[1];  
-        for (var i = 0; i < len; i++)  
-        {  
-            if (i in this)  
-                fun.call(thisp, this[i], i, this);  
-        }  
-    };  
-}  
+if (!Array.prototype.forEach)
+{
+    Array.prototype.forEach = function(fun /*, thisp*/)
+    {
+        var len = this.length;
+        if (typeof fun != "function")
+            throw new TypeError();
+
+        var thisp = arguments[1];
+        for (var i = 0; i < len; i++)
+        {
+            if (i in this)
+                fun.call(thisp, this[i], i, this);
+        }
+    };
+}
 
 // Tips
 function Tips(text) {
