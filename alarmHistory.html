@@ -53,13 +53,16 @@
 				<div id="menu"></div>
 			</div>
 			<div id="main">
-				传感器类型：<input type="text" id="equipment-type" />
-				时间区段： 
-				从
-				<input type="text" id="begin-time" />
-				到
-				<input type="text" id="end-time" />
-				<button id="submit">查询</button>
+				<div class="filter">
+					<span>传感器类型：</span><input type="text" id="equipment-type" />
+					<span style="margin-left:20px;">时间区段： </span>
+					<span>从</span>
+					<input type="text" id="begin-time" />
+					<span>到</span>
+					<input type="text" id="end-time" />
+					<button id="submit" style="margin-left:20px;">查询</button>
+				</div>
+				
 				<table id="table_id" class="display"></table>
 			</div>
 		</div>

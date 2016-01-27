@@ -13,7 +13,7 @@ $(function() {
         },
         success: function(res) {
             checkboxInit(res.equipment_type);
-            $(".title").html('安全风险系数: ' + res.safety_ratio);console.log(res);
+            $(".safe-title").html('安全风险系数: ' + res.safety_ratio);
             $("#patrol-day-complete").html(res.patrol_day_complete);
             $("#patrol-day-normal").html(res.patrol_day_normal);
             $("#patrol-month-complete").html(res.patrol_month_complete);
@@ -40,7 +40,7 @@ $(function() {
             success: function(res) {
                 var width = parseFloat($(".map").css("width"));
                 var height = parseFloat($(".map").css("height"));
-                $(".map").css("background", "url(" + res.url + ") no-repeat");
+                $(".map").css("background-image", "url(" + res.url + ")");
                 $(".map").html('');
                 res.point.forEach(function(obj) {
                     if (obj.point_type == "equipment") {
@@ -59,9 +59,9 @@ $(function() {
     };
 
     function checkboxInit(checkboxArr) {
-        $("#checkbox-equipment").html('');
+        $("#checkbox-equipment").html('<p class="p-title">挑选相关设备</p>');
         checkboxArr.forEach(function(obj) {
-            $("#checkbox-equipment").append('<label><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj + '" />' + obj + '</label>');
+            $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj + '" id="' + obj + '" /><label for="' + obj + '">' + obj + '</label></p>');
         });
         $(".checkbox-item").on("change", function() {
             var point_type = $(this).attr("point_type");

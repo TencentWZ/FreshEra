@@ -1,7 +1,7 @@
 .alarmDeal-message {
 	position: absolute;
 	top: 10px;
-	left: 50px;
+	left: 92px;
 	width: 800px;
 	height: 50px;
 	line-height: 50px;
@@ -14,7 +14,7 @@
 .alarmDeal-pic {
 	position: absolute;
 	top: 60px;
-	left: 50px;
+	left: 92px;
 	width: 800px;
 	height: 600px;
 }
@@ -22,8 +22,30 @@
 .alarmDeal-buttonGroup {
 	position: absolute;
 	top: 660px;
-	left: 50px;
+	left: 92px;
 	width: 800px;
 	height: 80px;
 	background: #ebebeb;
+}
+
+button {
+	height: 32px;
+}
+
+.state {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+}
+
+.normal {
+	background: #0c0;
+}
+
+.abnormal {
+	background: #ff0;
+}
+
+.alerting {
+	background: #c00;
 }

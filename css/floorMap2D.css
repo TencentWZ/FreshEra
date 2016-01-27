@@ -2,51 +2,120 @@
 .checkbox-area {
 	position: absolute;
 	top: 20px;
-	left: 10px;
+	left: 0;
 	width: 130px;
-	height: 300px;
-	border: 1px solid #000;
+	height: 728px;
+	color: #fff;
+	font-size: 12px;
+	background: #294158;
+}
+
+.checkbox-area #checkbox-title {
+	padding: 10px 0 10px 0;
+	border-bottom: 2px solid #5b7996;
+	text-align: center;
+	font-size: 16px;
+}
+
+.checkbox-area p {
+	margin: 5px 0 0 20px;
 }
 
 .checkbox-area label {
-	float: left;
-	width: 130px;
-	height: 30px;
-	text-align: center;
+	position: relative;
+	top: -2.5px;
+	left: 5px;
 }
 
-#floor-select {
-	margin-left: 40px;
+#checkbox-inspect {
+	padding: 10px 0 10px 0;
+	border-bottom: 2px solid #5b7996;
+}
+
+#checkbox-equipment {
+	padding: 10px 0 10px 0;
+}
+
+.checkbox-area .p-title {
+	margin-bottom: 10px;
+	font-size: 15px;
 }
 
 .map {
 	position: absolute;
-	top: 20px;
-	left: 150px;
-	width: 500px;
-	height: 300px;
-	border: 1px solid #000;
+	top: 120px;
+	left: 140px;
+	width: 680px;
+	height: 510px;
 	background-size: cover;
 }
 
-.untreated-alarm {
+.safe-title {
 	position: absolute;
 	top: 20px;
-	left: 660px;
-	width: 130px;
-	height: 150px;
+	left: 140px;
+	width: 680px;
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	font-size: 22px;
+	color: #5bc2d0;
+	font-weight: bold;
+}
+
+.right-area {
+	position: absolute;
+	top: 20px;
+	left: 830px;
+	width: 155px;
+	height: 728px;
+	color: #fff;
+	font-size: 12px;
+	background: #294158;
+}
+
+.untreated-alarm-title, .patrol-title, .floor-title {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	background: #424e54;
+}
+
+.untreated-alarm {
+	height: 200px;
 	overflow: auto;
-	border: 1px solid #000;
+	border-bottom: 2px solid #5b7996;
+	padding: 10px 3px 10px 3px;
+}
+
+.untreated-alarm a {
+	font-size: 12px;
+	color: #5bc2d0;
 }
 
 .patrol {
-	position: absolute;
-	top: 180px;
-	left: 660px;
-	width: 130px;
-	height: 140px;
+	height: 130px;
+	border-bottom: 2px solid #5b7996;
+	padding: 10px 3px 10px 3px;
+}
+
+#floor-select {
+	margin: 20px 0 0 20px;
+	width: 115px;
+	height: 268px;
+	color: #fff;
+	background: #294158;
+	border: 2px solid #5b7996;
 	overflow: auto;
-	border: 1px solid #000;
+	text-align: center;
+	cursor: pointer;
+}
+
+#floor-select option {
+	height: 30px;
+	font-size: 15px;
+	padding-top: 5px;
 }
 
 .state {

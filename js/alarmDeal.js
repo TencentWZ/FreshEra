@@ -11,8 +11,13 @@ $(function() {
             alert("alarmDeal ajax error!");
         },
         success: function(res) {
+            var width = parseFloat($(".alarmDeal-pic").css("width"));
+            var height = parseFloat($(".alarmDeal-pic").css("height"));
             $(".alarmDeal-message").text(res.text);
-            $(".alarmDeal-pic").css({"background":"url('" + res.url + "')","background-size":"cover"});
+            $(".alarmDeal-pic").css({"background":"url('" + res.url + "')", "background-size":"cover"});
+            $(".alarmDeal-pic").append('' +
+                '<div class="state alerting" style="top:' + (res.y * height - 5) + 'px;left:' + (res.x * width - 5) + 'px;"></div>'
+            );
         }
     });
 });

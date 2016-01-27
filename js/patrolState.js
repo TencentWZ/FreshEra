@@ -18,7 +18,10 @@ $(function() {
 	function initTable(dataSet) {
 		$('#table_id').DataTable({
 	        "info": false,
-	        "jQueryUI": true,
+        	"jQueryUI": false,
+        	"ordering": false,
+        	"searching": false,
+        	"bLengthChange": false,
 	        "data": dataSet,
 	        "columns": [
 	            { "title": "标签", "class": "center" },

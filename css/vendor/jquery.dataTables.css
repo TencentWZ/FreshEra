@@ -177,7 +177,7 @@ table.dataTable.display tbody tr:hover.selected > .sorting_3, table.dataTable.or
   background-color: #a5b2cb;
 }
 table.dataTable.no-footer {
-  border-bottom: 1px solid #fff;
+  border-bottom: 0px solid #fff;
 }
 table.dataTable.nowrap th, table.dataTable.nowrap td {
   white-space: nowrap;
