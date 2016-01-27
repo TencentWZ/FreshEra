@@ -63,13 +63,6 @@
 	background: #ff0;
 }
 
-.alert {
+.alerting {
 	background: #c00;
-}
-
-.tips {
-	position: absolute;
-	width: 200px;
-	height: 100px;
-	background: #ff7;
 }

@@ -8,11 +8,11 @@
 <link type="image/x-icon" rel="shortcut icon" href="" />
 <link rel="stylesheet" href="css/vendor/normalize.css" />
 <link rel="stylesheet" href="css/vendor/bootstrap.css" />
+<link rel="stylesheet" href="css/vendor/jquery-ui.css" />
 <link rel="stylesheet" href="css/vendor/jquery.dataTables.css" />
 <link rel="stylesheet" href="css/vendor/dataTables.bootstrap.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/header.css" />
-<link rel="stylesheet" href="css/foundation.css" />
 <link rel="stylesheet" href="css/mtree.css" />
 <link rel="stylesheet" href="css/alarmHistory.css" />
 <title>alarmHistory</title>
@@ -20,6 +20,7 @@
 <script src="js/vendor/bootstrap.js"></script>
 <script src="js/vendor/jquery.dataTables.js"></script>
 <script src="js/vendor/dataTables.bootstrap.js"></script>
+<script src='js/vendor/jquery-ui.js'></script>
 <script src="js/common.js"></script>
 <script src="js/cookie.js"></script>
 <script src='js/vendor/jquery.velocity.min.js'></script>
@@ -52,6 +53,13 @@
 				<div id="menu"></div>
 			</div>
 			<div id="main">
+				传感器类型：<input type="text" id="equipment-type" />
+				时间区段： 
+				从
+				<input type="text" id="begin-time" />
+				到
+				<input type="text" id="end-time" />
+				<button id="submit">查询</button>
 				<table id="table_id" class="display"></table>
 			</div>
 		</div>

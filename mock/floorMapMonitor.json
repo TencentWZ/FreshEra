@@ -1,20 +1,43 @@
 {
-  "data": [
+  "point_state": [
     {
       "id": "1",
+      "floor_id": "0",
       "state": 0
     },
     {
       "id": "2",
+      "floor_id": "0",
       "state": 1
     },
     {
       "id": "3",
+      "floor_id": "0",
       "state": 2
     },
     {
       "id": "4",
+      "floor_id": "0",
+      "state": 2
+    },
+    {
+      "id": "4",
+      "floor_id": "1",
+      "state": 1
+    },
+    {
+      "id": "4",
+      "floor_id": "1",
+      "state": 1
+    },
+    {
+      "id": "4",
+      "floor_id": "2",
       "state": 2
     }
-  ]
+  ],
+  "untreated_alarm": {
+    "00": "某市某区某路灭火器过期",
+    "11": "某市某区某路灭火器过期"
+  }
 }

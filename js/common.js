@@ -11,27 +11,24 @@
 	var host = function ( name ) {
 		var url = {
 			mock: {
-				demoTest: './mock/demoTest.json',
-				floorMapInit: './mock/floorMapInit.json',
+				demoTest: './mock/demoTest.json?v=' + Math.random(),
+				floorMapInit: './mock/floorMapInit.json?v=' + Math.random(),
 				floorMapMonitor: './mock/floorMapMonitor.json?v=' + Math.random(),
-				floorName: './mock/floorName.json',
+				floorMapBasic: './mock/floorMapBasic.json?v=' + Math.random(),
 				untreatedAlarm: './mock/untreatedAlarm.json?v=' + Math.random(),
-				patrolState: './mock/patrolState.json',
-				alarmHistory: './mock/alarmHistory.json',
-				login: './mock/login.json',
-				buildingPic: './mock/buildingPic.json',
-				baseData: './mock/baseData.json',
-				management: './mock/management.json'
+				patrolState: './mock/patrolState.json?v=' + Math.random(),
+				alarmHistory: './mock/alarmHistory.json?v=' + Math.random(),
+				alarmDeal: './mock/alarmDeal.json?v=' + Math.random()
 			},
 			pro: {
-				demoTest: 'http://xxx.xxx.xxx/xxxxx',
-				floorMapInit: 'http://xxx.xxx.xxx/xxxxx',
+				demoTest: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				floorMapInit: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
 				floorMapMonitor: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				floorName: 'http://xxx.xxx.xxx/xxxxx',
+				floorMapBasic: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
 				untreatedAlarm: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				patrolState: 'http://xxx.xxx.xxx/xxxxx',
-				alarmHistory: 'http://xxx.xxx.xxx/xxxxx',
-				login: 'http://xxx.xxx.xxx/xxxxx'
+				patrolState: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				alarmHistory: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				alarmDeal: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random()
 			}
 		};
 		return url[ env ][ name ] || null;
@@ -195,19 +192,34 @@
 } )( me, window.jQuery || window.Zepto );
 
 // 兼容ie
-if (!Array.prototype.forEach)
-{
-    Array.prototype.forEach = function(fun /*, thisp*/)
-    {
-        var len = this.length;
-        if (typeof fun != "function")
-            throw new TypeError();
+if (!Array.prototype.forEach)  
+{  
+    Array.prototype.forEach = function(fun /*, thisp*/)  
+    {  
+        var len = this.length;  
+        if (typeof fun != "function")  
+            throw new TypeError();  
+  
+        var thisp = arguments[1];  
+        for (var i = 0; i < len; i++)  
+        {  
+            if (i in this)  
+                fun.call(thisp, this[i], i, this);  
+        }  
+    };  
+}  
 
-        var thisp = arguments[1];
-        for (var i = 0; i < len; i++)
-        {
-            if (i in this)
-                fun.call(thisp, this[i], i, this);
-        }
-    };
-}
+// Tips
+function Tips(text) {
+	var x = $(this).offset().left + 20, y = $(this).offset().top;
+	$(this).off()
+	$(this).on("mouseover", function() {
+		$("body").append('' +
+			'<div class="tips" style="top:' + y + 'px;left:' + x + 'px;">' + text + '</div>'
+		);
+	});
+    $(this).on("mouseout", function() {
+		$(".tips").remove();
+	});
+};
+$.fn.tips = Tips;
