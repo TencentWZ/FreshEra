@@ -1,11 +1,11 @@
 // 定义图片组
-var frames = SpriteSpin.sourceArray('css/images/{frame}.jpg', {
+var frames = SpriteSpin.sourceArray('css/images/{frame}.png', {
     frame: [1, 24],
     digits: 2
 });
 
 // 要停留的图片
-var details = [0, 20];
+var details = [0, 12];
 var detailIndex = 0;
 
 // 初始化
@@ -17,6 +17,7 @@ spin.spritespin({
     height: 500,
     animate: false
 });
+
 // 得到api
 var api = spin.spritespin("api");
 
