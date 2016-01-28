@@ -35,49 +35,75 @@
                 <div id="menu"></div>
             </div>
             <div id="main">
-                <div>
-                    <div id="floorPic">
-                        <div class="equip_selector">
-                            <div class="checkbox-area">
-            					<div id="checkbox-inspect">
-            						<label><input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" />当天巡检点</label>
-            						<label><input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" />月度巡检点</label>
-            					</div>
-            					<hr />
-            					<div id="checkbox-equipment"></div>
-            					<select id="floor-select"></select>
-            				</div>
-                        </div>
-                        <div class="pic">
-                            <ul id="floorTab" class="nav nav-tabs">
-                                <li><a href="#2D" data-toggle="tab">2D</a></li>
-                                <li><a href="#3D" data-toggle="tab">3D</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="2D">
-                                    <div id="floorPic_2D" class="map"></div>
-                                </div>
-                                <div class="tab-pane fade" id="3D">
-                                    <div id='spritespin'></div>
-                                    <!-- <button id="next">旋转</button> -->
-                                    <div class="details" style="display:none;">
-                                        <div class="detail detail-0">
-                                            <img src="red.jpg" /> 四楼常闭门未关闭</div>
-                                        <div class="detail detail-20">
-                                            <img src="red.jpg" /> 四楼常闭门未关闭</div>
+                <div id="page">
+                    <ul id="floorTab" class="nav nav-tabs">
+                        <li><a href="#2D" data-toggle="tab" class="tab_hyperlink" id="2d_tab">2D</a></li>
+                        <li><a href="#3D" data-toggle="tab" class="tab_hyperlink" id="3d_tab">3D</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!-- 2D -->
+                        <div class="tab-pane fade" id="2D">
+                            <div class="equip_selector">
+                                <div class="checkbox-area">
+                                    <div id="checkbox-inspect-2d">
+                                        <p class="p-title">按巡检时间</p>
+                                        <p>
+                                            <input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" id="当天巡检点" />
+                                            <label for="当天巡检点">当天巡检点</label>
+                                        </p>
+                                        <p>
+                                            <input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" id="月度巡检点" />
+                                            <label for="月度巡检点">月度巡检点</label>
+                                        </p>
                                     </div>
+                                    <div id="checkbox-equipment-2d"></div>
+                                </div>
+                            </div>
+                            <div class="map"></div>
+                            <div class="right-area">
+                                <div class="floor-title">选择楼层</div>
+                                <div id="floor-select-div-2d">
+                                    <select id="floor-select-2d" multiple='multiple'></select>
                                 </div>
                             </div>
                         </div>
-                        <div class="floor_selector">
-                            <label></label>
-                            <input type="hidden" style="display:none;">
+                        <!-- 3D -->
+                        <div class="tab-pane fade in active" id="3D">
+                            <div class="equip_selector">
+                                <div class="checkbox-area">
+                                    <div id="checkbox-inspect-3d">
+                                        <p class="p-title">按巡检时间</p>
+                                        <p>
+                                            <input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" id="当天巡检点" />
+                                            <label for="当天巡检点">当天巡检点</label>
+                                        </p>
+                                        <p>
+                                            <input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" id="月度巡检点" />
+                                            <label for="月度巡检点">月度巡检点</label>
+                                        </p>
+                                    </div>
+                                    <div id="checkbox-equipment-3d"></div>
+                                </div>
+                            </div>
+                            <div id='spritespin'></div>
+                            <button id="next">旋转</button>
+                            <div class="details" id="details" style="display:none;">
+                                <div class="detail detail-0"></div>
+                                <div class="detail detail-12"></div>
+                            </div>
+                            <div class="right-area">
+                                <div class="floor-title">选择楼层</div>
+                                <div id="floor-select-div-3d">
+                                    <select id="floor-select-3d" multiple='multiple'></select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div id="footer"></div>
         </div>
-        <div id="footer"></div>
+
     </div>
     <script src='js/vendor/spritespin.min.js'></script>
     <script src="js/floorPic.js"></script>

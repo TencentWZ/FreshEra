@@ -1,25 +1,10 @@
-.detail {
-    position: absolute;
-    width: 100px;
-    background: white;
-    opacity: 0.7;
-    padding: 10px;
-    border: 1px dashed black;
-    z-index: 1000;
-    height: 40px;
-}
-.detail-0 {
-    bottom: 110px;
-    left: 40px;
-}
-.detail-20 {
-    bottom: 40px;
-    right: 40px;
-}
+
 #spritespin {
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border:2px solid #5b7996;
+    top:55px;
+    left:130px;
+    width: 733px;
+    height: 550px;
 }
 #floorPic {
     position: relative;
@@ -37,24 +22,124 @@
     width: 800px;
     height: 600px;
 }
-.pic {
-    position: relative;
-    width: 79%;
-    display: inline-block;
-}
-.equip_selector {
-    position: relative;;
-    width: 10%;
-    display: inline-block;
-}
-.floor_selector {
-    position: relative;
-    width: 5%;
-    display: inline-block;
-}
 #floorTab {
     border: 0px !important;
+    position: absolute;
+    top:20px;
+    left:130px;
 }
+
+/* floorMap2D CSS改版 */
+.checkbox-area {
+	position: absolute;
+	top: 20px;
+	left: 5px;
+	width: 120px;
+	height: 590px;
+	color: #fff;
+	font-size: 12px;
+	background: #294158;
+    float: left;
+    border:2px solid #5b7996;
+}
+
+.checkbox-area #checkbox-title {
+	padding: 10px 0 10px 0;
+	border-bottom: 2px solid #5b7996;
+	text-align: center;
+	font-size: 16px;
+}
+
+.checkbox-area p {
+	margin: 5px 0 0 20px;
+}
+
+.checkbox-area label {
+	position: relative;
+	top: -2.5px;
+	left: 5px;
+}
+
+#checkbox-inspect-2d,  #checkbox-inspect-2d{
+	padding: 10px 0 10px 0;
+	border-bottom: 2px solid #5b7996;
+}
+
+#checkbox-equipment-2d, #checkbox-equipment-3d{
+	padding: 10px 0 10px 0;
+}
+
+.checkbox-area .p-title {
+	margin-bottom: 10px;
+	font-size: 15px;
+}
+
+.map {
+	position: absolute;;
+	top: 60px;
+    left: 130px;
+	width: 733px;
+	height: 550px;
+	background-size: cover;
+    border:2px solid #5b7996;
+}
+
+.right-area {
+	position: absolute;
+	top: 20px;
+	left: 870px;
+	width: 145px;
+	height: 590px;
+	color: #fff;
+	font-size: 12px;
+	background: #294158;
+    border:2px solid #5b7996;
+}
+
+.untreated-alarm-title, .patrol-title, .floor-title {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	background: #424e54;
+}
+
+.untreated-alarm {
+	height: 200px;
+	overflow: auto;
+	border-bottom: 2px solid #5b7996;
+	padding: 10px 3px 10px 3px;
+}
+
+.untreated-alarm a {
+	font-size: 12px;
+	color: #5bc2d0;
+}
+
+.patrol {
+	height: 130px;
+	border-bottom: 2px solid #5b7996;
+	padding: 10px 3px 10px 3px;
+}
+
+#floor-select-2d, #floor-select-3d{
+	margin: 20px 0px 0 10px;
+	width: 115px;
+	min-height: 268px;
+	color: #fff;
+	background: #294158;
+	border: 2px solid #5b7996;
+	overflow: auto;
+	text-align: center;
+	cursor: pointer;
+}
+
+#floor-select-2d option, #floor-select-3d option {
+	height: 30px;
+	font-size: 15px;
+	padding-top: 5px;
+}
+
 .state {
 	position: absolute;
 	width: 10px;
@@ -71,4 +156,29 @@
 
 .alerting {
 	background: #c00;
+}
+#page {
+    background-color: #294158;
+    width: 1020px;
+    height:610px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+.tab_hyperlink {
+    border: 2px solid #5b7996 !important;
+    width: 100px;
+    height: 41px;
+    margin-right: 0px !important;
+    color: #fff;
+    text-align: center;
+}
+.tab_hyperlink:hover, .tab_hyperlink:focus{
+    background-color: #5b7996 !important;
+    color: #fff !important;
+}
+#next {
+    position: absolute;
+    bottom: 80px;
+    right:60px;
+    z-index:100;
 }

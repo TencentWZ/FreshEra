@@ -22,7 +22,8 @@
 				baseData: './mock/baseData.json?v=' + Math.random(),
 				buildingPic: './mock/buildingPic.json?v=' + Math.random(),
 				login: './mock/login.json?v=' + Math.random(),
-				management: './mock/management.json?v=' + Math.random()
+				management: './mock/management.json?v=' + Math.random(),
+				floor3DMapInit: './mock/floor3DMapInit.json?v=' + Math.random()
 			},
 			pro: {
 				demoTest: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),

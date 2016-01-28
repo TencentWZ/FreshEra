@@ -1,0 +1,42 @@
+{
+    "url": "css/images/01.png",
+    "point": [
+        {
+            "id": 1,
+            "name": "一楼东侧常闭门",
+            "point_type": "equipment",
+            "equipment_type": "常闭门",
+            "frontx": 0.2,
+            "fronty": 0.5,
+            "backx": 0.5,
+            "backy": 0.2
+        }, {
+            "id": 2,
+            "name": "二楼西侧消防栓",
+            "point_type": "equipment",
+            "equipment_type": "消防栓",
+            "frontx": 0.3,
+            "fronty": 0.6,
+            "backx": 0.6,
+            "backy": 0.3
+        }, {
+            "id": 3,
+            "name": "三楼东侧巡检点",
+            "point_type": "inspect",
+            "equipment_type": "当天巡检点",
+            "frontx": 0.2,
+            "fronty": 0.7,
+            "backx": 0.7,
+            "backy": 0.2
+        }, {
+            "id": 4,
+            "name": "四楼西侧巡检点",
+            "point_type": "inspect",
+            "equipment_type": "月度巡检点",
+            "frontx": 0.8,
+            "fronty": 0.8,
+            "backx": 0.8,
+            "backy": 0.8
+        }
+    ]
+}
