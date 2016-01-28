@@ -154,7 +154,7 @@ ul.mtree.transit li.mtree-node:last-child > ul > li:last-child {
 }
 ul.mtree.transit a {
   padding: 5px 0px 5px 0.8em;
-  color: #CCC;
+  color: #fff;
 }
 ul.mtree.transit li li > a {
   padding-left: 1.6em;

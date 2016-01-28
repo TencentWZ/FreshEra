@@ -16,8 +16,8 @@
     background-color: #294158;
     border-color: #294158;
 }
-.userInfo, .warningInfo {
-    background: url('images/title.png') no-repeat;
+.userInfo {
+    background: url('images/userInfo.png') no-repeat;
     background-position: center;
     position: absolute;
     left: 10px;
@@ -27,13 +27,43 @@
     cursor: default;
 }
 
-/*.userInfo {
-    background: url('images/title.png') no-repeat;
-}
 .warningInfo {
     background: url('images/warningInfo.png') no-repeat;
-}*/
+    background-position: center;
+    position: absolute;
+    left: 10px;
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    cursor: default;
+}
+.equipStateInfo {
+    background: url('images/equipStateInfo.png') no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 10px;
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    cursor: default;
+}
+.checkInfo {
+    background: url('images/checkInfo.png') no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 10px;
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    cursor: default;
+}
 .navbar {
     min-height: 40px;
     height: 40px;
+}
+#building-content {
+    background-color: #e1e1e1;
+}
+#warningTable_info, #equipStateTable_info{
+    color: #fff;
 }

@@ -67,6 +67,7 @@
 
 #checkbox-equipment-2d, #checkbox-equipment-3d{
 	padding: 10px 0 10px 0;
+    border-top: 2px solid #5b7996;
 }
 
 .checkbox-area .p-title {
@@ -181,4 +182,10 @@
     bottom: 80px;
     right:60px;
     z-index:100;
+    width: 33px;
+    height: 47px;
+    background-image: url('images/scroll1.png');
+}
+#next:hover {
+    background-image: url('images/scroll2.png');
 }

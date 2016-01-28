@@ -49,3 +49,10 @@ button {
 .alerting {
 	background: #c00;
 }
+.alarmDeal {
+	background-color: #294158;
+	width: 900px;
+	height: 750px;
+	margin-left: 40px;
+	border-radius: 5px;
+}

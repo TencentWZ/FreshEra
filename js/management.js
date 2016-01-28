@@ -30,7 +30,7 @@ $( document ).ready( function () {
 			userContent.append('<div><h4>姓名： ' + user.name + '</h4></div><div>手机： ' + user.mobile + '</div><div>邮箱： ' + user.email + '<div>签到时间： ' + user.registerTime + '</div>');
 
 			// 渲染报警信息
-		    $('#warning').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="warningTable"></table>' );
+		    $('#warning').html( '<table cellpadding="0" cellspacing="0" border="0" class="row-border" id="warningTable"></table>' );
 		    $('#warningTable').dataTable( {
 		        "data": res.warning.data,
 		        "columns": [

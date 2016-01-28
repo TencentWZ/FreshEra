@@ -26,8 +26,19 @@
     background: url('images/save_hover.png') no-repeat;
     background-position: center;
 }
-.title, .title2{
+.title{
     background: url('images/title.png') no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 10px;
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    cursor: default;
+}
+
+.title2{
+    background: url('images/baseEquip.png') no-repeat;
     background-position: center;
     position: absolute;
     left: 10px;
