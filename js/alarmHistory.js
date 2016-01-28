@@ -2,6 +2,9 @@ $(function() {
 	// 加载页面公共部分
 	me.util.layout();
 
+	$('#begin-time').datepicker();
+	$('#end-time').datepicker();
+
 	$.ajax({
         type: "GET",
         url: me.host("alarmHistory"),
@@ -18,7 +21,10 @@ $(function() {
 	function initTable(dataSet) {
 		$('#table_id').DataTable({
 	        "info": false,
-	        "jQueryUI": true,
+        	"jQueryUI": false,
+        	"ordering": false,
+        	"searching": false,
+        	"bLengthChange": false,
 	        "data": dataSet,
 	        "columns": [
 	            { "title": "名称", "class": "center" },

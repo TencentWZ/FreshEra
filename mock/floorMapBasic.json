@@ -1,0 +1,13 @@
+{
+	"safety_ratio": 78,
+	"patrol_day_complete": 50,
+	"patrol_day_normal": 50,
+	"patrol_month_complete": 50,
+	"patrol_month_normal": 50,
+	"floor": {
+		"0": "全楼",
+		"1": "一楼",
+		"2": "二楼"
+	},
+	"equipment_type": ["常闭门", "消防栓"]
+}

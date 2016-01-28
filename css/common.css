@@ -191,8 +191,20 @@ html, body {
 
 }
 
-/* table */
-
+/* tips */
+.tips {
+	position: absolute;
+	display: inline-block;
+	max-width: 500px;
+	padding: 10px;
+	background: #ff7;
+	border: 2px solid #c00;
+	border-radius: 5px;
+	font-family: Microsoft Yahei;
+	color: #c00;
+	font-size: 15px;
+	z-index: 999999;
+}
 /* navbar */
 .navbar {
     background-color: #4d555d !important;

@@ -1,0 +1,74 @@
+.detail {
+    position: absolute;
+    width: 100px;
+    background: white;
+    opacity: 0.7;
+    padding: 10px;
+    border: 1px dashed black;
+    z-index: 1000;
+    height: 40px;
+}
+.detail-0 {
+    bottom: 110px;
+    left: 40px;
+}
+.detail-20 {
+    bottom: 40px;
+    right: 40px;
+}
+#spritespin {
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+#floorPic {
+    position: relative;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    background-color: #294158;
+    height: 650px;
+    border-radius: 5px;
+}
+#floorPic_2D {
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 800px;
+    height: 600px;
+}
+.pic {
+    position: relative;
+    width: 79%;
+    display: inline-block;
+}
+.equip_selector {
+    position: relative;;
+    width: 10%;
+    display: inline-block;
+}
+.floor_selector {
+    position: relative;
+    width: 5%;
+    display: inline-block;
+}
+#floorTab {
+    border: 0px !important;
+}
+.state {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+}
+
+.normal {
+	background: #0c0;
+}
+
+.abnormal {
+	background: #ff0;
+}
+
+.alerting {
+	background: #c00;
+}
