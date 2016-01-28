@@ -1,16 +1,81 @@
+<style>
+#search-position {
+    height: 34px;
+    border-color: #4d555d;
+    background-color: #4d555d;
+    left: 0;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius::; 5px;
+}
+.search-position {
+    width: 90%;
+    margin: 0px auto;
+}
+.search-btn {
+    height: 34px;
+    width: 70px;
+    background-image: url('../css/images/search_icon.png');
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#prev-page {
+	position: relative;
+	margin: 5px auto;
+	width: 90%;
+	height: 34px;
+	font-size: 14px;
+	background-color: #4d555d;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: left;
+	border-radius: 5px;
+    padding-left: 10px;
+}
+#prev-page > a {
+	color: #44d0bb;
+}
+
+#search-content {
+	position: relative;
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+	background-color: #4d555d;
+	/*修改#4f609f*/
+	font-size: 14px;
+	line-height: 25px;
+	color: #fff;
+	border-radius: 5px;
+}
+#search-data {
+	position: relative;
+	width: 100%;
+	margin: 5px auto;
+	height: 200px;
+	top: 10px;
+}
+.buildingName {
+    font-size: 14px;
+}
+.buildingContent {
+    height: 30px;
+    /*float: left;*/
+}
+</style>
+
 <div class="search-position input-group">
     <input type="text" id="search-position" class="form-control" />
     <span class="input-group-btn">
-        <button class="btn" type="button">搜索</button>
+        <div class="search-btn"></div>
     </span>
 </div>
 <div id="prev-page">
-    <a href="#">
-        <- 返回XX的搜索结果</a>
+    <a href="#"><- 返回东明搜索页</a>
 </div>
 <div id="search-content">
-    东明家具广场
-    <br> 地址：上海市徐汇区某地某区
-    <br> 电话：021-1234567
-    <br> 负责人：王富贵
+        东明家居广场
+        <br>地址： 上海市徐汇区田林路
+        <br>物业电话： 021-1234555
+        <br>物业联系人： 李物业
 </div>

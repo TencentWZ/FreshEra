@@ -59,22 +59,7 @@ html, body {
 	float: left;
 	margin-bottom: 20px;
 }
-#search-data {
-	position: relative;
-	width: 100%;
-	margin: 10px auto;
-	height: 200px;
-	top: 10px;
-}
-#search-position {
-	height: 34px;
-	border-color: #4d555d;
-	background-color: #4d555d;
-}
-.search-position {
-	width: 90%;
-	margin: 0px auto;
-}
+
 #menu {
 	position: relative;;
 	margin: 5px auto;
@@ -96,15 +81,15 @@ html, body {
 }
 
 #footer {
-	position: absolute;
+	position: relative;;
 	bottom: 0;
 	left: 0;
 	width: 1280px;
-	height: 30px;
-	line-height: 30px;
+	height: 100px;
+	line-height: 100px;
 	text-align: center;
 	color: #fff;
-	background: #333;
+	z-index: -1;
 }
 
 /* header */
@@ -152,34 +137,7 @@ html, body {
 	padding-left: 10px;
 }
 
-#prev-page {
-	position: relative;
-	margin: 10px auto;
-	width: 90%;
-	height: 30px;
-	font-size: 14px;
-	background-color: #4d555d;
-	line-height: 30px;
-	vertical-align: middle;
-	text-align: center;
-	border-radius: 5px;
-}
-#prev-page > a {
-	color: #44d0bb;
-}
 
-#search-content {
-	position: relative;
-	margin: 0 auto;
-	width: 90%;
-	text-align: center;
-	background-color: #4d555d;
-	/*修改#4f609f*/
-	font-size: 14px;
-	line-height: 25px;
-	color: #fff;
-	border-radius: 5px;
-}
 /* menu */
 #content1 {
 	position: relative;
@@ -222,6 +180,10 @@ input.base_data {
     border-radius: 5px;
 }
 .row {
-    line-height: 40px;
+    line-height: 45px;
     vertical-align: middle;
+}
+.inner-separator {
+	margin: 0;
+	border:1px dashed #5b7996;
 }

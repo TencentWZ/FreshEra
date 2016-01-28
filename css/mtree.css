@@ -38,9 +38,10 @@ ul.mtree.bubba li.mtree-node > a:after {
 ul.mtree.bubba li.mtree-node > a {
   font-weight: bold;
   text-transform: upperCase;
+  font-size: 14px;
 }
 ul.mtree.bubba > li {
-  border-bottom: 1px solid #DDD;
+  border-bottom: 1px solid #5b7996;
 }
 ul.mtree.bubba > li:last-child {
   border-bottom: none;
@@ -92,10 +93,10 @@ ul.mtree.skinny li.mtree-node:before {
   color: #777;
 }
 ul.mtree.skinny li.mtree-open:before {
-  content: '-';
+  content: '';
 }
 ul.mtree.skinny li.mtree-closed:before {
-  content: '+';
+  content: '';
 }
 ul.mtree.skinny ul > li:first-child {
   margin-top: .1em;
@@ -126,10 +127,10 @@ ul.mtree.transit li.mtree-node > a:before {
   right: 20px;
 }
 ul.mtree.transit li.mtree-open > a:before {
-  content: '-';
+  content: '';
 }
 ul.mtree.transit li.mtree-closed > a:before {
-  content: '+';
+  content: '';
 }
 ul.mtree.transit ul > li:first-child {
   margin-top: 1px;
