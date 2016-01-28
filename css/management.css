@@ -16,3 +16,24 @@
     background-color: #294158;
     border-color: #294158;
 }
+.userInfo, .warningInfo {
+    background: url('images/title.png') no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 10px;
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    cursor: default;
+}
+
+/*.userInfo {
+    background: url('images/title.png') no-repeat;
+}
+.warningInfo {
+    background: url('images/warningInfo.png') no-repeat;
+}*/
+.navbar {
+    min-height: 40px;
+    height: 40px;
+}
