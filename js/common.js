@@ -7,15 +7,13 @@
 // host
 ;
 ( function ( me, $ ) {
-	var env = "mock"; // 测试环境与正式环境切换开关
+	var env = "pro"; // 测试环境与正式环境切换开关
 	var host = function ( name ) {
 		var url = {
 			mock: {
-				demoTest: './mock/demoTest.json?v=' + Math.random(),
 				floorMapInit: './mock/floorMapInit.json?v=' + Math.random(),
 				floorMapMonitor: './mock/floorMapMonitor.json?v=' + Math.random(),
 				floorMapBasic: './mock/floorMapBasic.json?v=' + Math.random(),
-				untreatedAlarm: './mock/untreatedAlarm.json?v=' + Math.random(),
 				patrolState: './mock/patrolState.json?v=' + Math.random(),
 				alarmHistory: './mock/alarmHistory.json?v=' + Math.random(),
 				alarmDeal: './mock/alarmDeal.json?v=' + Math.random(),
@@ -26,14 +24,18 @@
 				floor3DMapInit: './mock/floor3DMapInit.json?v=' + Math.random()
 			},
 			pro: {
-				demoTest: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				floorMapInit: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				floorMapMonitor: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				floorMapBasic: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				untreatedAlarm: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				patrolState: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				alarmHistory: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
-				alarmDeal: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random()
+				floorMapInit: 'accounts/floorMapInit.aspx?bid=151104001&floor_id=F1&picType=平面图',
+				floorMapMonitor: 'accounts/floorMapMonitor.aspx?building_id=151104001&floor_id=F1',
+				floorMapBasic: 'accounts/floorMapBasic.aspx?bid=151104001',
+				patrolState: 'accounts/patrolState.aspx?building_id=151104001',
+				alarmHistory: 'accounts/alarmDeals.aspx?building_id=151104001',
+				alarmDealInit: 'accounts/alarmDealInit.aspx?building_id=151104001&alarm_id=1',
+				alarmDeal: 'accounts/alarmDeal.aspx?building_id=151104001&alarm_id=1&deal_type=误报',
+				login: 'accounts/login.aspx?username=admin&password=1234',
+				management: 'accounts/management.aspx?bid=151104001&uid=1',
+				baseData: 'accounts/infoall.aspx?bid=151104001',
+				buildingPic: 'accounts/buildingPic.aspx?bid=151104001',
+				floor3DMapInit: 'accounts/floorPic.aspx?bid=151104001&floor=F1&pictype=平面图'
 			}
 		};
 		return url[ env ][ name ] || null;
@@ -182,16 +184,21 @@
 ( function ( me, $ ) {
 	var Util = function () {};
 	Util.prototype.layout = function () {
-		$( "#header" ).load( "layout/header.html", {}, function () {
+		$.get("./layout/header.html", function (result) {
+			$( "#header" ).append(result);
 			me.layout.header();
 		} );
-		$( "#search-data").load( "layout/search.html", {}, function() {
+		$.get("./layout/search.html", function (result) {
+			$( "#search-data" ).append(result);
 			me.layout.search();
-		});
-		$( "#menu" ).load( "layout/menu.html", {}, function () {
+		} );
+		$.get("./layout/menu.html", function (result) {
+			$( "#menu" ).append(result);
 			me.layout.menu();
 		} );
-		$( "#footer" ).load( "layout/footer.html" );
+		$.get("./layout/footer.html", function (result) {
+			$( "#footer" ).append(result);
+		} );
 	};
 	me.util = new Util();
 } )( me, window.jQuery || window.Zepto );

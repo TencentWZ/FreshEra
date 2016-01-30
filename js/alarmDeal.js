@@ -4,7 +4,7 @@ $(function() {
 
 	$.ajax({
         type: "GET",
-        url: me.host("alarmDeal"),
+        url: me.host("alarmDealInit"),
         dataType: "json",
         data: {},
         error: function(res) {

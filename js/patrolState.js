@@ -11,7 +11,7 @@ $(function() {
             alert("patrolState ajax error!");
         },
         success: function(res) {
-            initTable(res.data);
+            initTable(res);
         }
     });
 
@@ -24,17 +24,14 @@ $(function() {
         	"bLengthChange": false,
 	        "data": dataSet,
 	        "columns": [
-	            { "title": "标签", "class": "center" },
-	            { "title": "名称", "class": "center" },
+	            { "title": "设备ID", "class": "center" },
+	            { "title": "设备名称", "class": "center" },
 	            { "title": "楼层", "class": "center" },
-	            { "title": "状态", "class": "center" },
-	            { "title": "最后巡检日期", "class": "center" },
-	            { "title": "故障原因", "class": "center" },
-	            { "title": "整改方式", "class": "center" },
-	            { "title": "验收状态", "class": "center" },
-	            { "title": "下次巡检时间", "class": "center" },
-	            { "title": "图片", "class": "center" },
-	            { "title": "操作", "class": "center" }
+	            { "title": "设备位置", "class": "center" },
+	            { "title": "巡检频率", "class": "center" },
+	            { "title": "过期时间", "class": "center" },
+	            { "title": "是否故障", "class": "center" },
+	            { "title": "故障原因", "class": "center" }
 	        ]
 	    });
 	};

@@ -12,14 +12,14 @@ $(function() {
             alert("floorName ajax error!");
         },
         success: function(res) {
-            checkboxInit(res.equipment_type);
-            $(".safe-title").html('安全风险系数: ' + res.safety_ratio);
-            $("#patrol-day-complete").html(res.patrol_day_complete);
-            $("#patrol-day-normal").html(res.patrol_day_normal);
-            $("#patrol-month-complete").html(res.patrol_month_complete);
-            $("#patrol-month-normal").html(res.patrol_month_normal);
-            for (var i in res.floor) {
-                $("#floor-select").append('<option value="' + i + '">' + res.floor[i] + '</option>');
+            checkboxInit(res.Ty);
+            $(".safe-title").html('安全风险系数: ' + res.Safety_ratio);
+            $("#patrol-day-complete").html(res.Patrol_day_complete);
+            $("#patrol-day-normal").html(res.Patrol_day_normal);
+            $("#patrol-month-complete").html(res.Patrol_month_complete);
+            $("#patrol-month-normal").html(res.Patrol_month_normal);
+            for (var i in res.Floor) {
+                $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
             };
             initFloor($("#floor-select").val());
             $("#floor-select").on("change", function() {
@@ -33,23 +33,23 @@ $(function() {
             type: "GET",
             url: me.host("floorMapInit"),
             dataType: "json",
-            data: {floor: floor},
+            data: {},
             error: function(res) {
                 alert("floorMapInit ajax error!");
             },
             success: function(res) {
                 var width = parseFloat($(".map").css("width"));
                 var height = parseFloat($(".map").css("height"));
-                $(".map").css("background-image", "url(" + res.url + ")");
+                $(".map").css("background-image", "url(" + res.Url + ")");
                 $(".map").html('');
-                res.point.forEach(function(obj) {
-                    if (obj.point_type == "equipment") {
+                res.Point.forEach(function(obj) {
+                    if (obj.Point_type == "equipment") {
                         $(".map").append('' +
-                            '<div class="state normal" style="top:' + (obj.y * height - 5) + 'px;left:' + (obj.x * width - 5) + 'px;" id="' + obj.id + '" point_type="equipment" equipment_type="' + obj.equipment_type + '" name="' + obj.name + '" ></div>'
+                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="equipment" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
-                    } else if (obj.point_type == "inspect") {
+                    } else if (obj.Point_type == "inspect") {
                         $(".map").append('' +
-                            '<div class="state normal" style="top:' + (obj.y * height - 5) + 'px;left:' + (obj.x * width - 5) + 'px;" id="' + obj.id + '" point_type="inspect" equipment_type="' + obj.equipment_type + '" name="' + obj.name + '" ></div>'
+                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="inspect" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     };
                 });
@@ -61,7 +61,7 @@ $(function() {
     function checkboxInit(checkboxArr) {
         $("#checkbox-equipment").html('<p class="p-title">挑选相关设备</p>');
         checkboxArr.forEach(function(obj) {
-            $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj + '" id="' + obj + '" /><label for="' + obj + '">' + obj + '</label></p>');
+            $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Name + '" id="' + obj.Name + '" /><label for="' + obj.Name + '">' + obj.Name + '</label></p>');
         });
         $(".checkbox-item").on("change", function() {
             var point_type = $(this).attr("point_type");
@@ -92,7 +92,7 @@ $(function() {
                 },
                 success: function(res) {
                     var floorIdCurrent = $("#floor-select").val();
-                    res.point_state.forEach(function(val) {
+                    res.Point_state.forEach(function(val) {
                         if (val.floor_id == floorIdCurrent) {
                             switch (val.state) {
                                 case 0:
@@ -111,9 +111,9 @@ $(function() {
                     });
                     var n = 1;
                     $(".untreated-alarm").html('');
-                    for (var i in res.untreated_alarm) {
+                    for (var i in res.Untreated_alarm) {
                         $(".untreated-alarm").append('' +
-                           '<p><a href="alarmDeal.html?id=' + i + '" target="_blank">' + n++ + '. ' + res.untreated_alarm[i] + '</a></p>'
+                           '<p><a href="alarmDeal.html?id=' + i + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i] + '</a></p>'
                         );
                     };
                 }
