@@ -1,7 +1,7 @@
 
 $( document ).ready( function () {
-	var bid = "123";
-	var uid = "123";
+	var bid = "151104001";
+	var uid = "1";
 
 	$.ajax({
 		type: "GET",
