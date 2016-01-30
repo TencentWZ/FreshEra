@@ -7,53 +7,54 @@ $(document).ready(function() {
         url: me.host("baseData"),
         dataType: "json",
         data: {
-            bid: bid
+            // bid: bid
         },
         error: function(res) {
             alert("服务器错误，请联系相关维护人员");
         },
         success: function(res) {
             // 正文数据部分
-            var buildingInfo = res.buildingInfo;
+            var buildingInfo = res.BuildingInfo;
             var buildingdata = {
                 'ChineseName': '',
                 'EnglishName': '',
-                'use': '',
-                'completionDate': '',
-                'id': '',
-                'height': '',
-                'officeFloor': '',
-                'floorNumber': '',
-                'wholeArea': '',
-                'officeArea': '',
-                'rentArea': '',
-                'usePercent': '',
-                'rentPercent': '',
-                'underGarage': ''
+                'Use': '',
+                'CompletionDate': '',
+                'Id': '',
+                'Height': '',
+                'OfficeFloor': '',
+                'FloorNumber': '',
+                'WholeArea': '',
+                'OfficeArea': '',
+                'RentArea': '',
+                'UsePercent': '',
+                'RentPercent': '',
+                'UnderGarage': ''
             };
-            var baseEquip = res.baseEquip;
+            var baseEquip = res.BaseEquip;
             var baseEquipdata = {
-                'floorHeight': '',
-                'floorArea': '',
-                'ceiling': '',
-                'wall': '',
-                'ground': '',
-                'passengerElevator': '',
-                'goodElevator': '',
-                'airConditioner': '',
-                'groundParkingSpace': '',
-                'underParkingSpace': ''
+                'FloorHeight': '',
+                'FloorArea': '',
+                'Ceiling': '',
+                'Wall': '',
+                'Ground': '',
+                'PassengerElevator': '',
+                'GoodElevator': '',
+                'AirConditioner': '',
+                'GroundParkingSpace': '',
+                'UnderParkingSpace': ''
             };
             render('buildingInfo', buildingInfo, 'modify', 'save', buildingdata, '123');
             render('baseEquip', baseEquip, 'modify2', 'save2', baseEquipdata, '123');
             // 侧栏部分
-            
+
         }
     });
 
     // render方法
     var render = function(dom, indata, modify, save, outdata, url) {
         for (var item in indata) {
+            console.log(item);
             if (indata.hasOwnProperty(item)) {
                 $('#' + item).html(indata[item]);
             }

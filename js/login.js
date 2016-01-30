@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-    var userName = document.getElementById("userName").value;
+    var username = document.getElementById("userName").value;
     var password = document.getElementById("password").value;
     $("#submit").click(function() {
         $.ajax({
@@ -9,11 +9,11 @@ $(document).ready(function() {
             url: me.host("login"),
             dataType: "json",
             data: {
-                userName: userName,
-                password: password
+                // username: 'admin',
+                // password: '1234'
             },
             error: function(res) {
-                alert("用户名或者密码错误");
+                console.log("ajax error");
             },
             success: function(res) {
                 if(res.Success === true ){
