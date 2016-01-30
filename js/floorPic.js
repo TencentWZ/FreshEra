@@ -99,7 +99,7 @@ function init2DFloor(floor) {
         url: me.host("floorMapInit"),
         dataType: "json",
         data: {
-            // floor: floor
+            floor: floor
         },
         error: function(res) {
             alert("floorMapInit ajax error!");
@@ -158,7 +158,7 @@ function init3DFloor(floor) {
         url: me.host("floor3DMapInit"),
         dataType: "json",
         data: {
-            // floor: floor
+            floor: floor
         },
         error: function(res) {
             console.log(res);

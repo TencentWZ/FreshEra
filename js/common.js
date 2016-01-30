@@ -11,9 +11,11 @@
 	var host = function ( name ) {
 		var url = {
 			mock: {
+				demoTest: './mock/demoTest.json?v=' + Math.random(),
 				floorMapInit: './mock/floorMapInit.json?v=' + Math.random(),
 				floorMapMonitor: './mock/floorMapMonitor.json?v=' + Math.random(),
 				floorMapBasic: './mock/floorMapBasic.json?v=' + Math.random(),
+				untreatedAlarm: './mock/untreatedAlarm.json?v=' + Math.random(),
 				patrolState: './mock/patrolState.json?v=' + Math.random(),
 				alarmHistory: './mock/alarmHistory.json?v=' + Math.random(),
 				alarmDeal: './mock/alarmDeal.json?v=' + Math.random(),
@@ -24,18 +26,19 @@
 				floor3DMapInit: './mock/floor3DMapInit.json?v=' + Math.random()
 			},
 			pro: {
-				floorMapInit: 'accounts/floorMapInit.aspx?bid=151104001&floor=F1&picType=平面图',
-				floorMapMonitor: 'accounts/floorMapMonitor.aspx?building_id=151104001&floor_id=F1',
-				floorMapBasic: 'accounts/floorMapBasic.aspx?bid=151104001',
-				patrolState: 'accounts/patrolState.aspx?building_id=151104001',
-				alarmHistory: 'accounts/alarmDeals.aspx?building_id=151104001',
-				alarmDealInit: 'accounts/alarmDealInit.aspx?building_id=151104001&alarm_id=1',
-				alarmDeal: 'accounts/alarmDeal.aspx?building_id=151104001&alarm_id=1&deal_type=误报',
-				login: 'accounts/login.aspx?username=admin&password=1234',
-				management: 'accounts/management.aspx?bid=151104001&uid=1',
-				baseData: 'accounts/infoall.aspx?bid=151104001',
-				buildingPic: 'accounts/buildingPic.aspx?bid=151104001',
-				floor3DMapInit: 'accounts/floorPic.aspx?bid=151104001&floor=F1&pictype=3D图'
+				demoTest: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				floorMapInit: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				floorMapMonitor: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				floorMapBasic: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				untreatedAlarm: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				patrolState: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				alarmHistory: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				alarmDeal: 'http://xxx.xxx.xxx/xxxxx?v=' + Math.random(),
+				login: 'accounts/login.aspx',
+				management: 'accounts/management.aspx',
+				baseData: 'accounts/infoall.aspx',
+				buildingPic: 'accounts/buildingPic.aspx',
+				floor3DMapInit: 'accounts/floorPic.aspx'
 			}
 		};
 		return url[ env ][ name ] || null;
