@@ -20,38 +20,35 @@
 <script src="js/floorMap2D.js"></script>
 </head>
 <body>
-	<div class="background-bottom"></div>
-	<div class="body">
-		<div id="middle" style="top:0;width:1024px;height:768px;">
-			<div id="main">
-				<div class="checkbox-area">
-					<div id="checkbox-title">
-						东明家具城
-					</div>
-					<div id="checkbox-inspect">
-						<p class="p-title">按巡检时间</p>
-						<p><input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" id="当天巡检点" /><label for="当天巡检点">当天巡检点</label></p>
-						<p><input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" id="月度巡检点" /><label for="月度巡检点">月度巡检点</label></p>
-					</div>
-					<div id="checkbox-equipment"></div>
-				</div>
-				<div class="safe-title"></div>
-				<div class="map"></div>
-				<div class="right-area">
-					<div class="untreated-alarm-title">当前未处理告警区</div>
-					<div class="untreated-alarm"></div>
-					<div class="patrol-title">巡检概况</div>
-					<div class="patrol">
-						<p>1. 当日巡检完成率：<span id="patrol-day-complete"></span></p>
- 						<p>正常率：<span id="patrol-day-normal"></span></p>
- 						<p>2. 当月巡检完成率：<span id="patrol-month-complete"></span></p>
- 						<p>正常率：<span id="patrol-month-normal"></span></p>
-					</div>
-					<div class="floor-title">选择楼层</div>
-					<div id="floor-select-div">
-						<select id="floor-select" multiple='multiple'></select>
-					</div>
-				</div>
+	<div id="middle" style="top:0;border-radius:0;">
+		<div class="checkbox-area">
+			<div id="checkbox-title">
+				东明家具城
+			</div>
+			<div id="checkbox-inspect">
+				<p class="p-title">按巡检时间</p>
+				<p><input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" id="当天巡检点" /><label for="当天巡检点">当天巡检点</label></p>
+				<p><input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" id="月度巡检点" /><label for="月度巡检点">月度巡检点</label></p>
+			</div>
+			<div id="checkbox-equipment"></div>
+		</div>
+		<div class="safe-title"></div>
+		<div class="map-outer">
+			<div class="map"></div>
+		</div>
+		<div class="right-area">
+			<div class="untreated-alarm-title">当前未处理告警区</div>
+			<div class="untreated-alarm"></div>
+			<div class="patrol-title">巡检概况</div>
+			<div class="patrol">
+				<p>1. 当日巡检完成率：<span id="patrol-day-complete"></span></p>
+				<p>正常率：<span id="patrol-day-normal"></span></p>
+				<p>2. 当月巡检完成率：<span id="patrol-month-complete"></span></p>
+				<p>正常率：<span id="patrol-month-normal"></span></p>
+			</div>
+			<div class="floor-title">选择楼层</div>
+			<div id="floor-select-div">
+				<select id="floor-select" multiple='multiple'></select>
 			</div>
 		</div>
 	</div>

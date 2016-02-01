@@ -2,6 +2,17 @@ $(function() {
 	// 加载页面公共部分
 	me.util.layout();
 
+    // 初始化全屏
+    (function initScreen() {
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        $("#middle").css({width: windowWidth, height: windowHeight});
+        $(".checkbox-area").css("height", windowHeight - 40);
+        $(".right-area").css("height", windowHeight - 40);
+        $(".safe-title").css("width", windowWidth - 305);
+        $(".map-outer").css("width", windowWidth - 305);
+    })();
+    
     // 中间图部分
     $.ajax({
         type: "GET",
@@ -19,7 +30,11 @@ $(function() {
             $("#patrol-month-complete").html(res.Patrol_month_complete);
             $("#patrol-month-normal").html(res.Patrol_month_normal);
             for (var i in res.Floor) {
-                $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
+                if (i == 0) {
+                    $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '" selected>' + res.Floor[i].Floorname + '</option>');
+                } else {
+                    $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
+                };
             };
             initFloor($("#floor-select").val());
             $("#floor-select").on("change", function() {
@@ -43,13 +58,13 @@ $(function() {
                 $(".map").css("background-image", "url(" + res.Url + ")");
                 $(".map").html('');
                 res.Point.forEach(function(obj) {
-                    if (obj.Point_type == "equipment") {
+                    if (obj.Point_type == "传感器") {
                         $(".map").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="equipment" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
-                    } else if (obj.Point_type == "inspect") {
+                    } else if (obj.Point_type == "巡检点") {
                         $(".map").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="inspect" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     };
                 });
@@ -92,28 +107,30 @@ $(function() {
                 },
                 success: function(res) {
                     var floorIdCurrent = $("#floor-select").val();
-                    res.point_state.forEach(function(val) {
-                        if (val.floor_id == floorIdCurrent) {
-                            switch (val.state) {
-                                case 0:
-                                    changeClass(val.id, "normal");
-                                    break;
-                                case 1:
-                                    changeClass(val.id, "abnormal");
-                                    break;
-                                case 2:
-                                    changeClass(val.id, "alerting");
-                                    $("#" + val.id).tips($("#" + val.id).attr("name") + "发生异常！");
-                                    break;
-                                default:
+                    if (floorIdCurrent) {
+                        res.Point_state.forEach(function(val) {
+                            if (val.Floorid == floorIdCurrent[0]) {
+                                switch (val.State) {
+                                    case "0":
+                                        changeClass(val.Id, "normal");
+                                        break;
+                                    case "1":
+                                        changeClass(val.Id, "abnormal");
+                                        break;
+                                    case "2":
+                                        changeClass(val.Id, "alerting");
+                                        $("#" + val.Id).tips($("#" + val.Id).attr("name") + "发生异常！");
+                                        break;
+                                    default:
+                                };
                             };
-                        };
-                    });
+                        });
+                    };
                     var n = 1;
                     $(".untreated-alarm").html('');
                     for (var i in res.Untreated_alarm) {
                         $(".untreated-alarm").append('' +
-                           '<p><a href="alarmDeal.html?id=' + i + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i] + '</a></p>'
+                           '<p><a href="alarmDeal.html?id=' + res.Untreated_alarm[i].Id + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i].Type + '</a></p>'
                         );
                     };
                 }

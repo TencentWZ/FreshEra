@@ -7,7 +7,7 @@
 // host
 ;
 ( function ( me, $ ) {
-	var env = "pro"; // 测试环境与正式环境切换开关
+	var env = "mock"; // 测试环境与正式环境切换开关
 	var host = function ( name ) {
 		var url = {
 			mock: {
