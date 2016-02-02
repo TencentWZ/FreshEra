@@ -16,6 +16,7 @@
 				floorMapBasic: './mock/floorMapBasic.json?v=' + Math.random(),
 				patrolState: './mock/patrolState.json?v=' + Math.random(),
 				alarmHistory: './mock/alarmHistory.json?v=' + Math.random(),
+				alarmDealInit: './mock/alarmDealInit.json?v=' + Math.random(),
 				alarmDeal: './mock/alarmDeal.json?v=' + Math.random(),
 				baseData: './mock/baseData.json?v=' + Math.random(),
 				buildingPic: './mock/buildingPic.json?v=' + Math.random(),

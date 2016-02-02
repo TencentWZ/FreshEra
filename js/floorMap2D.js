@@ -2,6 +2,18 @@ $(function() {
 	// 加载页面公共部分
 	me.util.layout();
 
+    // 全屏显示
+    function requestFullScreen() {
+       var de = document.documentElement;
+       if (de.requestFullscreen) {
+           de.requestFullscreen();
+       } else if (de.mozRequestFullScreen) {
+           de.mozRequestFullScreen();
+       } else if (de.webkitRequestFullScreen) {
+           de.webkitRequestFullScreen();
+       };
+    };
+
     // 初始化全屏
     (function initScreen() {
         var windowWidth = window.innerWidth;
@@ -12,7 +24,7 @@ $(function() {
         $(".safe-title").css("width", windowWidth - 305);
         $(".map-outer").css("width", windowWidth - 305);
     })();
-    
+
     // 中间图部分
     $.ajax({
         type: "GET",

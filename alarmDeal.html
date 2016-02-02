@@ -25,25 +25,24 @@
 <script src="js/alarmDeal.js"></script>
 </head>
 <body>
-	<div class="background-bottom"></div>
-	<div class="body">
-		<div id="middle" style="top:0;width:1024px;height:768px;">
-			<div id="main">
-				<div class="alarmDeal">
-					<div class="alarmDeal-message"></div>
-					<div class="alarmDeal-pic"></div>
-					<div class="alarmDeal-buttonGroup" style="text-align: center;">
-						<span style="display:inline-block;width:100%;margin:5px;color:#fff;">
-							<button id="submit01" style="width:18%;background:#32b16c;">误报</button>
-							<button id="submit02" style="width:18%;background:#32b16c;">末端水压过高过低</button>
-							<button id="submit03" style="width:18%;background:#32b16c;">常闭门未关闭</button>
-							<button id="submit04" style="width:18%;background:#32b16c;">消防通道堵塞</button>
-							<button id="submit05" style="width:18%;background:#32b16c;">其他</button>
-						</span>
-						<span style="display:inline-block;width:100%;margin-left:5px;color:#fff;">
-							<button id="submit06" style="width:92%;background:#f15b63;">火警</button>
-						</span>
-					</div>
+	<div id="middle" style="top:0;border-radius:0;">
+		<div class="alarm-outer">
+			<div class="alarmDeal-message"></div>
+			<div class="alarmDeal-pic"></div>
+			<div class="alarmDeal-buttonGroup" style="position:relative;">
+				<div style="position:absolute;top:5%;left:0;width:80%;height:45%;color:#fff;">
+					<button id="submit01" style="width:24%;background:#32b16c;">误报</button>
+					<button id="submit02" style="width:24%;background:#32b16c;">末端水压异常</button>
+					<button id="submit03" style="width:24%;background:#32b16c;">常闭门未关闭</button>
+					<button id="submit04" style="width:24%;background:#32b16c;">消防通道堵塞</button>
+				</div>
+				<div style="position:absolute;top:50%;left:0;width:80%;height:45%;color:#fff;">
+					<span>其他:</span>
+					<input type="text" id="other-reason" style="width:67.2%;color:#000;" />
+					<button id="submit05" style="width:24%;background:#32b16c;">提交</button>
+				</div>
+				<div style="position:absolute;top:5%;right:0;width:20%;height:90%;color:#fff;">
+					<button id="submit06" style="width:100%;height:85%;background:#f15b63;">火警</button>
 				</div>
 			</div>
 		</div>

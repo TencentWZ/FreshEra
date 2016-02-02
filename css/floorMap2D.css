@@ -43,7 +43,7 @@
 
 .map-outer {
 	position: absolute;
-	top: 120px;
+	top: 68px;
 	left: 140px;
 }
 
@@ -59,12 +59,11 @@
 	top: 20px;
 	left: 140px;
 	width: 680px;
-	height: 100px;
-	line-height: 100px;
+	height: 48px;
+	line-height: 48px;
 	text-align: center;
-	font-size: 22px;
+	font-size: 18px;
 	color: #5bc2d0;
-	font-weight: bold;
 }
 
 .right-area {
