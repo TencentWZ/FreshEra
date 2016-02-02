@@ -1,7 +1,9 @@
 $(document).ready(function() {
-    var username = document.getElementById("userName").value;
-    var password = document.getElementById("password").value;
+
+
     $("#submit").click(function() {
+        var username = $("#userName").val();
+        var password = $("#password").val();
         $.ajax({
             type: "GET",
             url: me.host("login"),
@@ -11,7 +13,7 @@ $(document).ready(function() {
                 password: password
             },
             error: function(res) {
-                console.log("ajax error");
+                alert("ajax error");
             },
             success: function(res) {
                 if(res.Success === true ){

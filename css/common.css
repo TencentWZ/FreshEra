@@ -63,6 +63,7 @@ html, body {
 #menu {
 	position: relative;
 	margin: 5px auto;
+	margin-top: 10px;
 	width: 200px;
 	border-radius: 3px;
 	/*background: #003;*/

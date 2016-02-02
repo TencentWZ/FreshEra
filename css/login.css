@@ -17,38 +17,29 @@ body {
     left: 0;
     width: 100%;
     height: 110px;
-    z-index: 1;
+    z-index: 3;
     background: #e1e1e1;
     text-align: center;
 }
 .body {
     position: absolute;
-    top: 110px;
+    padding-top:110px;
     left: 0;
     width: 100%;
-    height: 990px;
-    background: #023d5a;
-    z-index: 1;
-}
-.bottom {
-    position: absolute;
-    top: 558px;
-    left: 0;
-    width: 100%;
-    height: 990px;
+    height: 100%;
     background: #e1e1e1;
     z-index: 1;
 }
+
 .login_bg {
     position: absolute;
     z-index: 999;
-    width: 1360px;
+    width: 100%;
     height: 458px;
     background-image: url('./images/login_bg.png');
     background-position:center;
     background-repeat:no-repeat;
-    left: 50%;
-    margin-left: -680px;
+    background-color: #023d5a;
 }
 .logo {
     margin-left: auto;
@@ -68,11 +59,11 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-top: 60px;
-    right: -680px;
+    right: 530px;
     background: #415a77;
     height: 50px;
     width: 300px;
-    position: relative;
+    position: absolute;
     text-align: center;
     z-index: 100;
     opacity: 0.9;
@@ -87,7 +78,7 @@ body {
     box-shadow: 0 1px #5670a4 inset, 0 0 10px 5px rgba(0, 0, 0, 0.1);
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    position: relative;
+    position: absolute;;
     width: 300px;
     height: 250px;
     margin-bottom: 20px;
@@ -95,7 +86,8 @@ body {
     text-align: center;
     z-index: 100;
     opacity: 0.9;
-    right: -680px;
+    right: 530px;
+    top:110px;
 }
 
 /*.login-form-wrap:before {
@@ -172,7 +164,7 @@ div > a {
 .form {
     position: absolute;
     margin-left: 20px;
-    right: 400px;
+    right: 550px;
     top: 150px;
     width: 260px;
     z-index: 200;
@@ -190,12 +182,12 @@ div > a {
     background: url('images/erweima.png');
     width: 120px;
     height: 135px;
-    right: 200px;
+    right: 350px;
     top: 150px;
 }
 .alarm {
     position: relative;
-    margin-top: 50px;
+    margin-top: 550px;
     width: 100%;
     height: 80px;
     background-color: #023d5a;

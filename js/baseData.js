@@ -80,21 +80,19 @@ $(document).ready(function() {
                 outdata[name] = value;
                 $('#' + name).html(value);
             });
-            console.log(outdata);
-            modifyFlag = true;
             // 上传数据
-            // $.ajax({
-            //     type: "GET",
-            //     url: url,
-            //     dataType: "json",
-            //     data: outdata,
-            //     error: function(res) {
-            //         alert("服务器错误，请联系相关维护人员");
-            //     },
-            //     success: function(res) {
-            //         alert("保存成功");
-            //     }
-            // });
+            $.ajax({
+                type: "GET",
+                url: me.host(save),
+                dataType: "json",
+                data: outdata,
+                error: function(res) {
+                    alert("服务器错误，请联系相关维护人员");
+                },
+                success: function(res) {
+                    alert("保存成功");
+                }
+            });
         });
     };
 });

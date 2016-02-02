@@ -18,8 +18,10 @@ $( document ).ready( function () {
 			var headshot = $('#headshot');
 			var userContent = $('#userContent');
 			var user = res.User;
-			headshot[0].style['background-image'] = 'url(' + user.Headshot +')';
-			userContent.append('<div><h4>姓名： ' + user.Name + '</h4></div><div>系统编号 ' + user.Systemnum + '</div><div>手机： ' + user.Mobile + '</div><div>邮箱： ' + user.Email + '<div>签到时间： ' + user.RegisterTime + '</div>');
+			if (user.Headshot) {
+				headshot[0].style['background-image'] = 'url(' + user.Headshot +')';
+			}
+			userContent.append('<div><h4>姓名： ' + user.Name + '</h4></div><div>手机： ' + user.Mobile + '</div><div>邮箱： ' + user.Email + '<div>签到时间： ' + user.RegisterTime + '</div>');
 
 			// 渲染报警信息
 		    $('#warning').html( '<table cellpadding="0" cellspacing="0" border="0" class="row-border" id="warningTable"></table>' );

@@ -1,22 +1,26 @@
+
+	// 加载页面公共部分
+	me.util.layout();
 	// 设置大楼ID为123
-	var bid = "123";
+	var bid = getCookie('Bid');
 	$.ajax({
 		type: "GET",
 		url: me.host("buildingPic"),
 		dataType: "json",
 		data: {
-			// bid: bid
+			bid: bid
 		},
 		error: function(res) {
 			alert("服务器出错了，请联系相关维护人员");
 		},
 		success: function(res) {
+			console.log(res);
 			// 处理数据
 			if (res.Data) {
 				var data = res.Data;
 				var imagebg = $('#imagebg');
 				for (var i = 0; i < data.length; i++) {
-					var li = "<li data-sPic=" + data[i].photoUrl + "><div class='bannerbg_main' style='background:url(" + data[i].photoUrl + ") 50% 50% no-repeat;width:990px;height:400px;'></div></li>";
+					var li = "<li data-sPic=" + data[i].PhotoUrl + "><div class='bannerbg_main' style='background:url(" + data[i].PhotoUrl + ") 50% 50% no-repeat;width:990px;height:400px;'></div></li>";
 					imagebg.append(li);
 				}
 			}

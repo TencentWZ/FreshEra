@@ -1,1 +1,15 @@
-{"Point_state":[{"Id":"SY23123","Floorid":"F2","State":"2"},{"Id":"SY23124","Floorid":"F2","State":"2"}],"Untreated_alarm":[{"Id":"2","Type":"二楼行李间的喷淋头异常"}]}
+{
+    "Point_state": [{
+        "Id": "SY23123",
+        "Floorid": "F2",
+        "State": "2"
+    }, {
+        "Id": "SY23124",
+        "Floorid": "F2",
+        "State": "2"
+    }],
+    "Untreated_alarm": [{
+        "Id": "2",
+        "Type": "二楼行李间的喷淋头异常"
+    }]
+}

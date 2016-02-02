@@ -69,7 +69,7 @@
 .inline {
     display: inline-block !important;
     position: relative;
-    right:80px;
+    right:50px;
     float:right;
     vertical-align: middle;
 }

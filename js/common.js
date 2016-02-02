@@ -7,7 +7,7 @@
 // host
 ;
 ( function ( me, $ ) {
-	var env = "mock"; // 测试环境与正式环境切换开关
+	var env = "pro"; // 测试环境与正式环境切换开关
 	var host = function ( name ) {
 		var url = {
 			mock: {
@@ -32,11 +32,13 @@
 				alarmHistory: 'accounts/alarmDeals.aspx?building_id=151104001',
 				alarmDealInit: 'accounts/alarmDealInit.aspx?building_id=151104001&alarm_id=1',
 				alarmDeal: 'accounts/alarmDeal.aspx?building_id=151104001&alarm_id=1&deal_type=误报',
-				login: 'accounts/login.aspx?username=admin&password=1234',
-				management: 'accounts/management.aspx?bid=151104001&uid=1',
+				login: 'accounts/login.aspx',
+				management: 'accounts/management.aspx',
 				baseData: 'accounts/infoall.aspx?bid=151104001',
-				buildingPic: 'accounts/buildingPic.aspx?bid=151104001',
-				floor3DMapInit: 'accounts/floorPic.aspx?bid=151104001&floor=F1&pictype=平面图'
+				buildingPic: 'accounts/buildingPic.aspx',
+				floor3DMapInit: 'accounts/floorPic.aspx?bid=151104001&floor=F1&pictype=3D图',
+				save: 'accounts/upbuildingInfo.aspx',
+				save2: 'accounts/upbaseEquip.aspx'
 			}
 		};
 		return url[ env ][ name ] || null;
@@ -68,7 +70,7 @@
 			success: function(res) {
 				var buildingContent = $('#search-content');
 				var building = res.Building;
-				buildingContent.append('<div>'+ building.Name+ '</div><div>地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact +  '</div>');
+				buildingContent.append('<div><h4>'+ building.Name+ '</h4></div><div>地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact +  '</div>');
 			}
 		});
 	};
@@ -77,7 +79,7 @@
 		;
 		( function ( $, window, document, undefined ) {
 			if ( $( 'ul.mtree' ).length ) {
-				var collapsed = true;
+				var collapsed = false;
 				var close_same_level = false;
 				var duration = 400;
 				var listAnim = true;

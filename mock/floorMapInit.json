@@ -1,1 +1,22 @@
-{"Url":"http://180.168.112.158/shinei/img/1F平面图-Model.jpg","Point":[{"Id":"SY23123","Name":"一楼行李间","Point_type":"传感器","Equipment_type":"光电感烟","X":"0.75","Y":"0.23","Photo_angle":"0","Sensortype":"#FFA6FF"},{"Id":"SY23124","Name":"二楼行李间","Point_type":"传感器","Equipment_type":"喷淋头","X":"0.66","Y":"0.44","Photo_angle":"0","Sensortype":"#B9B973"}]}
+{
+    "Url": "http://180.168.112.158/shinei/img/1F平面图-Model.jpg",
+    "Point": [{
+        "Id": "SY23123",
+        "Name": "一楼行李间",
+        "Point_type": "传感器",
+        "Equipment_type": "光电感烟",
+        "X": "0.75",
+        "Y": "0.23",
+        "Photo_angle": "0",
+        "Sensortype": "#FFA6FF"
+    }, {
+        "Id": "SY23124",
+        "Name": "二楼行李间",
+        "Point_type": "传感器",
+        "Equipment_type": "喷淋头",
+        "X": "0.66",
+        "Y": "0.44",
+        "Photo_angle": "0",
+        "Sensortype": "#B9B973"
+    }]
+}
