@@ -25,17 +25,17 @@
 			},
 			pro: {
 				floorMapInit: 'accounts/floorMapInit.aspx?bid=151104001&floor_id=F1&picType=平面图',
- 				floorMapMonitor: 'accounts/floorMapMonitor.aspx?building_id=151104001&floor_id=F1',
- 				floorMapBasic: 'accounts/floorMapBasic.aspx?bid=151104001',
- 				patrolState: 'accounts/patrolState.aspx?building_id=151104001',
- 				alarmHistory: 'accounts/alarmDeals.aspx?building_id=151104001',
- 				alarmDealInit: 'accounts/alarmDealInit.aspx?building_id=151104001&alarm_id=1',
- 				alarmDeal: 'accounts/alarmDeal.aspx?building_id=151104001&alarm_id=1&deal_type=误报',
-				login: 'accounts/login.aspx',
-				management: 'accounts/management.aspx',
-				baseData: 'accounts/infoall.aspx',
-				buildingPic: 'accounts/buildingPic.aspx',
-				floor3DMapInit: 'accounts/floorPic.aspx'
+				floorMapMonitor: 'accounts/floorMapMonitor.aspx?building_id=151104001&floor_id=F1',
+				floorMapBasic: 'accounts/floorMapBasic.aspx?bid=151104001',
+				patrolState: 'accounts/patrolState.aspx?building_id=151104001',
+				alarmHistory: 'accounts/alarmDeals.aspx?building_id=151104001',
+				alarmDealInit: 'accounts/alarmDealInit.aspx?building_id=151104001&alarm_id=1',
+				alarmDeal: 'accounts/alarmDeal.aspx?building_id=151104001&alarm_id=1&deal_type=误报',
+				login: 'accounts/login.aspx?username=admin&password=1234',
+				management: 'accounts/management.aspx?bid=151104001&uid=1',
+				baseData: 'accounts/infoall.aspx?bid=151104001',
+				buildingPic: 'accounts/buildingPic.aspx?bid=151104001',
+				floor3DMapInit: 'accounts/floorPic.aspx?bid=151104001&floor=F1&pictype=平面图'
 			}
 		};
 		return url[ env ][ name ] || null;
@@ -51,7 +51,25 @@
 
 	};
 	Layout.prototype.search = function () {
-
+		var bid = getCookie('Bid');
+		var uid = getCookie('Userid');
+		$.ajax({
+			type: "GET",
+			url: me.host("management"),
+			dataType: "json",
+			data: {
+				bid: bid,
+				uid: uid
+			},
+			error: function(res) {
+				alert("服务器出错了，请联系相关维护人员");
+			},
+			success: function(res) {
+				var buildingContent = $('#search-content');
+				var building = res.Building;
+				buildingContent.append('<div>'+ building.Name+ '</div><div>地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact +  '</div>');
+			}
+		});
 	};
 	Layout.prototype.menu = function () {
 		// 侧栏初始化函数

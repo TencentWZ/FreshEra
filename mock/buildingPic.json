@@ -1,14 +1,14 @@
 {
-    "data":[
+    "Data":[
         {
-            "bid":"123",
-            "photoUrl": "../../css/images/buildingPic1.jpg",
+            "Bid":"123",
+            "PhotoUrl": "../../css/images/buildingPic1.jpg",
             "photoName": "银都大厦",
             "photoType": "消防通道"
         },
         {
-            "bid":"124",
-            "photoUrl": "../../css/images/buildingPic2.jpg",
+            "Bid":"124",
+            "PhotoUrl": "../../css/images/buildingPic2.jpg",
             "photoName": "金都大厦",
             "photoType": "传感器"
         }

@@ -1,7 +1,5 @@
-
-
 $(document).ready(function() {
-    var userName = document.getElementById("userName").value;
+    var username = document.getElementById("userName").value;
     var password = document.getElementById("password").value;
     $("#submit").click(function() {
         $.ajax({
@@ -9,17 +7,19 @@ $(document).ready(function() {
             url: me.host("login"),
             dataType: "json",
             data: {
-                userName: userName,
+                username: username,
                 password: password
             },
             error: function(res) {
-                alert("用户名或者密码错误");
+                console.log("ajax error");
             },
             success: function(res) {
                 if(res.Success === true ){
                     // 设置cookie, 跳转页面
                     setCookie('Accesstoken', res.Accesstoken);
                     setCookie('Name', res.Data.Name);
+                    setCookie('Bid', res.Data.Bid);
+                    setCookie('Userid', res.Data.Userid);
                     window.location.href = "management.html";
                 }else{
                     alert("用户名或者密码错误！");

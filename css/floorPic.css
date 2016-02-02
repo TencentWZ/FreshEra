@@ -184,8 +184,8 @@
     z-index:100;
     width: 33px;
     height: 47px;
-    background-image: url('images/scroll1.png');
+    background-image: url('images/scroll.png');
 }
 #next:hover {
-    background-image: url('images/scroll2.png');
+    background-image: url('images/scroll_hover.png');
 }

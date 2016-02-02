@@ -1,8 +1,7 @@
 
 $( document ).ready( function () {
-	var bid = "151104001";
-	var uid = "1";
-
+	var bid = getCookie('Bid');
+	var uid = getCookie('Userid');
 	$.ajax({
 		type: "GET",
 		url: me.host("management"),
@@ -15,24 +14,17 @@ $( document ).ready( function () {
 			alert("服务器出错了，请联系相关维护人员");
 		},
 		success: function(res) {
-			// 渲染大楼信息
-			var buildingTitle = $('#building-title');
-			var buildingContent = $('#building-content');
-			var building = res.building;
-			buildingTitle.append('<div>'+ building.name+ '</div>');
-			buildingContent.append('<div>地址： ' + building.address + '<br>物业电话： ' + building.estatePhone + '<br>物业联系人： ' + building.estateContact + '<br>消防联系人： ' + building.fireContact + '<br>管理联系人： ' + building.managementContact +  '</div>');
-
 			// 渲染用户信息
 			var headshot = $('#headshot');
 			var userContent = $('#userContent');
-			var user = res.user;
-			headshot[0].style['background-image'] = 'url(' + user.headshot +')';
-			userContent.append('<div><h4>姓名： ' + user.name + '</h4></div><div>手机： ' + user.mobile + '</div><div>邮箱： ' + user.email + '<div>签到时间： ' + user.registerTime + '</div>');
+			var user = res.User;
+			headshot[0].style['background-image'] = 'url(' + user.Headshot +')';
+			userContent.append('<div><h4>姓名： ' + user.Name + '</h4></div><div>系统编号 ' + user.Systemnum + '</div><div>手机： ' + user.Mobile + '</div><div>邮箱： ' + user.Email + '<div>签到时间： ' + user.RegisterTime + '</div>');
 
 			// 渲染报警信息
 		    $('#warning').html( '<table cellpadding="0" cellspacing="0" border="0" class="row-border" id="warningTable"></table>' );
 		    $('#warningTable').dataTable( {
-		        "data": res.warning.data,
+		        "data": res.Warning.Data,
 		        "columns": [
 		            { "title": "楼层" },
 		            { "title": "设备类型" },
@@ -64,7 +56,7 @@ $( document ).ready( function () {
 			// 渲染设备状态
 			$('#equipState').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="equipStateTable"></table>' );
 		    $('#equipStateTable').dataTable( {
-		        "data": res.equipState.data,
+		        "data": res.EquipState.Data,
 		        "columns": [
 		            { "title": "楼层" },
 		            { "title": "设备类型" },
@@ -94,8 +86,8 @@ $( document ).ready( function () {
 		    } );
 			// 渲染巡检情况
 			var checkPercent = $('#checkPercent');
-			var check = res.check;
-			checkPercent.append('<div>当日巡检完成率： '+ check.dailyCheckPercent +'</div><div>当日巡检完成率： '+ check.monthlyCheckPercent +'</div><div>设备正常率： '+ check.normalEquipPercent +'</div>')
+			var check = res.Check;
+			checkPercent.append('<div>当日巡检完成率： '+ check.DailyCheckPercent +'</div><div>当月巡检完成率： '+ check.MonthlyCheckPercent +'</div><div>设备正常率： '+ check.NormalEquipPercent +'</div>')
 		}
 	});
 } );
