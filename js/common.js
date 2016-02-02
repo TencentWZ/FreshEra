@@ -25,18 +25,18 @@
 				floor3DMapInit: './mock/floor3DMapInit.json?v=' + Math.random()
 			},
 			pro: {
-				floorMapInit: 'accounts/floorMapInit.aspx?bid=151104001&floor_id=F1&picType=平面图',
+				floorMapInit: 'accounts/floorMapInit.aspx',
 				floorMapMonitor: 'accounts/floorMapMonitor.aspx?building_id=151104001&floor_id=F1',
-				floorMapBasic: 'accounts/floorMapBasic.aspx?bid=151104001',
+				floorMapBasic: 'accounts/floorMapBasic.aspx',
 				patrolState: 'accounts/patrolState.aspx?building_id=151104001',
 				alarmHistory: 'accounts/alarmDeals.aspx?building_id=151104001',
 				alarmDealInit: 'accounts/alarmDealInit.aspx?building_id=151104001&alarm_id=1',
 				alarmDeal: 'accounts/alarmDeal.aspx?building_id=151104001&alarm_id=1&deal_type=误报',
 				login: 'accounts/login.aspx',
 				management: 'accounts/management.aspx',
-				baseData: 'accounts/infoall.aspx?bid=151104001',
+				baseData: 'accounts/infoall.aspx',
 				buildingPic: 'accounts/buildingPic.aspx',
-				floor3DMapInit: 'accounts/floorPic.aspx?bid=151104001&floor=F1&pictype=3D图',
+				floor3DMapInit: 'accounts/floorPic.aspx',
 				save: 'accounts/upbuildingInfo.aspx',
 				save2: 'accounts/upbaseEquip.aspx'
 			}

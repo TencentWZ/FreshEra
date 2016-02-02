@@ -1,13 +1,13 @@
 
 $(document).ready(function() {
     // 从后台获得数据，拼接html显示在页面上
-    var bid = "123";
+    var bid = getCookie('Bid');
     $.ajax({
         type: "GET",
         url: me.host("baseData"),
         dataType: "json",
         data: {
-            // bid: bid
+            bid: bid
         },
         error: function(res) {
             alert("服务器错误，请联系相关维护人员");
