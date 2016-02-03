@@ -24,30 +24,28 @@
 	<script src="js/demo.js"></script>
 	<script src="js/vendor/jquery.dataTables.js"></script>
 
+
 </head>
 
 <body>
-	<div class="background-top"></div>
-	<div class="background-bottom"></div>
-	<div class="body">
-		<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">公告</h4>
-					</div>
-					<div class="modal-body" id="notice-content">
-
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary">确认</button>
-					</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">公告</h4>
+				</div>
+				<div class="modal-body" id="notice-content">
+				</div>
+				<div class="modal-footer">
+					<button type="button" style="width: 50px;" class="btn btn-default" data-dismiss="modal" onclick="setCookie('notice',1);">退出</button>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="background-top"></div>
+	<div class="background-bottom"></div>
+	<div class="body">
 		<div id="header"></div>
 		<div id="middle">
 			<div id="sidebar">
@@ -112,6 +110,7 @@
 			</div>
 			<div id="footer"></div>
 		</div>
+
 		<script src="js/management.js"></script>
 </body>
 

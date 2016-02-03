@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+    me.util.layout();
     // 从后台获得数据，拼接html显示在页面上
     var bid = getCookie('Bid');
     $.ajax({
@@ -81,11 +82,16 @@ $(document).ready(function() {
                 $('#' + name).html(value);
             });
             // 上传数据
+            outdata.bid = "151110202";
+            var result = {
+                'results': outdata
+            }
+            console.log(JSON.stringify(result));
             $.ajax({
                 type: "GET",
                 url: me.host(save),
                 dataType: "json",
-                data: outdata,
+                data: JSON.stringify(result),
                 error: function(res) {
                     alert("服务器错误，请联系相关维护人员");
                 },
