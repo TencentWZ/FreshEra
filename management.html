@@ -17,6 +17,7 @@
 
 	<title>管理控制台</title>
 	<script src="js/vendor/jquery.min.js"></script>
+	<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script src="js/common.js"></script>
 	<script src="js/cookie.js"></script>
 	<script src='js/vendor/jquery.velocity.min.js'></script>
@@ -29,6 +30,24 @@
 	<div class="background-top"></div>
 	<div class="background-bottom"></div>
 	<div class="body">
+		<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">公告</h4>
+					</div>
+					<div class="modal-body" id="notice-content">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">确认</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div id="header"></div>
 		<div id="middle">
 			<div id="sidebar">

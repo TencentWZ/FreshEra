@@ -1,5 +1,20 @@
 
 $( document ).ready( function () {
+	$.ajax({
+		type: "GET",
+		url: me.host("notice"),
+		dataType: "json",
+		data: {},
+		error: function(res) {
+			alert("服务器出错了，请联系相关维护人员");
+		},
+		success: function(res) {
+			var noticeContent = $('#notice_content');
+			noticeContent.append('<div>' + res.Comm + '</div><div>'+ res.Cdata + '</div>');
+			$('#myModal').modal('show');
+		}
+	});
+
 	var bid = getCookie('Bid');
 	var uid = getCookie('Userid');
 	$.ajax({
@@ -11,7 +26,7 @@ $( document ).ready( function () {
 			uid: uid
 		},
 		error: function(res) {
-			alert("服务器出错了，请联系相关维护人员");
+			//alert("服务器出错了，请联系相关维护人员");
 		},
 		success: function(res) {
 			// 渲染用户信息
@@ -89,7 +104,7 @@ $( document ).ready( function () {
 			// 渲染巡检情况
 			var checkPercent = $('#checkPercent');
 			var check = res.Check;
-			checkPercent.append('<div>当日巡检完成率： '+ check.DailyCheckPercent +'</div><div>当月巡检完成率： '+ check.MonthlyCheckPercent +'</div><div>设备正常率： '+ check.NormalEquipPercent +'</div>')
+			checkPercent.append('<div>当日巡检完成率： '+ check.DailyCheckPercent +'</div><div>当月巡检完成率： '+ check.MonthlyCheckPercent +'</div><div>设备正常率： '+ check.NormalEquipPercent +'</div>');
 		}
 	});
 } );

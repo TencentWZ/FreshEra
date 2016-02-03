@@ -38,7 +38,8 @@
 				buildingPic: 'accounts/buildingPic.aspx',
 				floor3DMapInit: 'accounts/floorPic.aspx',
 				save: 'accounts/upbuildingInfo.aspx',
-				save2: 'accounts/upbaseEquip.aspx'
+				save2: 'accounts/upbaseEquip.aspx',
+				notice: 'accounts/notice.aspx'
 			}
 		};
 		return url[ env ][ name ] || null;
@@ -65,7 +66,7 @@
 				uid: uid
 			},
 			error: function(res) {
-				alert("服务器出错了，请联系相关维护人员");
+				//alert("服务器出错了，请联系相关维护人员");
 			},
 			success: function(res) {
 				var buildingContent = $('#search-content');

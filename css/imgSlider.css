@@ -1,7 +1,6 @@
 @charset "utf-8";
 * {
     margin: 0;
-    padding: 0;
     list-style-type: none;
 }
 a, img {
@@ -61,7 +60,7 @@ a, img {
 }
 .scrollbg {
     height: 80px;
-    background: #f4f4f4 url(../images/scroll_bg.png) 0 100% repeat-x;
+    background: #314961;
 }
 .scroll {
     margin: 0 auto;
@@ -76,20 +75,20 @@ a, img {
     position: absolute;
 }
 a.s_pre {
-    background: url(../images/arrow_l.png);
+    background: url(images/arrow_l.png);
     top: 4px;
     left: 0;
 }
 a.s_pre:hover {
-    background: url(../images/arrow_l_on.png);
+    background: url(images/arrow_l_on.png);
 }
 a.s_next {
-    background: url(../images/arrow_r.png);
+    background: url(images/arrow_r.png);
     top: 4px;
     right: 0;
 }
 a.s_next:hover {
-    background: url(../images/arrow_r_on.png);
+    background: url(images/arrow_r_on.png);
 }
 .outScroll_pic {
     height: 76px;
@@ -104,6 +103,7 @@ a.s_next:hover {
 }
 .scroll_pic {
     margin: 0 auto;
+    padding: 0;
     width: 40000px;
     height: 76px;
 }
