@@ -1,17 +1,29 @@
 $(function() {
 	// 加载页面公共部分
 	me.util.layout();
+    var bid = getCookie('Bid');
+
+
+    window.onresize = function() {  
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        $("#middle").css({width: windowWidth, height: windowHeight});
+        $(".checkbox-area").css("height", windowHeight - 40);
+        $(".right-area").css("height", windowHeight - 40);
+        $(".safe-title").css("width", windowWidth - 305);
+        $(".map-outer").css("width", windowWidth - 305);
+    };
 
     // 全屏显示
     function requestFullScreen() {
-       var de = document.documentElement;
-       if (de.requestFullscreen) {
-           de.requestFullscreen();
-       } else if (de.mozRequestFullScreen) {
-           de.mozRequestFullScreen();
-       } else if (de.webkitRequestFullScreen) {
-           de.webkitRequestFullScreen();
-       };
+        var de = document.documentElement;
+        if (de.requestFullscreen) {
+            de.requestFullscreen();
+        } else if (de.mozRequestFullScreen) {
+            de.mozRequestFullScreen();
+        } else if (de.webkitRequestFullScreen) {
+            de.webkitRequestFullScreen();
+        };
     };
 
     // 初始化全屏
@@ -23,6 +35,10 @@ $(function() {
         $(".right-area").css("height", windowHeight - 40);
         $(".safe-title").css("width", windowWidth - 305);
         $(".map-outer").css("width", windowWidth - 305);
+        $("#full-screen-prompt").click();
+        $("#full-screen").on("click", function() {
+            requestFullScreen();
+        });
     })();
 
     // 中间图部分
@@ -30,17 +46,18 @@ $(function() {
         type: "GET",
         url: me.host("floorMapBasic"),
         dataType: "json",
-        data: {},
+        data: {
+            bid: bid
+        },
         error: function(res) {
             alert("floorName ajax error!");
         },
         success: function(res) {
-            checkboxInit(res.Ty);
-            $(".safe-title").html('安全风险系数: ' + res.Safety_ratio);
+            checkboxInit();
+            $(".safe-title").html('安全风险系数: ' + res.Safety_ratio + '<button id="close" style="float:right;margin-right:20px;height:33px;line-height:30px;color:#424e54;font-size:15px;">关闭</button>');
             $("#patrol-day-complete").html(res.Patrol_day_complete);
-            $("#patrol-day-normal").html(res.Patrol_day_normal);
             $("#patrol-month-complete").html(res.Patrol_month_complete);
-            $("#patrol-month-normal").html(res.Patrol_month_normal);
+            $("#patrol-normal").html(res.Patrol_month_normal);
             for (var i in res.Floor) {
                 if (i == 0) {
                     $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '" selected>' + res.Floor[i].Floorname + '</option>');
@@ -52,6 +69,11 @@ $(function() {
             $("#floor-select").on("change", function() {
                 initFloor($("#floor-select").val());
             });
+            $("#close").on("click", function() {
+                window.opener = null;
+                window.open("", "_self");
+                window.close();
+            });
         }
     });
     
@@ -60,7 +82,10 @@ $(function() {
             type: "GET",
             url: me.host("floorMapInit"),
             dataType: "json",
-            data: {},
+            data: {
+                bid: bid,
+                floor_id: floor[0]
+            },
             error: function(res) {
                 alert("floorMapInit ajax error!");
             },
@@ -80,45 +105,71 @@ $(function() {
                         );
                     };
                 });
+                
+                $(".checkbox-item").each(function() {
+                    var point_type = $(this).attr("point_type");
+                    $(".state").hide();
+                    var all = document.getElementsByClassName("checkbox-item");
+                    for (var i = 0; i < all.length; i++) {
+                        if (all[i].checked == true) {
+                            $(".state[equipment_type='" + all[i].value + "']").show();
+                        };
+                    };
+                });
                 monitor();
             }
         });
     };
 
-    function checkboxInit(checkboxArr) {
-        $("#checkbox-equipment").html('<p class="p-title">挑选相关设备</p>');
-        checkboxArr.forEach(function(obj) {
-            $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Name + '" id="' + obj.Name + '" /><label for="' + obj.Name + '">' + obj.Name + '</label></p>');
-        });
-        $(".checkbox-item").on("change", function() {
-            var point_type = $(this).attr("point_type");
-            if (point_type == "equipment") {
-                $(".checkbox-item[point_type='inspect']").prop("checked", false);
-            } else if (point_type == "inspect") {
-                $(".checkbox-item[point_type='equipment']").prop("checked", false);
-            };
-            $(".state").hide();
-            var all = document.getElementsByClassName("checkbox-item");
-            for (var i = 0; i < all.length; i++) {
-                if (all[i].checked == true) {
-                    $(".state[equipment_type='" + all[i].value + "']").show();
-                };
-            };
+    function checkboxInit() {
+        $.ajax({
+            type: "GET",
+            url: me.host("alarmdealstype"),
+            dataType: "json",
+            data: {},
+            error: function(res) {
+                alert("alarmdealstype ajax error!");
+            },
+            success: function(res) {
+                $("#checkbox-equipment").html('<p class="p-title">挑选相关设备</p>');
+                res.forEach(function(obj) {
+                    var check = obj.Ischoose == "1" ? "checked" : "";
+                    $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Sensortype + '" id="' + obj.Sensortype + '" ' + check + '/><label for="' + obj.Sensortype + '">' + obj.Sensortype + '</label></p>');
+                });
+                $(".checkbox-item").on("change", function() {
+                    var point_type = $(this).attr("point_type");
+                    if (point_type == "equipment") {
+                        $(".checkbox-item[point_type='inspect']").prop("checked", false);
+                    } else if (point_type == "inspect") {
+                        $(".checkbox-item[point_type='equipment']").prop("checked", false);
+                    };
+                    $(".state").hide();
+                    var all = document.getElementsByClassName("checkbox-item");
+                    for (var i = 0; i < all.length; i++) {
+                        if (all[i].checked == true) {
+                            $(".state[equipment_type='" + all[i].value + "']").show();
+                        };
+                    };
+                });
+            }
         });
     };
 
     function monitor() {
         setInterval(function() {
+            var floorIdCurrent = $("#floor-select").val();
             $.ajax({
                 type: "GET",
                 url: me.host("floorMapMonitor"),
                 dataType: "json",
-                data: {},
+                data: {
+                    bid: bid,
+                    floor_id: floorIdCurrent[0]
+                },
                 error: function(res) {
                     alert("floorMapMonitor ajax error!");
                 },
                 success: function(res) {
-                    var floorIdCurrent = $("#floor-select").val();
                     if (floorIdCurrent) {
                         res.Point_state.forEach(function(val) {
                             if (val.Floorid == floorIdCurrent[0]) {
@@ -142,7 +193,7 @@ $(function() {
                     $(".untreated-alarm").html('');
                     for (var i in res.Untreated_alarm) {
                         $(".untreated-alarm").append('' +
-                           '<p><a href="alarmDeal.html?id=' + res.Untreated_alarm[i].Id + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i].Type + '</a></p>'
+                           '<p><a href="alarmDeal.html?alarm_id=' + res.Untreated_alarm[i].Id + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i].Type + '</a></p>'
                         );
                     };
                 }

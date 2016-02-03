@@ -7,10 +7,11 @@
 // host
 ;
 ( function ( me, $ ) {
-	var env = "pro"; // 测试环境与正式环境切换开关
+	var env = "mock"; // 测试环境与正式环境切换开关
 	var host = function ( name ) {
 		var url = {
 			mock: {
+				alarmdealstype: './mock/alarmdealstype.json?v=' + Math.random(),
 				floorMapInit: './mock/floorMapInit.json?v=' + Math.random(),
 				floorMapMonitor: './mock/floorMapMonitor.json?v=' + Math.random(),
 				floorMapBasic: './mock/floorMapBasic.json?v=' + Math.random(),
@@ -25,13 +26,14 @@
 				floor3DMapInit: './mock/floor3DMapInit.json?v=' + Math.random()
 			},
 			pro: {
+				alarmdealstype: 'accounts/alarmdealstype.aspx',
 				floorMapInit: 'accounts/floorMapInit.aspx',
-				floorMapMonitor: 'accounts/floorMapMonitor.aspx?building_id=151104001&floor_id=F1',
+				floorMapMonitor: 'accounts/floorMapMonitor.aspx',
 				floorMapBasic: 'accounts/floorMapBasic.aspx',
-				patrolState: 'accounts/patrolState.aspx?building_id=151104001',
-				alarmHistory: 'accounts/alarmDeals.aspx?building_id=151104001',
-				alarmDealInit: 'accounts/alarmDealInit.aspx?building_id=151104001&alarm_id=1',
-				alarmDeal: 'accounts/alarmDeal.aspx?building_id=151104001&alarm_id=1&deal_type=误报',
+				patrolState: 'accounts/patrolState.aspx',
+				alarmHistory: 'accounts/alarmDeals.aspx',
+				alarmDealInit: 'accounts/alarmDealInit.aspx',
+				alarmDeal: 'accounts/alarmDeal.aspx',
 				login: 'accounts/login.aspx',
 				management: 'accounts/management.aspx',
 				baseData: 'accounts/infoall.aspx',

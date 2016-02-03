@@ -1,12 +1,15 @@
 $(function() {
 	// 加载页面公共部分
 	me.util.layout();
+    var bid = getCookie('Bid');
 
 	$.ajax({
         type: "GET",
         url: me.host("patrolState"),
         dataType: "json",
-        data: {},
+        data: {
+            bid: bid
+        },
         error: function(res) {
             alert("patrolState ajax error!");
         },
@@ -19,8 +22,8 @@ $(function() {
 		$('#table_id').DataTable({
 	        "info": false,
         	"jQueryUI": false,
-        	"ordering": false,
-        	"searching": false,
+        	"ordering": true,
+        	"searching": true,
         	"bLengthChange": false,
 	        "data": dataSet,
 	        "columns": [

@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/floorMap2D.css" />
 <title>floorMap2D</title>
 <script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/bootstrap.js"></script>
 <script src="js/common.js"></script>
 <script src="js/cookie.js"></script>
 <script src='js/vendor/jquery.velocity.min.js'></script>
@@ -41,16 +42,30 @@
 			<div class="untreated-alarm"></div>
 			<div class="patrol-title">巡检概况</div>
 			<div class="patrol">
-				<p>1. 当日巡检完成率：<span id="patrol-day-complete"></span></p>
-				<p>正常率：<span id="patrol-day-normal"></span></p>
-				<p>2. 当月巡检完成率：<span id="patrol-month-complete"></span></p>
-				<p>正常率：<span id="patrol-month-normal"></span></p>
+				<p>当日巡检完成率：<span id="patrol-day-complete"></span></p>
+				<p>当月巡检完成率：<span id="patrol-month-complete"></span></p>
+				<p>正常率：<span id="patrol-normal"></span></p>
 			</div>
 			<div class="floor-title">选择楼层</div>
 			<div id="floor-select-div">
 				<select id="floor-select" multiple='multiple'></select>
 			</div>
 		</div>
+	</div>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="display:none;" id="full-screen-prompt">全屏显示弹出层</button>
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">是否需要全屏显示？</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">不全屏</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" id="full-screen">全屏</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 </body>
 </html>
