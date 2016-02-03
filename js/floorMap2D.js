@@ -4,7 +4,7 @@ $(function() {
     var bid = getCookie('Bid');
 
 
-    window.onresize = function() {  
+    window.onresize = function() {
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
         $("#middle").css({width: windowWidth, height: windowHeight});
@@ -76,7 +76,7 @@ $(function() {
             });
         }
     });
-    
+
     function initFloor(floor) {
         $.ajax({
             type: "GET",
@@ -84,7 +84,8 @@ $(function() {
             dataType: "json",
             data: {
                 bid: bid,
-                floor_id: floor[0]
+                floor_id: floor[0],
+				picType: '平面图'
             },
             error: function(res) {
                 alert("floorMapInit ajax error!");
@@ -105,7 +106,7 @@ $(function() {
                         );
                     };
                 });
-                
+
                 $(".checkbox-item").each(function() {
                     var point_type = $(this).attr("point_type");
                     $(".state").hide();

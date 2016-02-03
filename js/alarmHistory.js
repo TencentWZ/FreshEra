@@ -36,7 +36,7 @@ $(function() {
 	            alert("alarmHistory ajax error!");
 	        },
 	        success: function(res) {
-	            initTable(res.data);
+	            initTable(res);
 	        }
 	    });
 	};

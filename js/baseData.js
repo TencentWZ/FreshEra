@@ -82,9 +82,9 @@ $(document).ready(function() {
                 $('#' + name).html(value);
             });
             // 上传数据
-            outdata.bid = "151110202";
             var result = {
-                'results': outdata
+                'results': outdata,
+                'bid': '151104001'
             }
             console.log(JSON.stringify(result));
             $.ajax({

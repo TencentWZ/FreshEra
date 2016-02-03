@@ -108,14 +108,16 @@ function init2DFloor( floor ) {
 		url: me.host( "floorMapInit" ),
 		dataType: "json",
 		data: {
-			floor: floor[ 0 ],
+			floor_id: floor[0],
 			bid: bid,
 			picType: "平面图"
 		},
 		error: function ( res ) {
+			console.log(res);
 			alert( "floorMapInit ajax error!" );
 		},
 		success: function ( res ) {
+			console.log(res);
 			var width = parseFloat( $( ".map" ).css( "width" ) );
 			var height = parseFloat( $( ".map" ).css( "height" ) );
 			$( ".map" ).css( "background-image", "url(" + res.Url + ")" );

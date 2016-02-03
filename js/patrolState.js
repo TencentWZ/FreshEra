@@ -14,7 +14,7 @@ $(function() {
             alert("patrolState ajax error!");
         },
         success: function(res) {
-            initTable(res.data);
+            initTable(res);
         }
     });
 
