@@ -1,7 +1,6 @@
 
 $( document ).ready( function () {
 
-
 	var bid = getCookie('Bid');
 	var uid = getCookie('Userid');
 	var noticeContent = $('#notice-content');

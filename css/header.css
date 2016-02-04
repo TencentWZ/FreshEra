@@ -13,14 +13,14 @@
     width: 106px;
     height: 32px;
 }
-.btn-manament {
+.btn-management {
   color: #fff;
   background-color: #5b7996;
   border-color: #5b7996;
   border-radius: 0;
   border-top-left-radius: 5px;
 }
-.btn-manament:hover {
+.btn-management:hover {
   color: #fff;
   background-color: #7392af;
   border-color: #7392af;

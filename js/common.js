@@ -7,7 +7,7 @@
 // host
 ;
 ( function ( me, $ ) {
-	var env = "mock"; // 测试环境与正式环境切换开关
+	var env = "pro"; // 测试环境与正式环境切换开关
 	var host = function ( name ) {
 		var url = {
 			mock: {
@@ -80,6 +80,8 @@
 				var buildingContent = $('#building-content');
 				var building = res.Building;
 				buildingTitle.append(building.Name);
+				setCookie('Bname', building.Name);
+				console.log(setCookie);
 				buildingContent.append('地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact);
 			}
 		});

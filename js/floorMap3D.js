@@ -2,6 +2,8 @@ $(function() {
 	// 加载页面公共部分
 	me.util.layout();
     var bid = getCookie('Bid');
+	var bname = getCookie('Bname');
+	$('#checkbox-title').append(bname);
     var spin = $( '#spritespin' );
 
     window.onresize = function() {
@@ -54,7 +56,7 @@ $(function() {
         },
         success: function(res) {
             checkboxInit();
-            $(".safe-title").html('安全风险系数: ' + res.Safety_ratio + '<button id="close" style="float:right;margin-right:20px;height:33px;line-height:30px;color:#424e54;font-size:15px;">关闭</button>');
+            $("#safe-title").append('安全风险系数: ' + res.Safety_ratio);
             $("#patrol-day-complete").html(res.Patrol_day_complete);
             $("#patrol-month-complete").html(res.Patrol_month_complete);
             $("#patrol-normal").html(res.Patrol_month_normal);
