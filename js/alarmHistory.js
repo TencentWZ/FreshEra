@@ -15,6 +15,7 @@ $(function() {
             alert("alarmdealstype ajax error!");
         },
         success: function(res) {
+			console.log(res);
             res.forEach(function(obj) {
                 $("#equipment-type").append('<option value="' + obj.Sensortype + '">' + obj.Sensortype + '</option>');
             });
