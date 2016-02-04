@@ -47,7 +47,7 @@
 	left: 140px;
 }
 
-.map {
+.map, #spritespin {
 	position: relative;
 	margin: 0 auto;
 	width: 680px;
@@ -138,4 +138,16 @@
 
 .alerting {
 	background: #c00;
+}
+#next {
+    position: absolute;
+    bottom: 80px;
+    right:60px;
+    z-index:100;
+    width: 33px;
+    height: 47px;
+    background-image: url('images/scroll.png');
+}
+#next:hover {
+    background-image: url('images/scroll_hover.png');
 }

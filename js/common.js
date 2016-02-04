@@ -71,9 +71,11 @@
 				//alert("服务器出错了，请联系相关维护人员");
 			},
 			success: function(res) {
-				var buildingContent = $('#search-content');
+				var buildingTitle = $('#building-title');
+				var buildingContent = $('#building-content');
 				var building = res.Building;
-				buildingContent.append('<div><h4>'+ building.Name+ '</h4></div><div>地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact +  '</div>');
+				buildingTitle.append(building.Name);
+				buildingContent.append('地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact);	
 			}
 		});
 	};

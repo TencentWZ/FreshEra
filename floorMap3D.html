@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="no-cache" http-equiv="Cache-Control" />
+<meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
+<meta content="telephone=no" name="format-detection" />
+<link type="image/x-icon" rel="shortcut icon" href="" />
+<link rel="stylesheet" href="css/vendor/bootstrap.css" />
+<link rel="stylesheet" href="css/vendor/normalize.css" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/header.css" />
+<link rel="stylesheet" href="css/mtree.css" />
+<link rel="stylesheet" href="css/floorMap2D.css" />
+<title>floorMap2D</title>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/bootstrap.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cookie.js"></script>
+<script src='js/vendor/jquery.velocity.min.js'></script>
+<script src='js/vendor/spritespin.min.js'></script>
+<script src="js/floorMap3D.js"></script>
+</head>
+<body>
+	<div id="middle" style="top:0;border-radius:0;">
+		<div class="checkbox-area">
+			<div id="checkbox-title">
+				东明家具城
+			</div>
+			<div id="checkbox-inspect">
+				<p class="p-title">按巡检时间</p>
+				<p><input class="checkbox-item" type="checkbox" point_type="inspect" value="当天巡检点" id="当天巡检点" /><label for="当天巡检点">当天巡检点</label></p>
+				<p><input class="checkbox-item" type="checkbox" point_type="inspect" value="月度巡检点" id="月度巡检点" /><label for="月度巡检点">月度巡检点</label></p>
+			</div>
+			<div id="checkbox-equipment"></div>
+		</div>
+		<div class="safe-title"></div>
+		<div class="map-outer">
+            <div id='spritespin'></div>
+            <div id="next"></div>
+            <div class="details" id="details" style="display:none;">
+                <div class="detail detail-0"></div>
+                <div class="detail detail-12"></div>
+            </div>
+		</div>
+		<div class="right-area">
+			<div class="untreated-alarm-title">当前未处理告警区</div>
+			<div class="untreated-alarm"></div>
+			<div class="patrol-title">巡检概况</div>
+			<div class="patrol">
+				<p>当日巡检完成率：<span id="patrol-day-complete"></span></p>
+				<p>当月巡检完成率：<span id="patrol-month-complete"></span></p>
+				<p>正常率：<span id="patrol-normal"></span></p>
+			</div>
+			<div class="floor-title">选择楼层</div>
+			<div id="floor-select-div">
+				<select id="floor-select" multiple='multiple'></select>
+			</div>
+		</div>
+	</div>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="display:none;" id="full-screen-prompt">全屏显示弹出层</button>
+	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">是否需要全屏显示？</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">不全屏</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" id="full-screen">全屏</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</body>
+</html>
