@@ -49,10 +49,10 @@ var init = function () {
 			 img.imagebg.innerHTML = img.imagebg.innerHTML+img.imagebg.innerHTML+img.imagebg.innerHTML;
 			for(var i=0;i<img.imagebg_li.length;i++){
 				if(i!=0){
-					img.small_pic_html.push("<li onclick='image.play("+i+")'><img src='"+img.imagebg_li[i].getAttribute("data-sPic")+"' style='width:145px;height:65px;'/></li>");
+					img.small_pic_html.push("<li onclick='image.play("+i+")'><div style='width:145px;height:65px;background-image:url(" + img.imagebg_li[i].getAttribute("data-sPic") + ");background-size: auto 100%;background-position: center;background-repeat: no-repeat;'></div></li>");
 					img.imagebg.getElementsByTagName("li")[i].style.display ="none";
 				}else{
-					img.small_pic_html.push("<li onclick='image.play("+i+")' class='currently'><img src='"+img.imagebg_li[i].getAttribute("data-sPic")+"' style='width:145px;height:65px;'/></li>");
+					img.small_pic_html.push("<li onclick='image.play("+i+")' class='currently'><div style='width:145px;height:65px;background-image:url(" + img.imagebg_li[i].getAttribute("data-sPic") + ");background-size: auto 100%;background-position: center;background-repeat: no-repeat;'></div></li>");
 				}
 			}
 			img.small_pic.innerHTML = img.small_pic_html.join("");
