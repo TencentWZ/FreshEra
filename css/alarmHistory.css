@@ -22,3 +22,7 @@
 .row {
 	line-height: 25px !important;
 }
+
+#alarmSearchTable_info {
+	color: #FFF;
+}
