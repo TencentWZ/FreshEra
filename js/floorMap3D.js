@@ -14,6 +14,9 @@ $(function() {
         $(".right-area").css("height", windowHeight - 40);
         $(".safe-title").css("width", windowWidth - 305);
         $(".map-outer").css("width", windowWidth - 305);
+		$(".map-outer").css("height", windowHeight - 88);
+        $(".map").css("width", windowHeight - 88);
+        $(".map").css("height", windowHeight - 88);
     };
 
     // 全屏显示
@@ -37,6 +40,9 @@ $(function() {
         $(".right-area").css("height", windowHeight - 40);
         $(".safe-title").css("width", windowWidth - 305);
         $(".map-outer").css("width", windowWidth - 305);
+		$(".map-outer").css("height", windowHeight - 88);
+        $(".map").css("width", windowHeight - 88);
+        $(".map").css("height", windowHeight - 88);
         $("#full-screen-prompt").click();
         $("#full-screen").on("click", function() {
             requestFullScreen();

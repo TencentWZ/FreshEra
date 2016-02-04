@@ -1,4 +1,6 @@
-
+#middle {
+	background-color: #4d555d;
+}
 .checkbox-area {
 	position: absolute;
 	top: 20px;
@@ -7,7 +9,9 @@
 	height: 728px;
 	color: #fff;
 	font-size: 12px;
-	background: #294158;
+	background: #4d555d;
+	border-right: 2px solid #5b7996;
+	padding-right: 10px;
 }
 
 .checkbox-area #checkbox-title {
@@ -38,7 +42,7 @@
 
 .checkbox-area .p-title {
 	margin-bottom: 10px;
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .map-outer {
@@ -76,7 +80,7 @@
 	height: 728px;
 	color: #fff;
 	font-size: 12px;
-	background: #294158;
+	background: #4d555d;
 }
 
 .untreated-alarm-title, .patrol-title, .floor-title {
@@ -110,7 +114,7 @@
 	width: 115px;
 	height: 268px;
 	color: #fff;
-	background: #294158;
+	background: #4d555d;
 	border: 2px solid #5b7996;
 	overflow: auto;
 	text-align: center;

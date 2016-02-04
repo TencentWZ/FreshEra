@@ -2,7 +2,9 @@ $(function() {
 	// 加载页面公共部分
 	me.util.layout();
     var bid = getCookie('Bid');
-
+	var bname = getCookie('Bname');
+	$('#checkbox-title').append(bname);
+	
     window.onresize = function() {
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
