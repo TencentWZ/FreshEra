@@ -85,7 +85,7 @@ function selectorInit( initFloor, dimension ) {
 			alert( "floorName ajax error!" );
 		},
 		success: function ( res ) {
-            checkboxInit();
+            checkboxInit(dimension);
 			for ( var i in res.Floor ) {
 				if ( i == 0 ) {
 					$( "#floor-select" + dimension ).append( '<option value="' + res.Floor[ i ].Floorid + '" selected>' + res.Floor[ i ].Floorname + '</option>' );
@@ -137,27 +137,27 @@ function init2DFloor( floor ) {
 	} );
 };
 
-function checkboxInit( checkboxArr, dimension ) {
-	$( "#checkbox-equipment" + dimension ).html( '<p class="p-title">挑选相关设备</p>' );
-	checkboxArr.forEach( function ( obj ) {
-		$( "#checkbox-equipment" + dimension ).append( '<p><input class="checkbox-item" type="checkbox" point_type="传感器" value="' + obj.Name + '" id="' + obj.Name + '" /><label for="' + obj.Name + '">' + obj.Name + '</label></p>' );
-	} );
-	$( ".checkbox-item" ).on( "change", function () {
-		var point_type = $( this ).attr( "point_type" );
-		if ( point_type == "传感器" ) {
-			$( ".checkbox-item[point_type='巡检点']" ).prop( "checked", false );
-		} else if ( point_type == "巡检点" ) {
-			$( ".checkbox-item[point_type='传感器']" ).prop( "checked", false );
-		};
-		$( ".state" ).hide();
-		var all = document.getElementsByClassName( "checkbox-item" );
-		for ( var i = 0; i < all.length; i++ ) {
-			if ( all[ i ].checked == true ) {
-				$( ".state[equipment_type='" + all[ i ].value + "']" ).show();
-			};
-		};
-	} );
-};
+// function checkboxInit( checkboxArr, dimension ) {
+// 	$( "#checkbox-equipment" + dimension ).html( '<p class="p-title">挑选相关设备</p>' );
+// 	checkboxArr.forEach( function ( obj ) {
+// 		$( "#checkbox-equipment" + dimension ).append( '<p><input class="checkbox-item" type="checkbox" point_type="传感器" value="' + obj.Name + '" id="' + obj.Name + '" /><label for="' + obj.Name + '">' + obj.Name + '</label></p>' );
+// 	} );
+// 	$( ".checkbox-item" ).on( "change", function () {
+// 		var point_type = $( this ).attr( "point_type" );
+// 		if ( point_type == "传感器" ) {
+// 			$( ".checkbox-item[point_type='巡检点']" ).prop( "checked", false );
+// 		} else if ( point_type == "巡检点" ) {
+// 			$( ".checkbox-item[point_type='传感器']" ).prop( "checked", false );
+// 		};
+// 		$( ".state" ).hide();
+// 		var all = document.getElementsByClassName( "checkbox-item" );
+// 		for ( var i = 0; i < all.length; i++ ) {
+// 			if ( all[ i ].checked == true ) {
+// 				$( ".state[equipment_type='" + all[ i ].value + "']" ).show();
+// 			};
+// 		};
+// 	} );
+// };
 
 /* 3D点渲染 */
 function init3DFloor( floor ) {
@@ -219,12 +219,12 @@ function init3DFloor( floor ) {
                         };
                     };
                 });
-   
+
             }
         });
     };
 
-    function checkboxInit() {
+    function checkboxInit(dimension) {
         $.ajax({
             type: "GET",
             url: me.host("alarmdealstype"),
@@ -234,10 +234,10 @@ function init3DFloor( floor ) {
                 alert("alarmdealstype ajax error!");
             },
             success: function(res) {
-                $("#checkbox-equipment").html('<p class="p-title">挑选相关设备</p>');
+                $("#checkbox-equipment" + dimension ).html('<p class="p-title">挑选相关设备</p>');
                 res.forEach(function(obj) {
                     var check = obj.Ischoose == "1" ? "checked" : "";
-                    $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Sensortype + '" id="' + obj.Sensortype + '" ' + check + '/><label for="' + obj.Sensortype + '">' + obj.Sensortype + '</label></p>');
+                    $("#checkbox-equipment" + dimension ).append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Sensortype + '" id="' + obj.Sensortype + '" ' + check + '/><label for="' + obj.Sensortype + '">' + obj.Sensortype + '</label></p>');
                 });
                 $(".checkbox-item").on("change", function() {
                     var point_type = $(this).attr("point_type");
