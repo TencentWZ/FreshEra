@@ -7,7 +7,7 @@
 // host
 ;
 ( function ( me, $ ) {
-	var env = "pro"; // 测试环境与正式环境切换开关
+	var env = "mock"; // 测试环境与正式环境切换开关
 	var host = function ( name ) {
 		var url = {
 			mock: {
@@ -19,6 +19,7 @@
 				alarmHistory: './mock/alarmHistory.json?v=' + Math.random(),
 				alarmDealInit: './mock/alarmDealInit.json?v=' + Math.random(),
 				alarmDeal: './mock/alarmDeal.json?v=' + Math.random(),
+				notalarmDeals: './mock/notalarmDeals.json?v=' + Math.random(),
 				baseData: './mock/baseData.json?v=' + Math.random(),
 				buildingPic: './mock/buildingPic.json?v=' + Math.random(),
 				login: './mock/login.json?v=' + Math.random(),
@@ -34,6 +35,7 @@
 				alarmHistory: 'accounts/alarmDeals.aspx',
 				alarmDealInit: 'accounts/alarmDealInit.aspx',
 				alarmDeal: 'accounts/alarmDeal.aspx',
+				notalarmDeals: 'accounts/notalarmDeals.aspx',
 				login: 'accounts/login.aspx',
 				management: 'accounts/management.aspx',
 				baseData: 'accounts/infoall.aspx',
