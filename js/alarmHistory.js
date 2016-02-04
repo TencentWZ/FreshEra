@@ -15,7 +15,11 @@ $(function() {
             alert("alarmdealstype ajax error!");
         },
         success: function(res) {
-			console.log(res);
+			var arrLength = res.length;
+			var tmp = {
+				Sensortype: "不选择"
+			};
+			res[arrLength] = tmp;
             res.forEach(function(obj) {
                 $("#equipment-type").append('<option value="' + obj.Sensortype + '">' + obj.Sensortype + '</option>');
             });
