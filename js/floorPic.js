@@ -85,7 +85,7 @@ function selectorInit( initFloor, dimension ) {
 			alert( "floorName ajax error!" );
 		},
 		success: function ( res ) {
-			checkboxInit( res.Ty, dimension );
+            checkboxInit();
 			for ( var i in res.Floor ) {
 				if ( i == 0 ) {
 					$( "#floor-select" + dimension ).append( '<option value="' + res.Floor[ i ].Floorid + '" selected>' + res.Floor[ i ].Floorname + '</option>' );
@@ -175,7 +175,7 @@ function init3DFloor( floor ) {
 			picType: "3D图"
 		},
 		error: function ( res ) {
-			alert( "ajax error" );
+                alert("floorMapInit ajax error!");
 		},
 		success: function ( res ) {
 			// 正则匹配url
@@ -209,6 +209,106 @@ function init3DFloor( floor ) {
 					}
 				};
 			} );
-		}
-	} );
-};
+                $(".checkbox-item").each(function() {
+                    var point_type = $(this).attr("point_type");
+                    $(".state").hide();
+                    var all = document.getElementsByClassName("checkbox-item");
+                    for (var i = 0; i < all.length; i++) {
+                        if (all[i].checked == true) {
+                            $(".state[equipment_type='" + all[i].value + "']").show();
+                        };
+                    };
+                });
+   
+            }
+        });
+    };
+
+    function checkboxInit() {
+        $.ajax({
+            type: "GET",
+            url: me.host("alarmdealstype"),
+            dataType: "json",
+            data: {},
+            error: function(res) {
+                alert("alarmdealstype ajax error!");
+            },
+            success: function(res) {
+                $("#checkbox-equipment").html('<p class="p-title">挑选相关设备</p>');
+                res.forEach(function(obj) {
+                    var check = obj.Ischoose == "1" ? "checked" : "";
+                    $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Sensortype + '" id="' + obj.Sensortype + '" ' + check + '/><label for="' + obj.Sensortype + '">' + obj.Sensortype + '</label></p>');
+                });
+                $(".checkbox-item").on("change", function() {
+                    var point_type = $(this).attr("point_type");
+                    if (point_type == "equipment") {
+                        $(".checkbox-item[point_type='inspect']").prop("checked", false);
+                    } else if (point_type == "inspect") {
+                        $(".checkbox-item[point_type='equipment']").prop("checked", false);
+                    };
+                    $(".state").hide();
+                    var all = document.getElementsByClassName("checkbox-item");
+                    for (var i = 0; i < all.length; i++) {
+                        if (all[i].checked == true) {
+                            $(".state[equipment_type='" + all[i].value + "']").show();
+                        };
+                    };
+                });
+            }
+        });
+    };
+
+    function monitor() {
+        setInterval(function() {
+            var floorIdCurrent = $("#floor-select").val();
+            $.ajax({
+                type: "GET",
+                url: me.host("floorMapMonitor"),
+                dataType: "json",
+                data: {
+                    bid: bid,
+                    floor_id: floorIdCurrent[0]
+                },
+                error: function(res) {
+                    alert("floorMapMonitor ajax error!");
+                },
+                success: function(res) {
+                    if (floorIdCurrent) {
+                        res.Point_state.forEach(function(val) {
+                            if (val.Floorid == floorIdCurrent[0]) {
+                                switch (val.State) {
+                                    case "0":
+                                        changeClass(val.Id, "normal");
+                                        break;
+                                    case "1":
+                                        changeClass(val.Id, "abnormal");
+                                        break;
+                                    case "2":
+                                        changeClass(val.Id, "alerting");
+                                        $("#" + val.Id).tips($("#" + val.Id).attr("name") + "发生异常！");
+                                        break;
+                                    default:
+                                };
+                            };
+                        });
+                    };
+                    var n = 1;
+                    $(".untreated-alarm").html('');
+                    for (var i in res.Untreated_alarm) {
+                        $(".untreated-alarm").append('' +
+                           '<p><a href="alarmDeal.html?alarm_id=' + res.Untreated_alarm[i].Id + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i].Type + '</a></p>'
+                        );
+                    };
+                }
+            });
+        }, 1000);
+    };
+
+    function changeClass(idName, className) {
+        $("#" + idName).removeClass("normal");
+        $("#" + idName).removeClass("abnormal");
+        $("#" + idName).removeClass("alerting");
+        $("#" + idName).addClass(className);
+    };
+
+});
