@@ -167,10 +167,10 @@ function init3DFloor( floor ) {
 	spin.unbind( 'onFrame' );
 	$.ajax( {
 		type: "GET",
-		url: me.host( "floor3DMapInit" ),
+		url: me.host( "floorMapInit" ),
 		dataType: "json",
 		data: {
-			floor: floor[ 0 ],
+			floor_id: floor[ 0 ],
 			bid: bid,
 			picType: "3D图"
 		},

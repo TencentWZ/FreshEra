@@ -115,7 +115,7 @@ ul.mtree.transit ul {
   margin-left: 0;
 }
 ul.mtree.transit ul > li {
-  font-size: .9em;
+  font-size: 12px;
 }
 ul.mtree.transit li.mtree-node {
   position: relative;

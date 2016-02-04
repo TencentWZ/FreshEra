@@ -54,7 +54,10 @@
 ( function ( me, $ ) {
 	var Layout = function () {};
 	Layout.prototype.header = function () {
-
+		var monitor = $('#monitor');
+		monitor.click(function(){
+			window.open('floorMap2D.html');
+		})
 	};
 	Layout.prototype.search = function () {
 		var bid = getCookie('Bid');
@@ -75,7 +78,7 @@
 				var buildingContent = $('#building-content');
 				var building = res.Building;
 				buildingTitle.append(building.Name);
-				buildingContent.append('地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact);	
+				buildingContent.append('地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact);
 			}
 		});
 	};

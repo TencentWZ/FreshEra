@@ -72,10 +72,9 @@ $(document).ready(function() {
             }
             modifyFlag = false;
         });
-
-        $("#" + save).click(function(){
+        $("#" + save).click(function () {
             // 提交数据
-            $('.' + dom).each(function(){
+            $('.' + dom).each(function () {
                 var value = $(this).val();
                 var name = $(this).attr('name');
                 outdata[name] = value;
@@ -83,19 +82,18 @@ $(document).ready(function() {
             });
             // 上传数据
             var result = {
-                'results': outdata,
-                'bid': '151104001'
+                'results': JSON.stringify(outdata),
+                'bid': bid
             }
-            console.log(JSON.stringify(result));
             $.ajax({
                 type: "GET",
                 url: me.host(save),
                 dataType: "json",
-                data: JSON.stringify(result),
-                error: function(res) {
+                data: result,
+                error: function (res) {
                     alert("服务器错误，请联系相关维护人员");
                 },
-                success: function(res) {
+                success: function (res) {
                     alert("保存成功");
                 }
             });
