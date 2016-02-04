@@ -4,19 +4,25 @@ $(function() {
     var bid = getCookie('Bid');
 	var bname = getCookie('Bname');
 	$('#checkbox-title').append(bname);
-    var spin = $( '#spritespin' );
+    var spin = $( '#map' );
 
     window.onresize = function() {
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
+		var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
         $("#middle").css({width: windowWidth, height: windowHeight});
         $(".checkbox-area").css("height", windowHeight - 40);
         $(".right-area").css("height", windowHeight - 40);
         $(".safe-title").css("width", windowWidth - 305);
         $(".map-outer").css("width", windowWidth - 305);
 		$(".map-outer").css("height", windowHeight - 88);
-        $(".map").css("width", windowHeight - 88);
-        $(".map").css("height", windowHeight - 88);
+		// 如果屏幕长宽比较小
+		if ((windowHeight - 88)/0.75 >  windowWidth - 305) {
+			$("#map").css("width", windowWidth - 305);
+			$("#map").css("height", (windowWidth - 305)*0.75);
+		} else {
+			$("#map").css("width", (windowHeight - 88)/0.75);
+			$("#map").css("height", windowHeight - 88);
+		}
     };
 
     // 全屏显示
@@ -33,16 +39,22 @@ $(function() {
 
     // 初始化全屏
     (function initScreen() {
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
+		var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
         $("#middle").css({width: windowWidth, height: windowHeight});
         $(".checkbox-area").css("height", windowHeight - 40);
         $(".right-area").css("height", windowHeight - 40);
         $(".safe-title").css("width", windowWidth - 305);
         $(".map-outer").css("width", windowWidth - 305);
 		$(".map-outer").css("height", windowHeight - 88);
-        $(".map").css("width", windowHeight - 88);
-        $(".map").css("height", windowHeight - 88);
+		// 如果屏幕长宽比较小
+		if ((windowHeight - 88)/0.75 >  windowWidth - 325) {
+			$("#map").css("width", windowWidth - 305);
+			$("#map").css("height", (windowWidth - 305)*0.75);
+		} else {
+			$("#map").css("width", (windowHeight - 88)/0.75);
+			$("#map").css("height", windowHeight - 88);
+		}
         $("#full-screen-prompt").click();
         $("#full-screen").on("click", function() {
             requestFullScreen();
@@ -97,9 +109,9 @@ $(function() {
     	// spin.removeAttr("class");
     	spin.spritespin( {
     		source: frames,
-    		width: 733,
+    		width: parseFloat($("#map").css("width")),
     		sense: -1,
-    		height: 550,
+    		height: parseFloat($("#map").css("height")),
     		animate: false
     	} );
     	// 得到api
@@ -151,8 +163,8 @@ $(function() {
                 console.log(res);
                 var re = /3D\/[0-9]+./g;
                 var urlArr = res.Url.split( re );
-                var width = parseFloat($(".map").css("width"));
-                var height = parseFloat($(".map").css("height"));
+                var width = parseFloat($("#map").css("width"));
+                var height = parseFloat($("#map").css("height"));
                 // 将素材赋给3D旋转图
     			threeDInit( urlArr, spin );
     			res.Point.forEach( function ( obj ) {

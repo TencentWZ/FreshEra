@@ -4,18 +4,24 @@ $(function() {
     var bid = getCookie('Bid');
 	var bname = getCookie('Bname');
 	$('#checkbox-title').append(bname);
-	
+
     window.onresize = function() {
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
+		var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
         $("#middle").css({width: windowWidth, height: windowHeight});
         $(".checkbox-area").css("height", windowHeight - 40);
         $(".right-area").css("height", windowHeight - 40);
-        $(".safe-title").css("width", windowWidth - 305);
-        $(".map-outer").css("width", windowWidth - 305);
+        $(".safe-title").css("width", windowWidth - 325);
+        $(".map-outer").css("width", windowWidth - 325);
         $(".map-outer").css("height", windowHeight - 88);
-        $(".map").css("width", windowHeight - 88);
-        $(".map").css("height", windowHeight - 88);
+		// 如果屏幕长宽比较小
+		if ((windowHeight - 88)/0.75 >  windowWidth - 305) {
+			$("#map").css("width", windowWidth - 305);
+			$("#map").css("height", (windowWidth - 305)*0.75);
+		} else {
+			$("#map").css("width", (windowHeight - 88)/0.75);
+			$("#map").css("height", windowHeight - 88);
+		}
     };
 
     // 全屏显示
@@ -32,16 +38,23 @@ $(function() {
 
     // 初始化全屏
     (function initScreen() {
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
+        var windowWidth = document.documentElement.clientWidth;
+        var windowHeight = document.documentElement.clientHeight;
         $("#middle").css({width: windowWidth, height: windowHeight});
         $(".checkbox-area").css("height", windowHeight - 40);
         $(".right-area").css("height", windowHeight - 40);
         $(".safe-title").css("width", windowWidth - 305);
         $(".map-outer").css("width", windowWidth - 305);
         $(".map-outer").css("height", windowHeight - 88);
-        $(".map").css("width", windowHeight - 88);
-        $(".map").css("height", windowHeight - 88);
+		// 如果屏幕长宽比较小
+		if ((windowHeight - 88)/0.75 >  windowWidth - 305) {
+			$("#map").css("width", windowWidth - 305);
+			$("#map").css("height", (windowWidth - 305)*0.75);
+		} else {
+			$("#map").css("width", (windowHeight - 88)/0.75);
+			$("#map").css("height", windowHeight - 88);
+		}
+
         $("#full-screen-prompt").click();
         $("#full-screen").on("click", function() {
             requestFullScreen();
@@ -61,7 +74,7 @@ $(function() {
         },
         success: function(res) {
             checkboxInit();
-            $(".safe-title").html('安全风险系数: ' + res.Safety_ratio + '<button id="close" style="float:right;margin-right:20px;height:33px;line-height:30px;color:#424e54;font-size:15px;">关闭</button>');
+            $("#safe-title").html('安全风险系数: ' + res.Safety_ratio);
             $("#patrol-day-complete").html(res.Patrol_day_complete);
             $("#patrol-month-complete").html(res.Patrol_month_complete);
             $("#patrol-normal").html(res.Patrol_month_normal);
@@ -98,17 +111,17 @@ $(function() {
                 alert("floorMapInit ajax error!");
             },
             success: function(res) {
-                var width = parseFloat($(".map").css("width"));
-                var height = parseFloat($(".map").css("height"));
-                $(".map").css("background-image", "url(" + res.Url + ")");
-                $(".map").html('');
+                var width = parseFloat($("#map").css("width"));
+                var height = parseFloat($("#map").css("height"));
+                $("#map").css("background-image", "url(" + res.Url + ")");
+                $("#map").html('');
                 res.Point.forEach(function(obj) {
                     if (obj.Point_type == "传感器") {
-                        $(".map").append('' +
+                        $("#map").append('' +
                             '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     } else if (obj.Point_type == "巡检点") {
-                        $(".map").append('' +
+                        $("#map").append('' +
                             '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     };

@@ -43,6 +43,7 @@
 .checkbox-area .p-title {
 	margin-bottom: 10px;
 	font-size: 14px;
+	margin-left: 10px;
 }
 
 .map-outer {
@@ -51,12 +52,14 @@
 	left: 140px;
 }
 
-.map, #spritespin {
+#map {
 	position: relative;
 	margin: 0 auto;
 	width: 680px;
 	height: 680px;
-	background-size: cover;
+	background-size: auto 100%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .safe-title {
@@ -81,14 +84,16 @@
 	color: #fff;
 	font-size: 12px;
 	background: #4d555d;
+	border-left: 2px solid #5b7996;
+	padding-left: 10px;
 }
 
 .untreated-alarm-title, .patrol-title, .floor-title {
 	height: 30px;
 	line-height: 30px;
-	text-align: center;
+	margin-left: 15px;
 	font-size: 14px;
-	background: #424e54;
+	background: #4d555d;
 }
 
 .untreated-alarm {
