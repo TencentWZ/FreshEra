@@ -131,6 +131,16 @@ function init2DFloor(floor) {
                     );
                 };
             });
+            $(".checkbox-item").each(function() {
+                var point_type = $(this).attr("point_type");
+                $(".state").hide();
+                var all = document.getElementsByClassName("checkbox-item");
+                for (var i = 0; i < all.length; i++) {
+                    if (all[i].checked == true) {
+                        $(".state[equipment_type='" + all[i].value + "']").show();
+                    };
+                };
+            });
         }
     });
 };
