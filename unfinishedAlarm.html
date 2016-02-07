@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta content="no-cache" http-equiv="Cache-Control" />
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
+	<meta content="telephone=no" name="format-detection" />
+	<link type="image/x-icon" rel="shortcut icon" href="" />
+	<link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/vendor/jquery.dataTables.min.css" />
+	<link rel="stylesheet" href="css/common.css" />
+	<link rel="stylesheet" href="css/header.css" />
+	<link rel="stylesheet" href="css/mtree.css" />
+	<link rel="stylesheet" href="css/unfinishedAlarm.css" />
+
+
+	<title>管理控制台</title>
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/cookie.js"></script>
+	<script src="js/vendor/jquery.dataTables.js"></script>
+</head>
+
+<body>
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:590px;height:480px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						告警处理
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alarmDeal-pic" style="width:560px;height:400px;">
+					</div>
+				</div>
+				<div class="modal-footer" style="text-align:center;margin:0 auto;width:480px;">
+					<div style="display:inline-block;float:left">
+						<div style="margin-bottom:10px;">
+							<button type="button" class="btn btn-success" id="submit01">误报</button>
+							<button type="button" class="btn btn-success" id="submit02">末端水压异常</button>
+							<button type="button" class="btn btn-success" id="submit03">常闭门未关闭</button>
+						</div>
+						<div>
+							<button type="button" class="btn btn-success" id="submit04">消防通道堵塞</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal">暂缓处理</button>
+							<button type="button" class="btn btn-success" id="submit06">其他</button>
+						</div>
+					</div>
+					<div style="float:left; margin-left:10px;">
+						<button type="button" class="btn btn-fire" id="submit05">火警</button>
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+	</div>
+	<!-- /.modal -->
+	<div class="modal fade" id="reasonInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:250px;height:150px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="reasonInputModalLabel">
+						其他原因输入
+					</h4>
+				</div>
+				<div class="modal-body">
+					原因：<input type="text" id="reasonInput" />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="submit07">确定</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+	</div>
+
+	<div class="background-top"></div>
+	<div class="background-bottom"></div>
+	<div class="body">
+		<div id="header"></div>
+		<div id="middle">
+			<div id="sidebar">
+				<div id="search-data"></div>
+				<div id="menu"></div>
+			</div>
+			<div id="main">
+				<div class="container" id="unfinishedAlarm"></div>
+			</div>
+			<div id="footer"></div>
+		</div>
+
+	</div>
+
+	<script src="js/unfinishedAlarm.js"></script>
+</body>
+
+</html>

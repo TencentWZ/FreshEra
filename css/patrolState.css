@@ -1,4 +1,7 @@
-.row {
-    /*height:30px !important;*/
-    line-height: 25px !important;
+#patrolState {
+    background-color: #294158;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    color: #fff;
 }

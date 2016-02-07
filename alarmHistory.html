@@ -6,24 +6,20 @@
 <meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
 <meta content="telephone=no" name="format-detection" />
 <link type="image/x-icon" rel="shortcut icon" href="" />
-<link rel="stylesheet" href="css/vendor/normalize.css" />
-<link rel="stylesheet" href="css/vendor/bootstrap.css" />
-<link rel="stylesheet" href="css/vendor/jquery-ui.css" />
-<link rel="stylesheet" href="css/vendor/jquery.dataTables.css" />
-<link rel="stylesheet" href="css/vendor/dataTables.bootstrap.css" />
+<link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+<link rel="stylesheet" href="css/vendor/jquery.dataTables.min.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/header.css" />
 <link rel="stylesheet" href="css/mtree.css" />
 <link rel="stylesheet" href="css/alarmHistory.css" />
-<title>alarmHistory</title>
+
+<title>管理控制台</title>
 <script src="js/vendor/jquery.min.js"></script>
-<script src="js/vendor/bootstrap.js"></script>
-<script src="js/vendor/jquery.dataTables.js"></script>
-<script src="js/vendor/dataTables.bootstrap.js"></script>
-<script src='js/vendor/jquery-ui.js'></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="js/common.js"></script>
 <script src="js/cookie.js"></script>
-<script src='js/vendor/jquery.velocity.min.js'></script>
+<script src="js/vendor/jquery.dataTables.js"></script>
+<script src='js/vendor/jquery-ui.js'></script>
 <script src="js/alarmHistory.js"></script>
 </head>
 <body>
@@ -41,10 +37,10 @@
 					<span>传感器类型：</span><select id="equipment-type" style="width:166px;height:30px;"></select>
 					<span style="margin-left:20px;">时间区段： </span>
 					<span>从</span>
-					<input type="text" id="begin-time" />
+					<input type="text" id="begin-time" class="inputStyle"/>
 					<span>到</span>
-					<input type="text" id="end-time" />
-					<button id="searching" style="margin-left:20px;">查询</button>
+					<input type="text" id="end-time" class="inputStyle"/>
+					<button class="btn btn-default" id="searching" style="margin-left:20px;">查询</button>
 				</div>
 
 				<div class="container" id="alarm-search">

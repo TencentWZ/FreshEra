@@ -189,3 +189,54 @@ input.base_data {
 	margin: 0;
 	border:1px dashed #5b7996;
 }
+td, th{
+	text-align: center !important;
+}
+/*所有table border都为白色*/
+table.dataTable.no-footer, table.dataTable thead th, table.dataTable thead td{
+	border-bottom: 1px solid #fff;
+}
+/*所有table body都为背景蓝*/
+table.dataTable tbody tr {
+	background-color: #294158 !important;
+	cursor: pointer;
+}
+/*所有table 字都为白色*/
+table, .dataTables_info, .dataTables_wrapper {
+	color: #fff !important;
+}
+/*所有table 列名都为14px*/
+table.dataTable thead th, table.dataTable tfoot th {
+	font-size: 14px;
+}
+/*所有table 选中的行都为浅蓝色*/
+table.dataTable tbody tr.selected, table.dataTable tbody tr:hover {
+    background-color: #5b7996 !important;
+}
+.ellipsis {
+	color: #fff;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	background-color: #5b7996 !important;
+}
+.dataTables_wrapper .dataTables_filter {
+	color: #fff;
+}
+/*点的样式*/
+.state {
+	position: absolute;
+	width: 6px;
+	height: 6px;
+}
+
+.normal {
+	background: green;
+}
+
+.abnormal {
+	background: yellow;
+}
+
+.alerting {
+	background-color: red;
+}

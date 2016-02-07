@@ -1,0 +1,21 @@
+#unfinishedAlarm {
+    position: relative;
+    width: 99%;
+    margin: 5px 5px 15px 5px;
+    padding: 5px 5px 10px 5px;
+    background-color: #294158;
+    height: auto;
+    border-radius: 5px;
+}
+.btn-fire {
+    background-color:#d43f3a;
+    border-color:#d43f3a;
+    height:80px;
+    width:150px;
+    color:#fff;
+}
+.btn-fire:hover {
+    background-color:#c9302c;
+    border-color:#ac2925;
+    color:#fff;
+}

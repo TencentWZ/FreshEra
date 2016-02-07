@@ -81,7 +81,6 @@
 				var building = res.Building;
 				buildingTitle.append(building.Name);
 				setCookie('Bname', building.Name);
-				console.log(setCookie);
 				buildingContent.append('地址： ' + building.Address + '<br>物业电话： ' + building.Estataphone + '<br>物业联系人： ' + building.EstateContact + '<br>消防联系人： ' + building.FireContact + '<br>管理联系人： ' + building.ManagementContact);
 			}
 		});
