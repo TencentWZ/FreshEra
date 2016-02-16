@@ -3,8 +3,18 @@ $(function() {
 	me.util.layout();
     var bid = getCookie('Bid');
 	var bname = getCookie('Bname');
+	var semiPoint = 3;
 	$('#checkbox-title').append(bname);
+	var spin = $('#map3d');
 
+	$("#twoDBtn").on("click", function() {
+		$("#map2d").css('display','block');
+		$("#map3d").css('display','none');
+	});
+	$("#threeDBtn").on("click", function() {
+		$("#map2d").css('display','none');
+		$("#map3d").css('display','block');
+	});
     window.onresize = function() {
 		var windowWidth = document.documentElement.clientWidth;
         var windowHeight = document.documentElement.clientHeight;
@@ -16,11 +26,15 @@ $(function() {
         $(".map-outer").css("height", windowHeight - 88);
 		// 如果屏幕长宽比较小
 		if ((windowHeight - 88)/0.75 >  windowWidth - 305) {
-			$("#map").css("width", windowWidth - 305);
-			$("#map").css("height", (windowWidth - 305)*0.75);
+			$("#map2d").css("width", windowWidth - 305);
+			$("#map2d").css("height", (windowWidth - 305)*0.75);
+			$("#map3d").css("width", windowWidth - 305);
+			$("#map3d").css("height", (windowWidth - 305)*0.75);
 		} else {
-			$("#map").css("width", (windowHeight - 88)/0.75);
-			$("#map").css("height", windowHeight - 88);
+			$("#map2d").css("width", (windowHeight - 88)/0.75);
+			$("#map2d").css("height", windowHeight - 88);
+			$("#map3d").css("width", (windowHeight - 88)/0.75);
+			$("#map3d").css("height", windowHeight - 88);
 		}
     };
 
@@ -43,16 +57,20 @@ $(function() {
         $("#middle").css({width: windowWidth, height: windowHeight});
         $(".checkbox-area").css("height", windowHeight - 40);
         $(".right-area").css("height", windowHeight - 40);
-        $(".safe-title").css("width", windowWidth - 305);
-        $(".map-outer").css("width", windowWidth - 305);
+        $(".safe-title").css("width", windowWidth - 325);
+        $(".map-outer").css("width", windowWidth - 325);
         $(".map-outer").css("height", windowHeight - 88);
 		// 如果屏幕长宽比较小
 		if ((windowHeight - 88)/0.75 >  windowWidth - 305) {
-			$("#map").css("width", windowWidth - 305);
-			$("#map").css("height", (windowWidth - 305)*0.75);
+			$("#map2d").css("width", windowWidth - 305);
+			$("#map2d").css("height", (windowWidth - 305)*0.75);
+			$("#map3d").css("width", windowWidth - 305);
+			$("#map3d").css("height", (windowWidth - 305)*0.75);
 		} else {
-			$("#map").css("width", (windowHeight - 88)/0.75);
-			$("#map").css("height", windowHeight - 88);
+			$("#map2d").css("width", (windowHeight - 88)/0.75);
+			$("#map2d").css("height", windowHeight - 88);
+			$("#map3d").css("width", (windowHeight - 88)/0.75);
+			$("#map3d").css("height", windowHeight - 88);
 		}
 
         $("#full-screen-prompt").click();
@@ -85,11 +103,15 @@ $(function() {
                     $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
                 };
             };
-            initFloor($("#floor-select").val());
+			init2DFloor($("#floor-select").val());
+			init3DFloor($("#floor-select").val());
+			$("#map3d").css('display','none');
+
             $("#floor-select").on("change", function() {
-                initFloor($("#floor-select").val());
+                init2DFloor($("#floor-select").val());
+				init3DFloor($("#floor-select").val());
             });
-            $("#close").on("click", function() {
+            $("#closeBtn").on("click", function() {
                 window.opener = null;
                 window.open("", "_self");
                 window.close();
@@ -97,7 +119,55 @@ $(function() {
         }
     });
 
-    function initFloor(floor) {
+	// 3D图片旋转函数
+	function threeDInit ( urlArr, spin ) {
+		var frames = SpriteSpin.sourceArray( urlArr[ 0 ] + '3D/' + '{frame}' + '.' + urlArr[ 1 ], {
+			frame: [ 1, 24 ],
+			digits: 2
+		} );
+		// 要停留的图片
+		var details = [ 0, 12 ];
+		var detailIndex = 0;
+		// 初始化
+		// spin.removeAttr("class");
+		spin.spritespin( {
+			source: frames,
+			width: parseFloat($("#map3d").css("width")),
+			sense: -1,
+			height: parseFloat($("#map3d").css("height")),
+			animate: false
+		} );
+		// 得到api
+		var api = spin.spritespin( "api" );
+		spin.bind( "onLoad", function () {
+			var data = api.data;
+			data.stage.prepend( $( ".details .detail" ) );
+			data.stage.find( ".detail" ).hide();
+		} ).bind( "onFrame", function () {
+			var data = api.data;
+			data.stage.find( ".detail:visible" ).stop( false ).fadeOut();
+			data.stage.find( ".detail.detail-" + data.frame ).stop( false ).fadeIn();
+		} );
+		$( "#next" ).click( function () {
+			setDetailIndex( detailIndex + 1 );
+		} );
+
+		function setDetailIndex( index ) {
+			detailIndex = index;
+			if ( detailIndex < 0 ) {
+				detailIndex = details.length - 1;
+			}
+			if ( detailIndex >= details.length ) {
+				detailIndex = 0;
+			}
+			api.playTo( details[ detailIndex ] );
+		}
+		$( "#details" ).append( '<div class="detail detail-0"></div>' );
+		$( "#details" ).append( '<div class="detail detail-12"></div>' );
+	};
+
+	// 初始化2D图片
+    function init2DFloor(floor) {
         $.ajax({
             type: "GET",
             url: me.host("floorMapInit"),
@@ -111,20 +181,21 @@ $(function() {
                 alert("floorMapInit ajax error!");
             },
             success: function(res) {
-                var width = parseFloat($("#map").css("width"));
-                var height = parseFloat($("#map").css("height"));
-                $("#map").css("background-image", "url(" + res.Url + ")");
-                $("#map").html('');
+                var width = parseFloat($("#map2d").css("width"));
+                var height = parseFloat($("#map2d").css("height"));
+                $("#map2d").css("background-image", "url(" + res.Url + ")");
+                $("#map2d").html('');
                 res.Point.forEach(function(obj) {
                     if (obj.Point_type == "传感器") {
-                        $("#map").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                        $("#map2d").append('' +
+                            '<div class="state normal" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;" id="' + obj.Id + '2d' + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     } else if (obj.Point_type == "巡检点") {
-                        $("#map").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                        $("#map2d").append('' +
+                            '<div class="state normal" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;" id="' + obj.Id + '2d' + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
-                    };
+                    }
+					$("#" + obj.Id + '2d').tips($("#" + obj.Id + '2d').attr("name"));
                 });
 
                 $(".checkbox-item").each(function() {
@@ -141,6 +212,72 @@ $(function() {
             }
         });
     };
+
+	// 初始化3D图片
+	function init3DFloor(floor) {
+		spin.unbind( 'onLoad' );
+		spin.unbind( 'onFrame' );
+		console.log(bid, floor[0]);
+		$.ajax({
+			type: "GET",
+			url: me.host("floorMapInit"),
+			dataType: "json",
+			data: {
+				bid: bid,
+				floor_id: floor[0],
+				picType: '3D图'
+			},
+			error: function(res) {
+				alert("floorMapInit ajax error!");
+			},
+			success: function(res) {
+				var re = /3D\/[0-9]+./g;
+				var urlArr = res.Url.split( re );
+				var width = parseFloat($("#map3d").css("width"));
+				var height = parseFloat($("#map3d").css("height"));
+				// 将素材赋给3D旋转图
+				threeDInit( urlArr, spin );
+				res.Point.forEach( function ( obj ) {
+					if ( obj.Point_type == "传感器" ) {
+						if ( obj.Photo_angle == "0" ) {
+							$( ".detail-0" ).append( '' +
+								'<div class="state normal" style="top:' + ( obj.Y * height - semiPoint ) + 'px;left:' + ( obj.X * width - semiPoint ) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+							);
+						} else if ( obj.Photo_angle == "180" ) {
+							$( ".detail-12" ).append( '' +
+								'<div class="state normal" style="top:' + ( obj.Y * height - semiPoint ) + 'px;left:' + ( obj.X * width - semiPoint ) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+							);
+						}
+
+					} else if ( obj.Point_type == "巡检点" ) {
+						if ( obj.Photo_angle == "0" ) {
+							$( ".detail-0" ).append( '' +
+								'<div class="state normal" style="top:' + ( obj.Y * height - semiPoint ) + 'px;left:' + ( obj.X * width - semiPoint ) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+							);
+						} else if ( obj.Photo_angle == "180" ) {
+							$( ".detail-12" ).append( '' +
+								'<div class="state normal" style="top:' + ( obj.Y * height - semiPoint ) + 'px;left:' + ( obj.X * width - semiPoint ) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+							);
+						}
+					}
+					$("#" + obj.Id + '3d').tips($("#" + obj.Id + '3d').attr("name"));
+					console.log(obj.Id, $("#" + obj.Id + '3d').attr("name"));
+				} );
+
+				$(".checkbox-item").each(function() {
+					var point_type = $(this).attr("point_type");
+					$(".state").hide();
+					var all = document.getElementsByClassName("checkbox-item");
+					for (var i = 0; i < all.length; i++) {
+						if (all[i].checked == true) {
+							$(".state[equipment_type='" + all[i].value + "']").show();
+						};
+					};
+				});
+				monitor();
+			}
+		});
+	};
 
     function checkboxInit() {
         $.ajax({
@@ -192,23 +329,51 @@ $(function() {
                 },
                 success: function(res) {
                     if (floorIdCurrent) {
-                        res.Point_state.forEach(function(val) {
-                            if (val.Floorid == floorIdCurrent[0]) {
-                                switch (val.State) {
-                                    case "0":
-                                        changeClass(val.Id, "normal");
-                                        break;
-                                    case "1":
-                                        changeClass(val.Id, "abnormal");
-                                        break;
-                                    case "2":
-                                        changeClass(val.Id, "alerting");
-                                        $("#" + val.Id).tips($("#" + val.Id).attr("name") + "发生异常！");
-                                        break;
-                                    default:
-                                };
-                            };
-                        });
+						if($("#map3d").css("display") === 'block') {
+							res.Point_state.forEach(function(val) {
+	                            if (val.Floorid == floorIdCurrent[0]) {
+	                                switch (val.State) {
+	                                    case "0":
+	                                        changeClass(val.Id + '3d', "normal");
+											$("#" + val.Id + '3d').tips($("#" + val.Id + '3d').attr("name"));
+	                                        break;
+	                                    case "1":
+	                                        changeClass(val.Id + '3d', "abnormal");
+											$("#" + val.Id + '3d').tips($("#" + val.Id + '3d').attr("name"));
+	                                        break;
+	                                    case "2":
+	                                        changeClass(val.Id + '3d', "alerting");
+											console.log("try change");
+	                                        $("#" + val.Id + '3d').tips($("#" + val.Id + '3d').attr("name") + "发生异常！");
+	                                        break;
+	                                    default:
+											break;
+	                                };
+	                            };
+	                        });
+						} else {
+							res.Point_state.forEach(function(val) {
+	                            if (val.Floorid == floorIdCurrent[0]) {
+	                                switch (val.State) {
+	                                    case "0":
+	                                        changeClass(val.Id + '2d', "normal");
+											// $("#" + val.Id + '3d').tips($("#" + val.Id + '2d').attr("name"));
+	                                        break;
+	                                    case "1":
+	                                        changeClass(val.Id + '2d', "abnormal");
+											// $("#" + val.Id + '3d').tips($("#" + val.Id + '2d').attr("name"));
+	                                        break;
+	                                    case "2":
+	                                        changeClass(val.Id + '2d', "alerting");
+	                                        $("#" + val.Id + '2d').tips($("#" + val.Id + '2d').attr("name") + "发生异常！");
+	                                        break;
+	                                    default:
+											break;
+	                                };
+	                            };
+	                        });
+						}
+
                     };
                     var n = 1;
                     $(".untreated-alarm").html('');
@@ -219,7 +384,7 @@ $(function() {
                     };
                 }
             });
-        }, 1000);
+        }, 5000);
     };
 
     function changeClass(idName, className) {
@@ -228,5 +393,6 @@ $(function() {
         $("#" + idName).removeClass("alerting");
         $("#" + idName).addClass(className);
     };
+
 
 });

@@ -52,7 +52,16 @@
 	left: 140px;
 }
 
-#map {
+#map2d {
+	position: relative;
+	margin: 0 auto;
+	width: 680px;
+	height: 680px;
+	background-size: auto 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#map3d {
 	position: relative;
 	margin: 0 auto;
 	width: 680px;
@@ -134,8 +143,8 @@
 
 .state {
 	position: absolute;
-	width: 10px;
-	height: 10px;
+	width: 6px;
+	height: 6px;
 }
 
 .normal {
@@ -161,10 +170,34 @@
 #next:hover {
     background-image: url('images/scroll_hover.png');
 }
-.btn-right {
+.float-right {
 	float: right;
 	margin: 5px;
 }
 #safe-title{
 	position: relative;
+}
+#closeBtn {
+	background-image: url('images/close.png');
+	width: 73px;
+	height: 27px;
+}
+#closeBtn:hover {
+	background-image: url('images/closeon.png');
+}
+#threeDBtn {
+	background-image: url('images/3D.png');
+	width: 73px;
+	height: 27px;
+}
+#threeDBtn:hover {
+	background-image: url('images/3Don.png');
+}
+#twoDBtn{
+	background-image: url('images/2D.png');
+	width: 73px;
+	height: 27px;
+}
+#twoDBtn:hover{
+	background-image: url('images/2Don.png');
 }

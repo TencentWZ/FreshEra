@@ -6,18 +6,18 @@
 <meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
 <meta content="telephone=no" name="format-detection" />
 <link type="image/x-icon" rel="shortcut icon" href="" />
-<link rel="stylesheet" href="css/vendor/bootstrap.css" />
 <link rel="stylesheet" href="css/vendor/normalize.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/header.css" />
 <link rel="stylesheet" href="css/mtree.css" />
 <link rel="stylesheet" href="css/floorMap2D.css" />
-<title>floorMap2D</title>
+<title>全屏监控</title>
 <script src="js/vendor/jquery.min.js"></script>
 <script src="js/vendor/bootstrap.js"></script>
 <script src="js/common.js"></script>
 <script src="js/cookie.js"></script>
 <script src='js/vendor/jquery.velocity.min.js'></script>
+<script src='js/vendor/spritespin.min.js'></script>
 <script src="js/floorMap2D.js"></script>
 </head>
 <body>
@@ -34,12 +34,17 @@
 		</div>
 		<div class="safe-title">
 			<div id="safe-title"></div>
-			<button class="btn btn-right" id="close">关闭页面</button>
-			<a href="floorMap3D.html"><button class="btn btn-right">3D楼层图</button></a>
-			<a href="#"><button class="btn btn-right">2D楼层图</button></a>
+			<div class="float-right" id="closeBtn"></div>
+			<div class="float-right" id="threeDBtn"></div>
+			<div class="float-right" id="twoDBtn"></div>
 		</div>
 		<div class="map-outer">
-			<div id="map"></div>
+			<div id="map2d"></div>
+			<div id="map3d"></div>
+			<div class="details" id="details" style="display:none;">
+                <div class="detail detail-0"></div>
+                <div class="detail detail-12"></div>
+            </div>
 		</div>
 		<div class="right-area">
 			<div class="untreated-alarm-title">当前未处理告警区</div>

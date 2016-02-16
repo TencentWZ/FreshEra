@@ -143,7 +143,7 @@ $(function() {
     	$( "#details" ).append( '<div class="detail detail-12"></div>' );
     };
 
-    function initFloor(floor) {
+    function init3DFloor(floor) {
         spin.unbind( 'onLoad' );
         spin.unbind( 'onFrame' );
         console.log(bid, floor[0]);

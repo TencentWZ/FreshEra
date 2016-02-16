@@ -256,6 +256,7 @@ if (!Array.prototype.forEach)
 // Tips
 function Tips(text) {
 	var x = $(this).offset().left + 20, y = $(this).offset().top;
+	console.log(x,y);
 	$(this).off()
 	$(this).on("mouseover", function() {
 		$("body").append('' +
