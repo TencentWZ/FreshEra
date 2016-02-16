@@ -47,8 +47,8 @@ $(function() {
             de.mozRequestFullScreen();
         } else if (de.webkitRequestFullScreen) {
             de.webkitRequestFullScreen();
-        };
-    };
+        }
+    }
 
     // 初始化全屏
     (function initScreen() {
@@ -101,8 +101,8 @@ $(function() {
                     $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '" selected>' + res.Floor[i].Floorname + '</option>');
                 } else {
                     $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
-                };
-            };
+                }
+            }
 			init2DFloor($("#floor-select").val());
 			init3DFloor($("#floor-select").val());
 			$("#map3d").css('display','none');
@@ -164,7 +164,7 @@ $(function() {
 		}
 		$( "#details" ).append( '<div class="detail detail-0"></div>' );
 		$( "#details" ).append( '<div class="detail detail-12"></div>' );
-	};
+	}
 
 	// 初始化2D图片
     function init2DFloor(floor) {
@@ -203,15 +203,15 @@ $(function() {
                     $(".state").hide();
                     var all = document.getElementsByClassName("checkbox-item");
                     for (var i = 0; i < all.length; i++) {
-                        if (all[i].checked == true) {
+                        if (all[i].checked === true) {
                             $(".state[equipment_type='" + all[i].value + "']").show();
-                        };
-                    };
+                        }
+                    }
                 });
                 monitor();
             }
         });
-    };
+    }
 
 	// 初始化3D图片
 	function init3DFloor(floor) {
@@ -269,15 +269,15 @@ $(function() {
 					$(".state").hide();
 					var all = document.getElementsByClassName("checkbox-item");
 					for (var i = 0; i < all.length; i++) {
-						if (all[i].checked == true) {
+						if (all[i].checked === true) {
 							$(".state[equipment_type='" + all[i].value + "']").show();
-						};
-					};
+						}
+					}
 				});
 				monitor();
 			}
 		});
-	};
+	}
 
     function checkboxInit() {
         $.ajax({
@@ -300,18 +300,18 @@ $(function() {
                         $(".checkbox-item[point_type='inspect']").prop("checked", false);
                     } else if (point_type == "inspect") {
                         $(".checkbox-item[point_type='equipment']").prop("checked", false);
-                    };
+                    }
                     $(".state").hide();
                     var all = document.getElementsByClassName("checkbox-item");
                     for (var i = 0; i < all.length; i++) {
-                        if (all[i].checked == true) {
+                        if (all[i].checked === true) {
                             $(".state[equipment_type='" + all[i].value + "']").show();
-                        };
-                    };
+                        }
+                    }
                 });
             }
         });
-    };
+    }
 
     function monitor() {
         setInterval(function() {
@@ -348,8 +348,8 @@ $(function() {
 	                                        break;
 	                                    default:
 											break;
-	                                };
-	                            };
+	                                }
+	                            }
 	                        });
 						} else {
 							res.Point_state.forEach(function(val) {
@@ -369,30 +369,120 @@ $(function() {
 	                                        break;
 	                                    default:
 											break;
-	                                };
-	                            };
+	                                }
+	                            }
 	                        });
 						}
 
-                    };
+                    }
                     var n = 1;
                     $(".untreated-alarm").html('');
                     for (var i in res.Untreated_alarm) {
                         $(".untreated-alarm").append('' +
-                           '<p><a href="alarmDeal.html?alarm_id=' + res.Untreated_alarm[i].Id + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i].Type + '</a></p>'
+                           '<p><a href="#" id=' + res.Untreated_alarm[i].Id + '>' + n++ + '. ' + res.Untreated_alarm[i].Type + '</a></p>'
                         );
-                    };
+						//绑定事件
+						$('#' + res.Untreated_alarm[i].Id).on('click', function () {
+							var alarm_id = res.Untreated_alarm[i].Id;
+							console.log('alarm_id', alarm_id );
+							$.ajax({
+								type: "GET",
+								url: me.host("alarmDealInit"),
+								dataType: "json",
+								data: {
+									bid: bid,
+									alarm_id: 1
+								},
+								error: function(res) {
+									alert("alarmDeal ajax error!");
+								},
+								success: function(res) {
+									console.log(res);
+									// var width = parseFloat($(".alarmDeal-pic").css("width"));
+									// var height = parseFloat($(".alarmDeal-pic").css("height"));
+									var width = 560;
+									var height = 400;
+									console.log("123", width,height);
+									console.log(res.Url);
+									$("#myModalLabel").html("告警处理：" + res.Text);
+									$(".alarmDeal-pic").html("");
+									$(".alarmDeal-pic").css({
+										"background-image": "url('" + res.Url + "')",
+										"background-size": "auto 100%",
+										"background-position": "center",
+										"background-repeat": "no-repeat"
+									});
+									$(".alarmDeal-pic").append('' +
+										'<div class="state alerting" style="top:' + (res.Y * height - 3) + 'px;left:' + (res.X * width - 3) + 'px;"></div>'
+									);
+									buttonBind('submit01', '误报', alarm_id);
+									buttonBind('submit02', '末端水压异常', alarm_id);
+									buttonBind('submit03', '常闭门未关闭', alarm_id);
+									buttonBind('submit04', '消防通道堵塞', alarm_id);
+									buttonBind('submit05', '火警', alarm_id);
+									buttonBind('submit06', '其他', alarm_id, true);
+
+									$('#myModal').modal('show');
+								}
+							});
+						});
+                    }
                 }
             });
         }, 5000);
-    };
+    }
 
     function changeClass(idName, className) {
         $("#" + idName).removeClass("normal");
         $("#" + idName).removeClass("abnormal");
         $("#" + idName).removeClass("alerting");
         $("#" + idName).addClass(className);
-    };
+    }
+
+	function buttonBind (bname, btitle, alarm_id, isSepcial) {
+
+		$("#" + bname).on("click", function() {
+			if (isSepcial) {
+				buttonBind('submit07', '', alarm_id);
+				$('#myModal').modal('hide');
+				$('#reasonInputModal').modal('show');
+				return;
+
+			}
+			if (bname === 'submit07') {
+				if ($('#reasonInput').val()) {
+					btitle = $('#reasonInput').val();
+				} else {
+					alert("请输入原因");
+					return;
+				}
+			}
+			$.ajax({
+				type: "GET",
+				url: me.host("alarmDeal"),
+				dataType: "json",
+				data: {
+					bid: bid,
+					alarm_id: alarm_id,
+					deal_type: btitle
+				},
+				error: function(res) {
+					alert("alarmDeal ajax error!");
+				},
+				success: function(res) {
+					if (res.Code == "0") {
+						alert("处理成功！");
+					} else {
+						alert("处理失败！");
+					}
+					$('#myModal').modal('hide');
+					$('#reasonInputModal').modal('hide');
+					// 刷新页面
+					location.reload();
+				}
+			});
+		});
+	}
 
 
 });
