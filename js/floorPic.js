@@ -263,7 +263,7 @@ function checkboxInit(dimension) {
             $("#checkbox-equipment" + dimension).html('<p class="p-title">挑选相关设备</p>');
             res.forEach(function(obj) {
                 var check = obj.Ischoose == "1" ? "checked" : "";
-                $("#checkbox-equipment" + dimension).append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Sensortype + '" id="' + obj.Sensortype + '" ' + check + '/><label for="' + obj.Sensortype + '">' + obj.Sensortype + '</label></p>');
+                $("#checkbox-equipment" + dimension).append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Sensortype + '" id="' + obj.Sensortype + '" ' + check + '/><label for="' + obj.Sensortype + '"style="color:' + obj.Sensorcolor + '">' + obj.Sensortype + '</label></p>');
             });
             $(".checkbox-item").on("change", function() {
                 var point_type = $(this).attr("point_type");
