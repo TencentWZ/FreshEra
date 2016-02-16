@@ -61,7 +61,6 @@
 }
 
 #checkbox-inspect-2d,  #checkbox-inspect-2d{
-	padding: 10px 0 10px 0;
 	border-bottom: 2px solid #5b7996;
 }
 
@@ -130,13 +129,20 @@
 #floor-select-2d, #floor-select-3d{
 	margin: 20px 0px 0 10px;
 	width: 115px;
-	min-height: 268px;
 	color: #fff;
 	background: #294158;
 	border: 2px solid #5b7996;
 	overflow: auto;
 	text-align: center;
 	cursor: pointer;
+}
+
+#floor-select-2d{
+	min-height: 520px;
+}
+
+#floor-select-3d{
+	min-height: 380px;
 }
 
 #floor-select-2d option, #floor-select-3d option {
@@ -147,8 +153,8 @@
 
 .state {
 	position: absolute;
-	width: 10px;
-	height: 10px;
+	width: 6px;
+	height: 6px;
 }
 
 .normal {

@@ -2,6 +2,7 @@
 var bid = getCookie('Bid');
 var spin = $('#spritespin');
 selectorInit(init3DFloor, '-3d');
+var semiPoint = 3;
 
 $(function() {
     $('#floorTab a').click(function(e) {
@@ -93,7 +94,23 @@ function selectorInit(initFloor, dimension) {
                     $("#floor-select" + dimension).append('<option value="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
                 }
             }
-            initFloor($("#floor-select" + dimension).val());
+            if (dimension == '-3d') {
+                if ($("#floor-select-2d").val()) {
+                    initFloor($("#floor-select-2d").val());
+                    $("#floor-select-3d").val($("#floor-select-2d").val());
+                } else {
+                    initFloor($("#floor-select" + dimension).val());
+                }
+            } else if (dimension == '-2d'){
+                if ($("#floor-select-3d").val()) {
+                    initFloor($("#floor-select-3d").val());
+                    $("#floor-select-2d").val($("#floor-select-3d").val());
+                } else {
+                    initFloor($("#floor-select" + dimension).val());
+                }
+            }
+
+
             $("#floor-select" + dimension).on("change", function() {
                 initFloor($("#floor-select" + dimension).val());
             });
@@ -121,13 +138,14 @@ function init2DFloor(floor) {
             $(".map").css("background-image", "url(" + res.Url + ")");
             $(".map").html('');
             res.Point.forEach(function(obj) {
+                console.log(obj);
                 if (obj.Point_type == "传感器") {
                     $(".map").append('' +
-                        '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                        '<div class="state" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;background-color:'+ obj.Sensortype + '" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                     );
                 } else if (obj.Point_type == "巡检点") {
                     $(".map").append('' +
-                        '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                        '<div class="state" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;background-color:'+ obj.Sensortype + '" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                     );
                 };
             });
@@ -197,22 +215,22 @@ function init3DFloor(floor) {
                 if (obj.Point_type == "传感器") {
                     if (obj.Photo_angle == "0") {
                         $(".detail-0").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                            '<div class="state" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;background-color:'+ obj.Sensortype + '" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     } else if (obj.Photo_angle == "180") {
                         $(".detail-12").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                            '<div class="state" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;background-color:'+ obj.Sensortype + '" id="' + obj.Id + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     }
 
                 } else if (obj.Point_type == "巡检点") {
                     if (obj.Photo_angle == "0") {
                         $(".detail-0").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                            '<div class="state" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;background-color:'+ obj.Sensortype + '" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     } else if (obj.Photo_angle == "180") {
                         $(".detail-12").append('' +
-                            '<div class="state normal" style="top:' + (obj.Y * height - 5) + 'px;left:' + (obj.X * width - 5) + 'px;" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                            '<div class="state" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;background-color:'+ obj.Sensortype + '" id="' + obj.Id + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     }
                 };
@@ -264,57 +282,4 @@ function checkboxInit(dimension) {
             });
         }
     });
-};
-
-function monitor() {
-    setInterval(function() {
-        var floorIdCurrent = $("#floor-select").val();
-        $.ajax({
-            type: "GET",
-            url: me.host("floorMapMonitor"),
-            dataType: "json",
-            data: {
-                bid: bid,
-                floor_id: floorIdCurrent[0]
-            },
-            error: function(res) {
-                alert("floorMapMonitor ajax error!");
-            },
-            success: function(res) {
-                if (floorIdCurrent) {
-                    res.Point_state.forEach(function(val) {
-                        if (val.Floorid == floorIdCurrent[0]) {
-                            switch (val.State) {
-                                case "0":
-                                    changeClass(val.Id, "normal");
-                                    break;
-                                case "1":
-                                    changeClass(val.Id, "abnormal");
-                                    break;
-                                case "2":
-                                    changeClass(val.Id, "alerting");
-                                    $("#" + val.Id).tips($("#" + val.Id).attr("name") + "发生异常！");
-                                    break;
-                                default:
-                            };
-                        };
-                    });
-                };
-                var n = 1;
-                $(".untreated-alarm").html('');
-                for (var i in res.Untreated_alarm) {
-                    $(".untreated-alarm").append('' +
-                        '<p><a href="alarmDeal.html?alarm_id=' + res.Untreated_alarm[i].Id + '" target="_blank">' + n++ + '. ' + res.Untreated_alarm[i].Type + '</a></p>'
-                    );
-                };
-            }
-        });
-    }, 1000);
-};
-
-function changeClass(idName, className) {
-    $("#" + idName).removeClass("normal");
-    $("#" + idName).removeClass("abnormal");
-    $("#" + idName).removeClass("alerting");
-    $("#" + idName).addClass(className);
 };

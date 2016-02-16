@@ -21,6 +21,66 @@
 <script src="js/floorMap2D.js"></script>
 </head>
 <body>
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:590px;height:480px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						告警处理
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alarmDeal-pic" style="width:560px;height:400px;">
+					</div>
+				</div>
+				<div class="modal-footer" style="text-align:center;margin:0 auto;width:480px;">
+					<div style="display:inline-block;float:left">
+						<div style="margin-bottom:10px;">
+							<button type="button" class="btn btn-success" id="submit01">误报</button>
+							<button type="button" class="btn btn-success" id="submit02">末端水压异常</button>
+							<button type="button" class="btn btn-success" id="submit03">常闭门未关闭</button>
+						</div>
+						<div>
+							<button type="button" class="btn btn-success" id="submit04">消防通道堵塞</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal">暂缓处理</button>
+							<button type="button" class="btn btn-success" id="submit06">其他</button>
+						</div>
+					</div>
+					<div style="float:left; margin-left:10px;">
+						<button type="button" class="btn btn-fire" id="submit05">火警</button>
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+	</div>
+	<!-- 第二个模态框 -->
+	<div class="modal fade" id="reasonInputModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width:250px;height:150px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="reasonInputModalLabel">
+						其他原因输入
+					</h4>
+				</div>
+				<div class="modal-body">
+					原因：<input type="text" id="reasonInput" />
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="submit07">确定</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+	</div>
+	<!-- 模态框结束 -->
 	<div id="middle" style="top:0;border-radius:0;">
 		<div class="checkbox-area">
 			<div id="checkbox-title">
