@@ -307,7 +307,8 @@ $(function() {
                         $(".checkbox-item[point_type='inspect']").prop("checked", false);
 						// 待实现
 						if ($(this).attr('id') === 'checkAll') {
-							$(".checkbox-item[point_type='equipment']").prop("checked", true);
+							console.log($(this));
+							$(".checkbox-item[point_type='equipment']").prop("checked", $(this)[0].checked);
 						}
                     } else if (point_type == "inspect") {
                         $(".checkbox-item[point_type='equipment']").prop("checked", false);

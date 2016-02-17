@@ -177,29 +177,18 @@
 #safe-title{
 	position: relative;
 }
-#closeBtn {
-	background-image: url('images/close.png');
+
+.btn-switch {
 	width: 73px;
 	height: 27px;
+	line-height: 15px;
+	background-color: #4d555d;
+	border-color: #fff;
+	color: #fff;
 }
-#closeBtn:hover {
-	background-image: url('images/closeon.png');
-}
-#threeDBtn {
-	background-image: url('images/3D.png');
-	width: 73px;
-	height: 27px;
-}
-#threeDBtn:hover {
-	background-image: url('images/3Don.png');
-}
-#twoDBtn{
-	background-image: url('images/2D.png');
-	width: 73px;
-	height: 27px;
-}
-#twoDBtn:hover{
-	background-image: url('images/2Don.png');
+.btn-switch:hover {
+	background-color: #788591;
+	color: #fff;
 }
 .btn-fire {
     background-color:#d43f3a;
