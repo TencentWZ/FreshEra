@@ -114,7 +114,7 @@
 
 .untreated-alarm a {
 	font-size: 12px;
-	color: #5bc2d0;
+	color: red;
 }
 
 .patrol {
@@ -200,4 +200,16 @@
 }
 #twoDBtn:hover{
 	background-image: url('images/2Don.png');
+}
+.btn-fire {
+    background-color:#d43f3a;
+    border-color:#d43f3a;
+    height:80px;
+    width:150px;
+    color:#fff;
+}
+.btn-fire:hover {
+    background-color:#c9302c;
+    border-color:#ac2925;
+    color:#fff;
 }

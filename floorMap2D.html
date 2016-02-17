@@ -6,17 +6,16 @@
 <meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport" />
 <meta content="telephone=no" name="format-detection" />
 <link type="image/x-icon" rel="shortcut icon" href="" />
-<link rel="stylesheet" href="css/vendor/normalize.css" />
+<link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/header.css" />
 <link rel="stylesheet" href="css/mtree.css" />
 <link rel="stylesheet" href="css/floorMap2D.css" />
 <title>全屏监控</title>
 <script src="js/vendor/jquery.min.js"></script>
-<script src="js/vendor/bootstrap.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="js/common.js"></script>
 <script src="js/cookie.js"></script>
-<script src='js/vendor/jquery.velocity.min.js'></script>
 <script src='js/vendor/spritespin.min.js'></script>
 <script src="js/floorMap2D.js"></script>
 </head>
@@ -121,13 +120,13 @@
 			</div>
 		</div>
 	</div>
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="display:none;" id="full-screen-prompt">全屏显示弹出层</button>
+	<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" style="display:none;" id="full-screen-prompt">全屏显示弹出层</button>
 	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 	  <div class="modal-dialog modal-sm">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">是否需要全屏显示？</h4>
+	        <h4 class="modal-title" id="myModalLabel123">是否需要全屏显示？</h4>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">不全屏</button>
@@ -135,6 +134,25 @@
 	      </div>
 	    </div>
 	  </div>
+	</div> -->
+	<div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="width:250px;height:150px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title" id="fullScreenModalLabel">
+						是否需要全屏显示
+					</h4>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">不全屏</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" id="full-screen">全屏</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
 	</div>
 </body>
 </html>
