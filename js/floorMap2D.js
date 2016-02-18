@@ -10,10 +10,12 @@ $(function() {
     $("#twoDBtn").on("click", function() {
         $("#map2d").css('display', 'block');
         $("#map3d").css('display', 'none');
+        $("#next").css('display', 'none');
     });
     $("#threeDBtn").on("click", function() {
         $("#map2d").css('display', 'none');
         $("#map3d").css('display', 'block');
+        $("#next").css('display', 'block');
     });
     window.onresize = function() {
         var windowWidth = document.documentElement.clientWidth;
@@ -104,11 +106,11 @@ $(function() {
             $("#patrol-normal").html(res.Patrol_month_normal);
 
             for (var i in res.Floor) {
-				if (i == 0) {
-					$("#floor-select").append('<option value="' + res.Floor[i].Floorid + '" id="' + res.Floor[i].Floorid + '" selected>' + res.Floor[i].Floorname + '</option>');
-				} else {
-					$("#floor-select").append('<option value="' + res.Floor[i].Floorid + '" id="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
-				}
+                if (i == 0) {
+                    $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '" id="' + res.Floor[i].Floorid + '" selected>' + res.Floor[i].Floorname + '</option>');
+                } else {
+                    $("#floor-select").append('<option value="' + res.Floor[i].Floorid + '" id="' + res.Floor[i].Floorid + '">' + res.Floor[i].Floorname + '</option>');
+                }
             }
             init2DFloor($("#floor-select").val());
             init3DFloor($("#floor-select").val());
@@ -202,7 +204,9 @@ $(function() {
                             '<div class="state normal" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;" id="' + obj.Id + '2d' + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                         );
                     }
-                    $("#" + obj.Id + '2d').tips($("#" + obj.Id + '2d').attr("name"));
+                    // 重写tips方法
+                    var element = "#" + obj.Id + '2d';
+                    floorMapTip(element, obj);
                 });
 
                 $(".checkbox-item").each(function() {
@@ -247,26 +251,28 @@ $(function() {
                     if (obj.Point_type == "传感器") {
                         if (obj.Photo_angle == "0") {
                             $(".detail-0").append('' +
-                                '<div class="state normal" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                                '<div class="state normal ' + obj.Id + '3d' + '" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;"  point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                             );
                         } else if (obj.Photo_angle == "180") {
                             $(".detail-12").append('' +
-                                '<div class="state normal" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                                '<div class="state normal ' + obj.Id + '3d' + '" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;"  point_type="传感器" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                             );
                         }
 
                     } else if (obj.Point_type == "巡检点") {
                         if (obj.Photo_angle == "0") {
                             $(".detail-0").append('' +
-                                '<div class="state normal" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                                '<div class="state normal ' + obj.Id + '3d' + '" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                             );
                         } else if (obj.Photo_angle == "180") {
                             $(".detail-12").append('' +
-                                '<div class="state normal" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;" id="' + obj.Id + '3d' + '" point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
+                                '<div class="state normal ' + obj.Id + '3d' + '" style="top:' + (obj.Y * height - semiPoint) + 'px;left:' + (obj.X * width - semiPoint) + 'px;z-index:999;"  point_type="巡检点" equipment_type="' + obj.Equipment_type + '" name="' + obj.Name + '" ></div>'
                             );
                         }
                     }
-                    $("#" + obj.Id + '3d').tips($("#" + obj.Id + '3d').attr("name"));
+                    // 重写tips方法
+                    var element = "." + obj.Id + '3d';
+                    floorMapTip(element, obj);
                 });
 
                 $(".checkbox-item").each(function() {
@@ -295,8 +301,8 @@ $(function() {
             },
             success: function(res) {
                 $("#checkbox-equipment").html('<p class="p-title">挑选相关设备</p>');
-				// 添加全选框
-				$("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" id="checkAll"/><label for=checkAll>全选/反选</label></p>');
+                // 添加全选框
+                $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" id="checkAll"/><label for=checkAll>全选/反选</label></p>');
                 res.forEach(function(obj) {
                     var check = obj.Ischoose == "1" ? "checked" : "";
                     $("#checkbox-equipment").append('<p><input class="checkbox-item" type="checkbox" point_type="equipment" value="' + obj.Sensortype + '" id="' + obj.Sensortype + '" ' + check + '/><label for="' + obj.Sensortype + '">' + obj.Sensortype + '</label></p>');
@@ -305,11 +311,11 @@ $(function() {
                     var point_type = $(this).attr("point_type");
                     if (point_type == "equipment") {
                         $(".checkbox-item[point_type='inspect']").prop("checked", false);
-						// 待实现
-						if ($(this).attr('id') === 'checkAll') {
-							console.log($(this));
-							$(".checkbox-item[point_type='equipment']").prop("checked", $(this)[0].checked);
-						}
+                        // 待实现
+                        if ($(this).attr('id') === 'checkAll') {
+                            console.log($(this));
+                            $(".checkbox-item[point_type='equipment']").prop("checked", $(this)[0].checked);
+                        }
                     } else if (point_type == "inspect") {
                         $(".checkbox-item[point_type='equipment']").prop("checked", false);
                     }
@@ -326,7 +332,7 @@ $(function() {
     }
 
     function monitor() {
-		var uniqueAlarmFloorArr = [];
+        var uniqueAlarmFloorArr = [];
         setInterval(function() {
             var floorIdCurrent = $("#floor-select").val();
             $.ajax({
@@ -341,21 +347,21 @@ $(function() {
                     alert("floorMapMonitor ajax error!");
                 },
                 success: function(res) {
-					if(uniqueAlarmFloorArr.length > 0 ) {
-						for (var i = 0; i < uniqueAlarmFloorArr.length; i++) {
-							$('#' + uniqueAlarmFloorArr[i]).css('background-color','');
-						}
-					}
-					var alarmFloorArr = [];
-					for (var i = 0; i < res.Point_state.length; i++) {
-						if (res.Point_state[i].State == 1 || res.Point_state[i].State == 2) {
-							alarmFloorArr.push(res.Point_state[i].Floorid);
-						}
-					}
-					uniqueAlarmFloorArr = unique(alarmFloorArr);
-					for (var i = 0; i < uniqueAlarmFloorArr.length; i++) {
-						$('#' + uniqueAlarmFloorArr[i]).css('background-color','red');
-					}
+                    if (uniqueAlarmFloorArr.length > 0) {
+                        for (var i = 0; i < uniqueAlarmFloorArr.length; i++) {
+                            $('#' + uniqueAlarmFloorArr[i]).css('background-color', '');
+                        }
+                    }
+                    var alarmFloorArr = [];
+                    for (var i = 0; i < res.Point_state.length; i++) {
+                        if (res.Point_state[i].State == 1 || res.Point_state[i].State == 2) {
+                            alarmFloorArr.push(res.Point_state[i].Floorid);
+                        }
+                    }
+                    uniqueAlarmFloorArr = unique(alarmFloorArr);
+                    for (var i = 0; i < uniqueAlarmFloorArr.length; i++) {
+                        $('#' + uniqueAlarmFloorArr[i]).css('background-color', 'red');
+                    }
                     if (floorIdCurrent) {
                         if ($("#map3d").css("display") === 'block') {
                             res.Point_state.forEach(function(val) {
@@ -363,15 +369,12 @@ $(function() {
                                     switch (val.State) {
                                         case "0":
                                             changeClass(val.Id + '3d', "normal");
-                                            $("#" + val.Id + '3d').tips($("#" + val.Id + '3d').attr("name"));
                                             break;
                                         case "1":
                                             changeClass(val.Id + '3d', "alerting");
-                                            $("#" + val.Id + '3d').tips($("#" + val.Id + '3d').attr("name") + "发生异常");
                                             break;
                                         case "2":
                                             changeClass(val.Id + '3d', "abnormal");
-                                            $("#" + val.Id + '3d').tips($("#" + val.Id + '3d').attr("name") + "失效");
                                             break;
                                         default:
                                             break;
@@ -384,15 +387,12 @@ $(function() {
                                     switch (val.State) {
                                         case "0":
                                             changeClass(val.Id + '2d', "normal");
-                                            $("#" + val.Id + '3d').tips($("#" + val.Id + '2d').attr("name"));
                                             break;
                                         case "1":
                                             changeClass(val.Id + '2d', "alerting");
-                                            $("#" + val.Id + '2d').tips($("#" + val.Id + '2d').attr("name") + "发生异常");
                                             break;
                                         case "2":
                                             changeClass(val.Id + '2d', "abnormal");
-                                            $("#" + val.Id + '3d').tips($("#" + val.Id + '2d').attr("name") + "失效");
                                             break;
                                         default:
                                             break;
@@ -504,17 +504,103 @@ $(function() {
         });
     }
 
-	// 数组取独
+    // 数组取独
     function unique(arr) {
         var result = [],
             hash = {};
-        for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+        for (var i = 0, elem;
+            (elem = arr[i]) != null; i++) {
             if (!hash[elem]) {
                 result.push(elem);
                 hash[elem] = true;
             }
         }
         return result;
+    }
+
+    // 给点添加Tip监听函数
+    function floorMapTip(element, data) {
+        $(element).bind("mouseover", function() {
+            var abs = getAbsPosition($(element)[0]);
+            //对于3d图中180度的情况
+            if (!abs.x && !abs.y) {
+                abs = getAbsPosition($(element)[1]);
+            }
+            x = abs.x + 20;
+            y = abs.y;
+            switch (data.State) {
+                case 0:
+                    data.State = '正常';
+                    break;
+                case 1:
+                    data.State = '异常';
+                    break;
+                case 2:
+                    data.State = '无效';
+                    break;
+                default:
+                    data.State = '无数据';
+                    break;
+            }
+            $("body").append(
+                '<div class="tip" style="top:' + y + 'px;left:' + x + 'px;">' +
+                '<ul><li class="th">传感器Id</li><li class="tr" id="Sensorid">' + data.Sensorid + '</li></ul>' +
+                '<ul><li class="th">网关标识</li><li class="tr" id="Gatewaylogo">' + data.Gatewaylogo + '</li></ul>' +
+                '<ul><li class="th">传感器标识</li><li class="tr" id="Sensorlogo">' + data.Sensorlogo + '</li></ul>' +
+                '<ul><li class="th">楼层</li><li class="tr" id="Floor">' + data.Floor + '</li></ul>' +
+                '<ul><li class="th">位置</li><li class="tr" id="Name">' + data.Name + '</li></ul>' +
+                '<ul><li class="th">传感器类型</li><li class="tr" id="Equipment_type">' + data.Equipment_type + '</li></ul>' +
+                '<ul><li class="th">传感器型号</li><li class="tr" id="Sensormodel">' + data.Sensormodel + '</li></ul>' +
+                '<ul><li class="th">当前状态</li><li class="tr" id="State">' + data.State + '</li></ul>' +
+                '<ul><li class="th">告警值</li><li class="tr" id="Alarmvalue">' + data.Alarmvalue + '</li></ul>'+
+                '</div>'
+            )
+        });
+        $(element).on("mouseout", function() {
+        	$(".tip").remove();
+        });
+    }
+
+    //获取元素绝对位置
+    function getAbsPosition(element) {
+        var abs = {
+            x: 0,
+            y: 0
+        }
+
+        //如果浏览器兼容此方法
+        if (document.documentElement.getBoundingClientRect) {
+            //注意，getBoundingClientRect()是jQuery对象的方法
+            //如果不用jQuery对象，可以使用else分支。
+            abs.x = element.getBoundingClientRect().left;
+            abs.y = element.getBoundingClientRect().top;
+
+            abs.x += window.screenLeft +
+                document.documentElement.scrollLeft -
+                document.documentElement.clientLeft;
+            abs.y += window.screenTop +
+                document.documentElement.scrollTop -
+                document.documentElement.clientTop;
+
+        }
+
+        //如果浏览器不兼容此方法
+        else {
+            while (element != document.body) {
+                abs.x += element.offsetLeft;
+                abs.y += element.offsetTop;
+                element = element.offsetParent;
+            }
+
+            //计算想对位置
+            abs.x += window.screenLeft +
+                document.body.clientLeft - document.body.scrollLeft;
+            abs.y += window.screenTop +
+                document.body.clientTop - document.body.scrollTop;
+
+        }
+
+        return abs;
     }
 
 });

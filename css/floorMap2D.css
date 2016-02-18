@@ -202,3 +202,43 @@
     border-color:#ac2925;
     color:#fff;
 }
+.tip {
+	width: 201px;
+	border-top: solid #000 1px;
+	border-left: 1px solid #000;
+	display: table;
+	margin-top: 50px;
+	position: absolute;
+	background-color: #fff
+}
+li {
+	float: left;
+}
+
+ul {
+	margin: 0 auto;
+	padding: 0px;
+	list-style: none;
+}
+.th, .tr{
+	color: #000;
+	font-size: 12px;
+	text-align: center;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	height: 22px;
+	line-height: 22px;
+	width: 100px;
+}
+#next {
+    position: absolute;
+    bottom: 80px;
+    right:60px;
+    z-index:100;
+    width: 33px;
+    height: 47px;
+    background-image: url('images/scroll.png');
+}
+#next:hover {
+    background-image: url('images/scroll_hover.png');
+}
