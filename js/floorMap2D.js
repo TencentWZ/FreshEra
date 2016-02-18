@@ -311,9 +311,7 @@ $(function() {
                     var point_type = $(this).attr("point_type");
                     if (point_type == "equipment") {
                         $(".checkbox-item[point_type='inspect']").prop("checked", false);
-                        // 待实现
                         if ($(this).attr('id') === 'checkAll') {
-                            console.log($(this));
                             $(".checkbox-item[point_type='equipment']").prop("checked", $(this)[0].checked);
                         }
                     } else if (point_type == "inspect") {
@@ -520,6 +518,7 @@ $(function() {
 
     // 给点添加Tip监听函数
     function floorMapTip(element, data) {
+        console.log(element, data);
         $(element).bind("mouseover", function() {
             var abs = getAbsPosition($(element)[0]);
             //对于3d图中180度的情况
@@ -529,17 +528,15 @@ $(function() {
             x = abs.x + 20;
             y = abs.y;
             switch (data.State) {
-                case 0:
+                case '0':
+                    console.log("123123");
                     data.State = '正常';
                     break;
-                case 1:
+                case '1':
                     data.State = '异常';
                     break;
-                case 2:
+                case '2':
                     data.State = '无效';
-                    break;
-                default:
-                    data.State = '无数据';
                     break;
             }
             $("body").append(

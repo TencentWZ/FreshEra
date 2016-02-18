@@ -232,8 +232,8 @@ ul {
 }
 #next {
     position: absolute;
-    bottom: 80px;
-    right:60px;
+    bottom: 20px;
+    right:180px;
     z-index:100;
     width: 33px;
     height: 47px;
